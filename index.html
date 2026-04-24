@@ -29,6 +29,9 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--sand);color:var(--te
 .hero-meta-item .num{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;display:block;color:#7ee8ff}
 .hero-meta-item .lbl{font-size:10px;opacity:.78}
 
+/* DEPART BANNER */
+.depart-banner{background:linear-gradient(90deg,#1a3550 0%,var(--ocean-dark) 100%);color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:8px;margin:8px 0 10px;letter-spacing:.04em}
+
 /* STROLLER BADGE */
 .stroller{display:inline-flex;align-items:center;gap:3px;font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;vertical-align:middle;margin-left:4px;margin-top:2px}
 .stroller-ok{background:#e6f7ee;color:#1a7a40;border:1px solid #90d8a8}
@@ -224,13 +227,54 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--sand);color:var(--te
   <div class="day-header" onclick="toggleDay('day1')">
     <div class="day-number"><span class="d">DAY</span><span class="n">1</span></div>
     <div class="day-info">
-      <div class="day-title">抵達沖繩 · 海葡萄農場</div>
-      <div class="day-subtitle">桃園出發 → 那霸 → UMINCHI → 王子飯店</div>
+      <div class="day-title">出發日 · 左營高鐵→桃園機場→抵達沖繩</div>
+      <div class="day-subtitle">左營 07:10 → 桃園機場 09:30 集合 → 沖繩 14:40</div>
     </div>
     <div class="day-arrow">▾</div>
   </div>
   <div class="day-body">
+    <div class="depart-banner">🇹🇼 台灣出發時間表（從左營搭高鐵）</div>
     <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot">🏠</div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <a class="spot-link" href="https://maps.google.com/?q=高鐵左營站&ll=22.6428,120.3022" target="_blank">
+            高鐵左營站 出發
+            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </a>
+          <div class="spot-desc">建議搭乘 <strong>07:00–07:20</strong> 之間的班次（請提前至台灣高鐵官網或 App 查詢確切班次）。帶小孩請提早 15 分鐘到站。</div>
+        </div>
+      </div>
+
+      <div class="transit"><span class="transit-icon">🚄</span><span class="transit-text">高鐵 左營→桃園 · 約 84 分鐘 · 票價約 NT$1,080/人</span></div>
+
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot">🚉</div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <a class="spot-link" href="https://maps.google.com/?q=高鐵桃園站&ll=24.9770,121.2278" target="_blank">
+            高鐵桃園站 抵達（約 08:40–09:00）
+            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </a>
+          <div class="spot-desc">出站後依指標步行約 5–10 分鐘至 <strong>機場捷運 A18 高鐵桃園站</strong>。地下一樓穿堂層有直通機捷出入口，勿出地面。</div>
+        </div>
+      </div>
+
+      <div class="transit"><span class="transit-icon">🚇</span><span class="transit-text">機場捷運 A18→A12 第一航廈 · 普通車約 19 分鐘 · 票價 NT$25/人（每 15 分鐘一班）</span></div>
+
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot">🛫</div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <a class="spot-link" href="https://maps.google.com/?q=桃園國際機場第一航廈&ll=25.0792,121.2328" target="_blank">
+            桃園國際機場 第一航廈（A12）— 09:30 集合
+            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </a>
+          <div class="spot-desc">星宇航空 JX870 <strong>12:00</strong> 起飛，請於 <strong>09:30</strong> 到達集合點（通常在出發層報到區），領取登機證並辦理行李託運。</div>
+          <div class="tip-box">⏰ <strong>時間提醒：</strong>高鐵+機捷合計約 110 分鐘，建議 <strong>07:10 前在左營站候車</strong>，08:50 抵桃園站，09:15 抵機場，09:30 從容集合。若班次順延，保留 30 分鐘緩衝。</div>
+        </div>
+      </div>
+
+      <div class="transit"><span class="transit-icon">✈️</span><span class="transit-text">星宇航空 JX870 · 12:00 桃園起飛 → 14:40 那霸落地</span></div>
 
       <div class="tl-item">
         <div class="tl-left"><div class="tl-dot">✈️</div><div class="tl-line"></div></div>
