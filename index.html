@@ -19,18 +19,18 @@
   --radius:12px;--tab-h:52px;--header-h:60px;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gray);color:var(--text);-webkit-font-smoothing:antialiased;font-size:14px}
+html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gray);color:var(--text);-webkit-font-smoothing:antialiased;font-size:16px}
 
 /* ── HEADER ── */
 .app-header{position:fixed;top:0;left:0;right:0;height:var(--header-h);background:var(--ocean);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2)}
-.app-header h1{font-size:17px;font-weight:900;color:#fff;letter-spacing:.04em;line-height:1.2}
-.app-header p{font-size:10px;color:rgba(255,255,255,.75);margin-top:1px}
+.app-header h1{font-size:19px;font-weight:900;color:#fff;letter-spacing:.04em;line-height:1.2}
+.app-header p{font-size:12px;color:rgba(255,255,255,.75);margin-top:1px}
 
 /* ── TAB BAR ── */
 .tab-bar{position:fixed;top:var(--header-h);left:0;right:0;height:var(--tab-h);background:var(--white);border-bottom:2px solid var(--border);display:flex;z-index:99;overflow-x:auto;scrollbar-width:none}
 .tab-bar::-webkit-scrollbar{display:none}
-.tab-btn{flex:none;min-width:64px;padding:0 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;border:none;background:transparent;font-family:'Noto Sans TC',sans-serif;color:var(--text3);font-size:10px;gap:2px;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;white-space:nowrap}
-.tab-btn .icon{font-size:17px;line-height:1}
+.tab-btn{flex:none;min-width:64px;padding:0 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;border:none;background:transparent;font-family:'Noto Sans TC',sans-serif;color:var(--text3);font-size:12px;gap:2px;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;white-space:nowrap}
+.tab-btn .icon{font-size:19px;line-height:1}
 .tab-btn.active{color:var(--ocean);border-bottom-color:var(--ocean);font-weight:700}
 
 /* ── PAGES ── */
@@ -41,7 +41,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 
 /* ── CARDS ── */
 .card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);margin-bottom:10px;overflow:hidden}
-.card-header{padding:11px 14px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--border)}
+.card-header{padding:11px 14px;font-size:15px;font-weight:700;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--border)}
 .card-body{padding:12px 14px}
 
 /* ── COLOR HEADERS ── */
@@ -53,12 +53,12 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 .ch-yellow{background:linear-gradient(90deg,var(--yellow-light),var(--white));color:var(--yellow)}
 
 /* ── FLIGHT ── */
-.flight-row{display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px dashed var(--border);font-size:12px}
+.flight-row{display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px dashed var(--border);font-size:14px}
 .flight-row:last-child{border-bottom:none}
-.f-label{font-size:10px;color:var(--text3);min-width:28px}
+.f-label{font-size:12px;color:var(--text3);min-width:28px}
 .f-no{font-weight:700;color:var(--ocean);min-width:44px}
 .f-route{flex:1;color:var(--text)}
-.f-time{font-size:11px;color:var(--text2)}
+.f-time{font-size:13px;color:var(--text2)}
 
 /* ── DATES ── */
 .dates-wrap{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
@@ -68,11 +68,11 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 /* ── HOTEL CARDS ── */
 .hotel-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .hotel-mini{background:var(--gray);border-radius:10px;padding:10px}
-.hotel-mini .nights{font-size:9px;color:var(--text3);margin-bottom:3px}
-.hotel-mini .hname{font-size:11px;font-weight:700;color:var(--text);margin-bottom:5px;line-height:1.3}
+.hotel-mini .nights{font-size:11px;color:var(--text3);margin-bottom:3px}
+.hotel-mini .hname{font-size:13px;font-weight:700;color:var(--text);margin-bottom:5px;line-height:1.3}
 .hotel-tags{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:6px}
-.hotel-tag{font-size:9px;background:var(--ocean-light);color:var(--ocean2);border-radius:4px;padding:1px 5px}
-.map-btn{display:inline-flex;align-items:center;gap:3px;font-size:10px;color:var(--ocean);border:1px solid var(--ocean-light);border-radius:5px;padding:2px 7px;text-decoration:none}
+.hotel-tag{font-size:11px;background:var(--ocean-light);color:var(--ocean2);border-radius:4px;padding:1px 5px}
+.map-btn{display:inline-flex;align-items:center;gap:3px;font-size:12px;color:var(--ocean);border:1px solid var(--ocean-light);border-radius:5px;padding:2px 7px;text-decoration:none}
 
 /* ── TIMELINE ── */
 .tl{padding:4px 0}
@@ -81,17 +81,17 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 .tl-dot{width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;background:var(--gray);border:1px solid var(--border);flex-shrink:0}
 .tl-line{width:1px;flex:1;min-height:10px;background:var(--border);margin-top:3px}
 .tl-right{flex:1;padding:4px 0 4px 8px;min-width:0}
-.spot-link{font-size:12px;font-weight:700;color:var(--ocean);text-decoration:none;display:inline-flex;align-items:center;gap:3px;line-height:1.3;margin-bottom:1px}
+.spot-link{font-size:14px;font-weight:700;color:var(--ocean);text-decoration:none;display:inline-flex;align-items:center;gap:3px;line-height:1.3;margin-bottom:1px}
 .spot-link:active{opacity:.6}
-.spot-plain{font-size:12px;font-weight:700;color:var(--text);display:block;line-height:1.3;margin-bottom:1px}
+.spot-plain{font-size:14px;font-weight:700;color:var(--text);display:block;line-height:1.3;margin-bottom:1px}
 .map-pin{width:11px;height:11px;flex-shrink:0;opacity:.5}
-.spot-desc{font-size:11px;color:var(--text2);line-height:1.5}
+.spot-desc{font-size:13px;color:var(--text2);line-height:1.5}
 .transit{display:flex;align-items:center;gap:5px;margin:3px 0 3px 32px;padding:3px 9px;background:var(--gray);border:1px solid var(--border);border-radius:20px;width:fit-content}
 .transit-icon{font-size:11px}
-.transit-text{font-size:10px;color:var(--text2);font-weight:500}
+.transit-text{font-size:12px;color:var(--text2);font-weight:500}
 
 /* ── TAGS ── */
-.tag{display:inline-block;font-size:9px;font-weight:600;padding:1px 5px;border-radius:4px;vertical-align:middle;margin-left:3px}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 5px;border-radius:4px;vertical-align:middle;margin-left:3px}
 .ts{background:var(--orange-light);color:var(--orange)}
 .tf{background:var(--green-light);color:var(--green)}
 .tr{background:var(--purple-light);color:var(--purple)}
@@ -99,13 +99,13 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 .ty{background:var(--yellow-light);color:var(--yellow)}
 
 /* ── STROLLER ── */
-.stroller{display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:600;padding:1px 6px;border-radius:4px;vertical-align:middle;margin-left:3px}
+.stroller{display:inline-flex;align-items:center;gap:2px;font-size:11px;font-weight:600;padding:1px 6px;border-radius:4px;vertical-align:middle;margin-left:3px}
 .s-ok{background:var(--green-light);color:var(--green)}
 .s-partial{background:var(--yellow-light);color:var(--yellow)}
 .s-no{background:var(--red-light);color:var(--red)}
 
 /* ── TIP ── */
-.tip{border-left:3px solid var(--yellow);background:var(--yellow-light);padding:6px 9px;font-size:10px;color:#7a5a10;margin-top:6px;border-radius:0 6px 6px 0;line-height:1.5}
+.tip{border-left:3px solid var(--yellow);background:var(--yellow-light);padding:6px 9px;font-size:12px;color:#7a5a10;margin-top:6px;border-radius:0 6px 6px 0;line-height:1.5}
 .tip strong{color:var(--yellow)}
 .tip-blue{border-left-color:var(--ocean);background:var(--ocean-light);color:var(--ocean2)}
 .tip-green{border-left-color:var(--green);background:var(--green-light);color:var(--green)}
@@ -113,13 +113,13 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 /* ── MEALS ── */
 .meals-row{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
 .meal-item{text-align:center}
-.meal-label{font-size:9px;color:var(--text3);margin-bottom:2px}
-.meal-val{font-size:10px;font-weight:600;color:var(--text);line-height:1.3}
+.meal-label{font-size:11px;color:var(--text3);margin-bottom:2px}
+.meal-val{font-size:12px;font-weight:600;color:var(--text);line-height:1.3}
 
 /* ── HOTEL BADGE ── */
 .hotel-badge{display:flex;align-items:center;gap:7px;margin-top:10px;background:var(--ocean-light);border-radius:8px;padding:8px 10px;text-decoration:none}
-.hotel-badge .hname{font-size:11px;font-weight:700;color:var(--ocean2)}
-.hotel-badge .hsub{font-size:10px;color:var(--text3)}
+.hotel-badge .hname{font-size:13px;font-weight:700;color:var(--ocean2)}
+.hotel-badge .hsub{font-size:12px;color:var(--text3)}
 
 /* ── VARIANT ── */
 .var-toggle{display:flex;gap:6px;margin:8px 0 6px}
@@ -130,7 +130,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 
 /* ── BOOK LINKS ── */
 .book-links{display:flex;flex-direction:column;gap:4px;margin-top:4px}
-.book-link{font-size:11px;font-weight:600;color:var(--ocean);text-decoration:none;display:inline-flex;align-items:center;gap:3px}
+.book-link{font-size:13px;font-weight:600;color:var(--ocean);text-decoration:none;display:inline-flex;align-items:center;gap:3px}
 
 /* ── DEPART BANNER ── */
 .depart-banner{background:var(--ocean);color:#fff;padding:7px 12px;font-size:11px;font-weight:700;letter-spacing:.04em}
@@ -147,17 +147,17 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 .jp-item{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);cursor:pointer;gap:8px}
 .jp-item:last-child{border-bottom:none}
 .jp-item:active{background:var(--gray)}
-.jp-situation{font-size:10px;color:var(--text2);flex:1}
-.jp-phrase-preview{font-size:12px;color:var(--text);flex:1;text-align:right}
-.jp-arrow{font-size:12px;color:var(--text3);flex-shrink:0}
+.jp-situation{font-size:13px;color:var(--text2);flex:1}
+.jp-phrase-preview{font-size:13px;color:var(--text);flex:1;text-align:right}
+.jp-arrow{font-size:14px;color:var(--text3);flex-shrink:0}
 .jp-big-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999;align-items:center;justify-content:center;padding:20px;cursor:pointer}
 .jp-big-overlay.active{display:flex}
 .jp-big-box{background:var(--white);border-radius:16px;padding:28px 22px;max-width:360px;width:100%;text-align:center}
 .jp-big-situation{font-size:11px;color:var(--text3);margin-bottom:10px}
 .jp-big-phrase{font-size:26px;line-height:2.1;margin-bottom:6px;color:var(--text)}
 .jp-big-phrase ruby rt{font-size:12px;color:var(--ocean)}
-.jp-big-romaji{font-size:12px;color:var(--text3);font-style:italic;margin-bottom:10px}
-.jp-big-meaning{font-size:15px;color:var(--text);font-weight:700}
+.jp-big-romaji{font-size:14px;color:var(--text3);font-style:italic;margin-bottom:10px}
+.jp-big-meaning{font-size:17px;color:var(--text);font-weight:700}
 .jp-big-hint{font-size:10px;color:var(--text3);margin-top:14px}
 .jp-close-btn{margin-top:16px;padding:8px 24px;background:var(--ocean);color:#fff;border:none;border-radius:8px;font-size:13px;font-family:'Noto Sans TC',sans-serif;cursor:pointer}
 
@@ -166,19 +166,19 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 .price-hero h2{font-size:13px;opacity:.85;margin-bottom:4px}
 .price-amt{font-size:34px;font-weight:900;line-height:1}
 .price-unit{font-size:10px;opacity:.75;margin-top:4px}
-.p-row{display:flex;gap:8px;padding:7px 0;border-bottom:1px dashed var(--border);font-size:11px;align-items:flex-start}
+.p-row{display:flex;gap:8px;padding:7px 0;border-bottom:1px dashed var(--border);font-size:13px;align-items:flex-start}
 .p-row:last-child{border-bottom:none}
 .p-icon{font-size:13px;flex-shrink:0;margin-top:1px}
 
 /* ── CHECKLIST ── */
-.check-item{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--gray2);font-size:11px;color:var(--text2)}
+.check-item{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--gray2);font-size:13px;color:var(--text2)}
 .check-item:last-child{border-bottom:none}
 .check-item input{width:15px;height:15px;flex-shrink:0;margin-top:1px;accent-color:var(--ocean);cursor:pointer}
 .check-item label{cursor:pointer;line-height:1.4}
 .check-item input:checked+label{color:var(--text3);text-decoration:line-through}
 
 /* ── KIDS TIPS ── */
-.kids-tip{display:flex;gap:6px;padding:5px 0;border-bottom:1px solid var(--gray2);font-size:11px;color:var(--text2);line-height:1.4}
+.kids-tip{display:flex;gap:6px;padding:5px 0;border-bottom:1px solid var(--gray2);font-size:13px;color:var(--text2);line-height:1.4}
 .kids-tip:last-child{border-bottom:none}
 
 /* ── MAP LINKS ── */
@@ -203,7 +203,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 .section-divider{font-size:11px;font-weight:700;color:var(--text3);padding:10px 0 4px;letter-spacing:.06em;text-transform:uppercase}
 
 /* ── NOTE BOX ── */
-.note-item{display:flex;gap:6px;font-size:11px;color:var(--text2);padding:4px 0;line-height:1.4}
+.note-item{display:flex;gap:6px;font-size:13px;color:var(--text2);padding:4px 0;line-height:1.4}
 </style>
 </head>
 <body>
