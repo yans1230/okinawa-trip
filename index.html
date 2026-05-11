@@ -3,1086 +3,923 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>2026 大云永續 沖繩五日</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>2026 沖繩五日攻略</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root {
-  --ocean:#0077a8;--ocean-dark:#005a82;--ocean-light:#e0f4fc;
-  --sand:#f5ede0;--text:#1a2030;--text-light:#6a7a8a;
-  --white:#fff;--border:#ddeef5;--card:#fff;--radius:14px;
+:root{
+  --ocean:#0077b6;--ocean2:#023e8a;--ocean-light:#e0f4fc;
+  --green:#2d9e5f;--green-light:#e6f7ee;
+  --orange:#e07b00;--orange-light:#fff3e0;
+  --red:#c0392b;--red-light:#fdecea;
+  --purple:#7b2d8b;--purple-light:#f3e5f5;
+  --yellow:#d4a017;--yellow-light:#fffde7;
+  --gray:#f4f6f8;--gray2:#e8ecf0;--gray3:#b0bec5;
+  --text:#1a2535;--text2:#4a5568;--text3:#8a9bb0;
+  --white:#fff;--border:#dde3ea;
+  --radius:12px;--tab-h:52px;--header-h:60px;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{font-size:14px}
-body{font-family:'Noto Sans TC',sans-serif;background:var(--sand);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased}
+html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gray);color:var(--text);-webkit-font-smoothing:antialiased;font-size:14px}
 
-/* HERO */
-.hero{background:linear-gradient(160deg,#003f62 0%,#0077a8 50%,#00a4cc 100%);color:#fff;padding:44px 18px 52px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 75% 20%,rgba(255,255,255,.07) 0%,transparent 55%)}
-.hero-wave{position:absolute;bottom:-1px;left:0;right:0;height:36px}
-.hero-wave svg{width:100%;height:100%;display:block}
-.hero-badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:3px 13px;font-size:11px;letter-spacing:.1em;margin-bottom:12px;position:relative}
-.hero h1{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:700;line-height:1.35;margin-bottom:6px;position:relative}
-.hero h1 span{color:#7ee8ff}
-.hero-sub{font-size:11px;opacity:.82;position:relative;margin-bottom:20px}
-.hero-meta{display:flex;justify-content:center;gap:18px;position:relative}
-.hero-meta-item{text-align:center}
-.hero-meta-item .num{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;display:block;color:#7ee8ff}
-.hero-meta-item .lbl{font-size:10px;opacity:.78}
+/* ── HEADER ── */
+.app-header{position:fixed;top:0;left:0;right:0;height:var(--header-h);background:var(--ocean);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.app-header h1{font-size:17px;font-weight:900;color:#fff;letter-spacing:.04em;line-height:1.2}
+.app-header p{font-size:10px;color:rgba(255,255,255,.75);margin-top:1px}
 
-/* DEPART BANNER */
-.depart-banner{background:linear-gradient(90deg,#1a3550 0%,var(--ocean-dark) 100%);color:#fff;font-size:12px;font-weight:700;padding:7px 14px;border-radius:8px;margin:8px 0 10px;letter-spacing:.04em}
+/* ── TAB BAR ── */
+.tab-bar{position:fixed;top:var(--header-h);left:0;right:0;height:var(--tab-h);background:var(--white);border-bottom:2px solid var(--border);display:flex;z-index:99;overflow-x:auto;scrollbar-width:none}
+.tab-bar::-webkit-scrollbar{display:none}
+.tab-btn{flex:none;min-width:64px;padding:0 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;border:none;background:transparent;font-family:'Noto Sans TC',sans-serif;color:var(--text3);font-size:10px;gap:2px;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;white-space:nowrap}
+.tab-btn .icon{font-size:17px;line-height:1}
+.tab-btn.active{color:var(--ocean);border-bottom-color:var(--ocean);font-weight:700}
 
-/* STROLLER BADGE */
-.stroller{display:inline-flex;align-items:center;gap:3px;font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;vertical-align:middle;margin-left:4px;margin-top:2px}
-.stroller-ok{background:#e6f7ee;color:#1a7a40;border:1px solid #90d8a8}
-.stroller-partial{background:#fff8e0;color:#9a6000;border:1px solid #f0c840}
-.stroller-no{background:#fdecea;color:#a02020;border:1px solid #f0a0a0}
+/* ── PAGES ── */
+.pages{padding-top:calc(var(--header-h) + var(--tab-h));padding-bottom:24px}
+.page{display:none;padding:14px 14px 8px;animation:fadeIn .2s}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 
-/* FLIGHT */
-.flight-strip{background:var(--ocean-dark);color:#fff;padding:12px 16px;font-size:11px}
-.flight-row{display:flex;align-items:center;gap:8px;padding:3px 0}
-.flight-row strong{color:#7ee8ff;min-width:36px}
+/* ── CARDS ── */
+.card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);margin-bottom:10px;overflow:hidden}
+.card-header{padding:11px 14px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--border)}
+.card-body{padding:12px 14px}
 
-/* DATES */
-.dates-section{background:var(--ocean);padding:10px 16px 12px}
-.dates-label{font-size:10px;color:rgba(255,255,255,.65);letter-spacing:.1em;margin-bottom:7px}
-.dates-grid{display:flex;flex-wrap:wrap;gap:5px}
-.date-chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:12px;padding:3px 10px;font-size:11px;font-weight:500}
+/* ── COLOR HEADERS ── */
+.ch-ocean{background:linear-gradient(90deg,var(--ocean-light),var(--white));color:var(--ocean2)}
+.ch-green{background:linear-gradient(90deg,var(--green-light),var(--white));color:var(--green)}
+.ch-orange{background:linear-gradient(90deg,var(--orange-light),var(--white));color:var(--orange)}
+.ch-red{background:linear-gradient(90deg,var(--red-light),var(--white));color:var(--red)}
+.ch-purple{background:linear-gradient(90deg,var(--purple-light),var(--white));color:var(--purple)}
+.ch-yellow{background:linear-gradient(90deg,var(--yellow-light),var(--white));color:var(--yellow)}
 
-/* SECTION TITLE */
-.section-title{padding:22px 16px 0;display:flex;align-items:center;gap:8px}
-.section-title h2{font-family:'Noto Serif TC',serif;font-size:15px;font-weight:700;color:var(--ocean-dark);white-space:nowrap}
-.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+/* ── FLIGHT ── */
+.flight-row{display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px dashed var(--border);font-size:12px}
+.flight-row:last-child{border-bottom:none}
+.f-label{font-size:10px;color:var(--text3);min-width:28px}
+.f-no{font-weight:700;color:var(--ocean);min-width:44px}
+.f-route{flex:1;color:var(--text)}
+.f-time{font-size:11px;color:var(--text2)}
 
-/* DAY CARDS */
-.days-container{padding:12px 12px 6px;display:flex;flex-direction:column;gap:10px}
-.day-card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 10px rgba(0,90,130,.08);border:1px solid var(--border)}
-.day-header{padding:12px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
-.day-number{width:40px;height:40px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-family:'Noto Serif TC',serif}
-.day-number .d{font-size:8px;opacity:.8}
-.day-number .n{font-size:17px;font-weight:700;line-height:1}
-.day-info{flex:1;min-width:0}
-.day-title{font-size:13px;font-weight:600;line-height:1.3}
-.day-subtitle{font-size:11px;color:var(--text-light);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.day-arrow{font-size:16px;color:var(--text-light);transition:transform .25s;flex-shrink:0}
-.day-card.open .day-arrow{transform:rotate(180deg)}
-.day-body{display:none;padding:0 14px 14px;border-top:1px solid var(--border)}
-.day-card.open .day-body{display:block}
+/* ── DATES ── */
+.dates-wrap{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+.date-pill{background:var(--ocean-light);color:var(--ocean2);border-radius:8px;padding:3px 10px;font-size:11px;font-weight:600}
+.date-pill.active-date{background:var(--ocean);color:#fff}
 
-/* TIMELINE */
-.timeline{position:relative;padding-top:6px}
-.tl-item{display:flex;gap:0}
-.tl-left{display:flex;flex-direction:column;align-items:center;width:36px;flex-shrink:0;padding-top:8px}
-.tl-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;z-index:1}
-.tl-line{width:2px;flex:1;min-height:14px;background:var(--border);margin-top:3px}
-.tl-right{flex:1;padding:6px 0 6px 8px;min-width:0}
+/* ── HOTEL CARDS ── */
+.hotel-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.hotel-mini{background:var(--gray);border-radius:10px;padding:10px}
+.hotel-mini .nights{font-size:9px;color:var(--text3);margin-bottom:3px}
+.hotel-mini .hname{font-size:11px;font-weight:700;color:var(--text);margin-bottom:5px;line-height:1.3}
+.hotel-tags{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:6px}
+.hotel-tag{font-size:9px;background:var(--ocean-light);color:var(--ocean2);border-radius:4px;padding:1px 5px}
+.map-btn{display:inline-flex;align-items:center;gap:3px;font-size:10px;color:var(--ocean);border:1px solid var(--ocean-light);border-radius:5px;padding:2px 7px;text-decoration:none}
 
-/* SPOT LINK */
-.spot-link{font-size:13px;font-weight:600;color:var(--ocean-dark);text-decoration:none;display:inline-flex;align-items:center;gap:4px;line-height:1.35;margin-bottom:2px}
-.spot-link:active{opacity:.65}
-.spot-plain{font-size:13px;font-weight:600;color:var(--text);display:block;line-height:1.35;margin-bottom:2px}
-.map-pin{width:14px;height:14px;flex-shrink:0;opacity:.65}
-.spot-desc{font-size:12px;color:var(--text-light);line-height:1.5}
+/* ── TIMELINE ── */
+.tl{padding:4px 0}
+.tl-item{display:flex;gap:0;margin-top:4px}
+.tl-left{display:flex;flex-direction:column;align-items:center;width:32px;flex-shrink:0;padding-top:6px}
+.tl-dot{width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;background:var(--gray);border:1px solid var(--border);flex-shrink:0}
+.tl-line{width:1px;flex:1;min-height:10px;background:var(--border);margin-top:3px}
+.tl-right{flex:1;padding:4px 0 4px 8px;min-width:0}
+.spot-link{font-size:12px;font-weight:700;color:var(--ocean);text-decoration:none;display:inline-flex;align-items:center;gap:3px;line-height:1.3;margin-bottom:1px}
+.spot-link:active{opacity:.6}
+.spot-plain{font-size:12px;font-weight:700;color:var(--text);display:block;line-height:1.3;margin-bottom:1px}
+.map-pin{width:11px;height:11px;flex-shrink:0;opacity:.5}
+.spot-desc{font-size:11px;color:var(--text2);line-height:1.5}
+.transit{display:flex;align-items:center;gap:5px;margin:3px 0 3px 32px;padding:3px 9px;background:var(--gray);border:1px solid var(--border);border-radius:20px;width:fit-content}
+.transit-icon{font-size:11px}
+.transit-text{font-size:10px;color:var(--text2);font-weight:500}
 
-/* TAGS */
-.tag{display:inline-block;font-size:9px;font-weight:500;padding:1px 6px;border-radius:8px;vertical-align:middle;margin-left:4px}
-.tag-special{background:#fff0e0;color:#b05010;border:1px solid #ffd0a0}
-.tag-free{background:#e0f5e9;color:#2a7a4a;border:1px solid #a0dfb8}
-.tag-tip{background:#e8f0ff;color:#2a4aaa;border:1px solid #b0c4ff}
-.tag-rec{background:#f5e8ff;color:#6020a0;border:1px solid #d0a0ff}
+/* ── TAGS ── */
+.tag{display:inline-block;font-size:9px;font-weight:600;padding:1px 5px;border-radius:4px;vertical-align:middle;margin-left:3px}
+.ts{background:var(--orange-light);color:var(--orange)}
+.tf{background:var(--green-light);color:var(--green)}
+.tr{background:var(--purple-light);color:var(--purple)}
+.tb{background:var(--ocean-light);color:var(--ocean2)}
+.ty{background:var(--yellow-light);color:var(--yellow)}
 
-/* TRANSIT */
-.transit{display:flex;align-items:center;gap:6px;margin:2px 0 2px 44px;padding:4px 10px;background:#f0f7fb;border-radius:20px;border:1px solid #cce4f0;width:fit-content}
-.transit-icon{font-size:12px}
-.transit-text{font-size:11px;color:#3a6a85;font-weight:500}
+/* ── STROLLER ── */
+.stroller{display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:600;padding:1px 6px;border-radius:4px;vertical-align:middle;margin-left:3px}
+.s-ok{background:var(--green-light);color:var(--green)}
+.s-partial{background:var(--yellow-light);color:var(--yellow)}
+.s-no{background:var(--red-light);color:var(--red)}
 
-/* TIP BOX */
-.tip-box{background:#fffbf0;border-left:3px solid #f0b030;border-radius:0 8px 8px 0;padding:7px 10px;font-size:11px;color:#7a5a10;margin-top:7px;line-height:1.5}
-.tip-box strong{color:#c07010}
+/* ── TIP ── */
+.tip{border-left:3px solid var(--yellow);background:var(--yellow-light);padding:6px 9px;font-size:10px;color:#7a5a10;margin-top:6px;border-radius:0 6px 6px 0;line-height:1.5}
+.tip strong{color:var(--yellow)}
+.tip-blue{border-left-color:var(--ocean);background:var(--ocean-light);color:var(--ocean2)}
+.tip-green{border-left-color:var(--green);background:var(--green-light);color:var(--green)}
 
-/* MEALS */
+/* ── MEALS ── */
 .meals-row{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
 .meal-item{text-align:center}
-.meal-label{font-size:10px;color:var(--text-light);margin-bottom:2px}
-.meal-content{font-size:11px;font-weight:500;line-height:1.3}
+.meal-label{font-size:9px;color:var(--text3);margin-bottom:2px}
+.meal-val{font-size:10px;font-weight:600;color:var(--text);line-height:1.3}
 
-/* HOTEL BADGE */
-.hotel-badge{margin-top:10px;background:var(--ocean-light);border-radius:10px;padding:8px 11px;display:flex;align-items:center;gap:7px;text-decoration:none;color:inherit}
-.hotel-badge:active{opacity:.7}
-.hotel-badge .hname{font-weight:600;color:var(--ocean-dark);font-size:12px}
-.hotel-badge .hsub{font-size:10px;color:var(--text-light)}
+/* ── HOTEL BADGE ── */
+.hotel-badge{display:flex;align-items:center;gap:7px;margin-top:10px;background:var(--ocean-light);border-radius:8px;padding:8px 10px;text-decoration:none}
+.hotel-badge .hname{font-size:11px;font-weight:700;color:var(--ocean2)}
+.hotel-badge .hsub{font-size:10px;color:var(--text3)}
 
-/* VARIANT */
-.variant-toggle{display:flex;gap:7px;margin:10px 0 6px}
-.variant-btn{flex:1;padding:8px 6px;border:2px solid var(--border);border-radius:10px;background:#fff;font-size:11px;font-family:'Noto Sans TC',sans-serif;cursor:pointer;text-align:center;transition:all .2s;line-height:1.4}
-.variant-btn.active{border-color:var(--ocean);background:var(--ocean-light);color:var(--ocean-dark);font-weight:600}
-.variant-content{display:none}
-.variant-content.active{display:block}
+/* ── VARIANT ── */
+.var-toggle{display:flex;gap:6px;margin:8px 0 6px}
+.var-btn{flex:1;padding:7px 5px;border:1.5px solid var(--border);border-radius:8px;background:var(--gray);font-size:10px;font-family:'Noto Sans TC',sans-serif;cursor:pointer;text-align:center;color:var(--text2);line-height:1.4;transition:all .2s}
+.var-btn.active{border-color:var(--ocean);background:var(--ocean-light);color:var(--ocean2);font-weight:700}
+.var-content{display:none}
+.var-content.active{display:block}
 
-/* DAY COLORS */
-.day-1 .day-number{background:#dff3fb;color:#005a82}
-.day-2 .day-number{background:#fff0df;color:#b06010}
-.day-3 .day-number{background:#e6f7ee;color:#2a7050}
-.day-4 .day-number{background:#f0eaff;color:#5525a0}
-.day-5 .day-number{background:#fdecea;color:#a02020}
-.day-1 .tl-dot{background:#dff3fb}
-.day-2 .tl-dot{background:#fff0df}
-.day-3 .tl-dot{background:#e6f7ee}
-.day-4 .tl-dot{background:#f0eaff}
-.day-5 .tl-dot{background:#fdecea}
+/* ── BOOK LINKS ── */
+.book-links{display:flex;flex-direction:column;gap:4px;margin-top:4px}
+.book-link{font-size:11px;font-weight:600;color:var(--ocean);text-decoration:none;display:inline-flex;align-items:center;gap:3px}
 
-/* HOTELS */
-.hotels-grid{padding:10px 12px;display:flex;flex-direction:column;gap:8px}
-.hotel-card{background:#fff;border-radius:var(--radius);border:1px solid var(--border);overflow:hidden}
-.hotel-card-header{background:linear-gradient(135deg,var(--ocean) 0%,var(--ocean-dark) 100%);color:#fff;padding:12px 14px}
-.hotel-card-header h3{font-size:13px;font-weight:700;margin-bottom:2px}
-.hotel-card-header .nights{font-size:11px;opacity:.8}
-.hotel-features{padding:10px 14px;display:flex;flex-wrap:wrap;gap:5px}
-.feature-chip{background:var(--ocean-light);color:var(--ocean-dark);border-radius:10px;padding:3px 9px;font-size:11px;font-weight:500}
+/* ── DEPART BANNER ── */
+.depart-banner{background:var(--ocean);color:#fff;padding:7px 12px;font-size:11px;font-weight:700;letter-spacing:.04em}
 
-/* PRICING */
-.pricing-card{margin:8px 12px;background:#fff;border-radius:var(--radius);border:1px solid var(--border);overflow:hidden}
-.pricing-header{background:linear-gradient(135deg,#1a3550 0%,var(--ocean-dark) 100%);color:#fff;padding:16px;text-align:center}
-.pricing-header h2{font-family:'Noto Serif TC',serif;font-size:15px;margin-bottom:4px}
-.price-amount{font-family:'Noto Serif TC',serif;font-size:32px;font-weight:700;color:#7ee8ff;line-height:1}
-.price-unit{font-size:11px;opacity:.8;margin-top:4px}
-.pricing-body{padding:12px 14px}
-.pricing-row{display:flex;gap:8px;padding:8px 0;border-bottom:1px dashed var(--border);font-size:12px;align-items:flex-start}
-.pricing-row:last-child{border-bottom:none}
-.pricing-row .icon{font-size:14px;flex-shrink:0;margin-top:1px}
+/* ── WEATHER ── */
+.weather-scroll{display:flex;gap:6px;overflow-x:auto;padding:4px 0;scrollbar-width:none}
+.weather-scroll::-webkit-scrollbar{display:none}
+.weather-item{flex-shrink:0;background:var(--gray);border:1px solid var(--border);border-radius:8px;padding:5px 8px;text-align:center;min-width:54px}
+.weather-date{font-size:9px;color:var(--text3)}
+.weather-icon{font-size:18px;line-height:1.2}
+.weather-temp{font-size:10px;color:var(--text);font-weight:600}
 
-/* INC/EXC */
-.inc-exc{padding:0 12px 6px;display:flex;flex-direction:column;gap:8px}
-.inc-card{background:#fff;border-radius:10px;border:1px solid var(--border);overflow:hidden}
-.inc-card-header{padding:9px 13px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px}
-.inc-card-header.red{background:#fdecea;color:#a02020}
-.inc-list{padding:8px 13px;display:flex;flex-direction:column;gap:5px}
-.inc-item{font-size:11px;display:flex;gap:6px;color:var(--text-light)}
+/* ── JP PHRASES ── */
+.jp-item{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);cursor:pointer;gap:8px}
+.jp-item:last-child{border-bottom:none}
+.jp-item:active{background:var(--gray)}
+.jp-situation{font-size:10px;color:var(--text2);flex:1}
+.jp-phrase-preview{font-size:12px;color:var(--text);flex:1;text-align:right}
+.jp-arrow{font-size:12px;color:var(--text3);flex-shrink:0}
+.jp-big-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999;align-items:center;justify-content:center;padding:20px;cursor:pointer}
+.jp-big-overlay.active{display:flex}
+.jp-big-box{background:var(--white);border-radius:16px;padding:28px 22px;max-width:360px;width:100%;text-align:center}
+.jp-big-situation{font-size:11px;color:var(--text3);margin-bottom:10px}
+.jp-big-phrase{font-size:26px;line-height:2.1;margin-bottom:6px;color:var(--text)}
+.jp-big-phrase ruby rt{font-size:12px;color:var(--ocean)}
+.jp-big-romaji{font-size:12px;color:var(--text3);font-style:italic;margin-bottom:10px}
+.jp-big-meaning{font-size:15px;color:var(--text);font-weight:700}
+.jp-big-hint{font-size:10px;color:var(--text3);margin-top:14px}
+.jp-close-btn{margin-top:16px;padding:8px 24px;background:var(--ocean);color:#fff;border:none;border-radius:8px;font-size:13px;font-family:'Noto Sans TC',sans-serif;cursor:pointer}
 
-/* KIDS */
-.kids-section{padding:4px 12px 6px}
-.kids-card{background:linear-gradient(135deg,#fffae8 0%,#fdecea 100%);border:1px solid #ffd4a0;border-radius:var(--radius);padding:12px 14px}
-.kids-card h3{font-size:13px;font-weight:700;color:#b04010;margin-bottom:8px;display:flex;gap:5px;align-items:center}
-.kids-tips{display:flex;flex-direction:column;gap:6px}
-.kids-tip{font-size:11px;color:#7a4010;display:flex;gap:7px}
+/* ── PRICING ── */
+.price-hero{background:linear-gradient(135deg,var(--ocean2),var(--ocean));color:#fff;padding:16px;text-align:center;border-radius:var(--radius) var(--radius) 0 0}
+.price-hero h2{font-size:13px;opacity:.85;margin-bottom:4px}
+.price-amt{font-size:34px;font-weight:900;line-height:1}
+.price-unit{font-size:10px;opacity:.75;margin-top:4px}
+.p-row{display:flex;gap:8px;padding:7px 0;border-bottom:1px dashed var(--border);font-size:11px;align-items:flex-start}
+.p-row:last-child{border-bottom:none}
+.p-icon{font-size:13px;flex-shrink:0;margin-top:1px}
 
-/* NOTES */
-.notes-card{margin:6px 12px 20px;background:#fffbf0;border:1px solid #f0d080;border-radius:10px;padding:12px 14px}
-.notes-card h3{font-size:12px;font-weight:700;color:#8a6010;margin-bottom:8px;display:flex;align-items:center;gap:5px}
-.notes-card ul{list-style:none;display:flex;flex-direction:column;gap:6px}
-.notes-card li{font-size:11px;color:#7a6030;display:flex;gap:7px}
+/* ── CHECKLIST ── */
+.check-item{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--gray2);font-size:11px;color:var(--text2)}
+.check-item:last-child{border-bottom:none}
+.check-item input{width:15px;height:15px;flex-shrink:0;margin-top:1px;accent-color:var(--ocean);cursor:pointer}
+.check-item label{cursor:pointer;line-height:1.4}
+.check-item input:checked+label{color:var(--text3);text-decoration:line-through}
 
-/* FOOTER */
-.footer{background:var(--ocean-dark);color:rgba(255,255,255,.7);text-align:center;padding:18px;font-size:11px}
-.footer strong{color:#fff;font-size:13px;display:block;margin-bottom:3px}
+/* ── KIDS TIPS ── */
+.kids-tip{display:flex;gap:6px;padding:5px 0;border-bottom:1px solid var(--gray2);font-size:11px;color:var(--text2);line-height:1.4}
+.kids-tip:last-child{border-bottom:none}
 
-/* BOOK LINKS */
-.book-links{display:flex;flex-direction:column;gap:5px;margin-top:4px}
-.book-link{font-size:12px;font-weight:600;color:var(--ocean-dark);text-decoration:none;display:inline-flex;align-items:center;gap:3px}
-.book-link:active{opacity:.65}
+/* ── MAP LINKS ── */
+.map-link{display:inline-flex;align-items:center;gap:4px;color:var(--ocean);font-size:11px;font-weight:600;text-decoration:none;padding:3px 8px;border:1px solid var(--ocean-light);border-radius:5px;margin:2px 3px 2px 0}
+.map-link:active{opacity:.6}
+
+/* ── DAY COLORS ── */
+.day-1-accent{border-top:3px solid var(--ocean)}
+.day-2-accent{border-top:3px solid var(--orange)}
+.day-3-accent{border-top:3px solid var(--green)}
+.day-4-accent{border-top:3px solid var(--purple)}
+.day-5-accent{border-top:3px solid var(--yellow)}
+
+/* ── TAB COLORS ── */
+.tab-1.active{color:var(--ocean);border-bottom-color:var(--ocean)}
+.tab-2.active{color:var(--orange);border-bottom-color:var(--orange)}
+.tab-3.active{color:var(--green);border-bottom-color:var(--green)}
+.tab-4.active{color:var(--purple);border-bottom-color:var(--purple)}
+.tab-5.active{color:var(--yellow);border-bottom-color:var(--yellow)}
+
+/* ── SECTION DIVIDER ── */
+.section-divider{font-size:11px;font-weight:700;color:var(--text3);padding:10px 0 4px;letter-spacing:.06em;text-transform:uppercase}
+
+/* ── NOTE BOX ── */
+.note-item{display:flex;gap:6px;font-size:11px;color:var(--text2);padding:4px 0;line-height:1.4}
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-badge">🌺 2026 大云永續沖繩之旅</div>
-  <h1>沖繩極境出發！<br>從 <span>JUNGLIA</span> 玩到美國村</h1>
-  <p class="hero-sub">山富國際旅行社 · 星宇航空 JX870/871</p>
-  <div class="hero-meta">
-    <div class="hero-meta-item"><span class="num">5</span><span class="lbl">天 4 夜</span></div>
-    <div class="hero-meta-item"><span class="num">2</span><span class="lbl">間五星酒店</span></div>
-    <div class="hero-meta-item"><span class="num">46,000</span><span class="lbl">NT$/人起</span></div>
-  </div>
-  <div class="hero-wave">
-    <svg viewBox="0 0 375 36" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,18 C70,32 130,4 200,18 C270,32 320,6 375,18 L375,36 L0,36 Z" fill="#f5ede0"/>
-    </svg>
-  </div>
+<!-- HEADER -->
+<div class="app-header">
+  <h1>🌊 2026 沖繩五日攻略</h1>
+  <p>山富旅遊 · 2026/11/4 出發 · 親子款</p>
 </div>
 
-<!-- FLIGHT -->
-<div class="flight-strip">
-  <div class="flight-row">✈️&nbsp;<strong>去程</strong>JX870 &nbsp;桃園 12:00 → 沖繩 14:40</div>
-  <div class="flight-row" style="margin-top:5px">✈️&nbsp;<strong>回程</strong>JX871 &nbsp;沖繩 15:50 → 桃園 16:25</div>
+<!-- TAB BAR -->
+<div class="tab-bar" id="tabBar">
+  <button class="tab-btn active" onclick="showPage('info')"><span class="icon">ℹ️</span>資訊</button>
+  <button class="tab-btn tab-1" onclick="showPage('day1')"><span class="icon">✈️</span>Day 1</button>
+  <button class="tab-btn tab-2" onclick="showPage('day2')"><span class="icon">⚡</span>Day 2</button>
+  <button class="tab-btn tab-3" onclick="showPage('day3')"><span class="icon">🐋</span>Day 3</button>
+  <button class="tab-btn tab-4" onclick="showPage('day4')"><span class="icon">🏯</span>Day 4</button>
+  <button class="tab-btn tab-5" onclick="showPage('day5')"><span class="icon">🚢</span>Day 5</button>
+  <button class="tab-btn" onclick="showPage('japanese')"><span class="icon">🗣️</span>日語</button>
+  <button class="tab-btn" onclick="showPage('practical')"><span class="icon">📋</span>實用</button>
 </div>
 
-<!-- DATES -->
-<div class="dates-section">
-  <div class="dates-label">✦ 可出發日期</div>
-  <div class="dates-grid">
-    <div class="date-chip">9/3</div><div class="date-chip">9/5</div>
-    <div class="date-chip">9/30</div><div class="date-chip">10/2</div>
-    <div class="date-chip">10/28</div><div class="date-chip">10/30</div>
-    <div class="date-chip">11/4</div><div class="date-chip">11/7</div>
+<!-- PAGES -->
+<div class="pages">
+
+<!-- ══════════════════════════════════════
+     INFO PAGE
+══════════════════════════════════════ -->
+<div class="page active" id="page-info">
+
+  <!-- 天氣 -->
+  <div class="card">
+    <div class="card-header ch-ocean">🌡️ 沖繩天氣（11月出發前參考）</div>
+    <div class="card-body">
+      <div id="weather-loading" style="font-size:11px;color:var(--text3)">載入中…</div>
+      <div class="weather-scroll" id="weather-items"></div>
+      <div style="font-size:10px;color:var(--text3);margin-top:6px">11月沖繩均溫約 22–26°C，偶有短暫陣雨，建議帶薄外套。</div>
+    </div>
   </div>
-</div>
 
-<!-- ITINERARY -->
-<div class="section-title"><h2>每日行程</h2></div>
-<div class="days-container">
-
-<!-- ═══ DAY 1 ═══ -->
-<div class="day-card day-1" id="day1">
-  <div class="day-header" onclick="toggleDay('day1')">
-    <div class="day-number"><span class="d">DAY</span><span class="n">1</span></div>
-    <div class="day-info">
-      <div class="day-title">出發日 · 左營高鐵→桃園機場→抵達沖繩</div>
-      <div class="day-subtitle">左營 07:10 → 桃園機場 09:30 集合 → 沖繩 14:40</div>
+  <!-- 航班 -->
+  <div class="card">
+    <div class="card-header ch-ocean">✈️ 航班資訊</div>
+    <div class="card-body">
+      <div class="flight-row">
+        <span class="f-label">去程</span>
+        <span class="f-no">JX870</span>
+        <span class="f-route">桃園 → 那霸</span>
+        <span class="f-time">12:00 → 14:40</span>
+      </div>
+      <div class="flight-row">
+        <span class="f-label">回程</span>
+        <span class="f-no">JX871</span>
+        <span class="f-route">那霸 → 桃園</span>
+        <span class="f-time">15:50 → 16:25</span>
+      </div>
+      <div style="font-size:10px;color:var(--text3);margin-top:8px">⚠️ 正確航班時間以行前說明為主，公司保有變動權。</div>
     </div>
-    <div class="day-arrow">▾</div>
   </div>
-  <div class="day-body">
-    <div class="depart-banner">🇹🇼 台灣出發時間表（從左營搭高鐵）</div>
-    <div class="timeline">
 
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🏠</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=高鐵左營站&ll=22.6428,120.3022" target="_blank">
-            高鐵左營站 出發
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <div class="spot-desc">建議搭乘 <strong>07:00–07:20</strong> 之間的班次（請提前至台灣高鐵官網或 App 查詢確切班次）。帶小孩請提早 15 分鐘到站。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚄</span><span class="transit-text">高鐵 左營→桃園 · 約 84 分鐘 · 票價約 NT$1,080/人</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🚉</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=高鐵桃園站&ll=24.9770,121.2278" target="_blank">
-            高鐵桃園站 抵達（約 08:40–09:00）
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <div class="spot-desc">出站後依指標步行約 5–10 分鐘至 <strong>機場捷運 A18 高鐵桃園站</strong>。地下一樓穿堂層有直通機捷出入口，勿出地面。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚇</span><span class="transit-text">機場捷運 A18→A12 第一航廈 · 普通車約 19 分鐘 · 票價 NT$25/人（每 15 分鐘一班）</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🛫</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=桃園國際機場第一航廈&ll=25.0792,121.2328" target="_blank">
-            桃園國際機場 第一航廈（A12）— 09:30 集合
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <div class="spot-desc">星宇航空 JX870 <strong>12:00</strong> 起飛，請於 <strong>09:30</strong> 到達集合點（通常在出發層報到區），領取登機證並辦理行李託運。</div>
-          <div class="tip-box">⏰ <strong>時間提醒：</strong>高鐵+機捷合計約 110 分鐘，建議 <strong>07:10 前在左營站候車</strong>，08:50 抵桃園站，09:15 抵機場，09:30 從容集合。若班次順延，保留 30 分鐘緩衝。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">✈️</span><span class="transit-text">星宇航空 JX870 · 12:00 桃園起飛 → 14:40 那霸落地</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">✈️</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=那霸国際空港&ll=26.1956,127.6457" target="_blank">
-            那霸國際機場
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <div class="spot-desc">JX870 14:40 抵達，入境後集合上遊覽車。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 40 分鐘</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🌿</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=海ん道uminchi+沖縄市+うるま市&ll=26.3492,127.8256" target="_blank">
-            海ん道 UMINCHI 海葡萄農場
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <span class="tag tag-special">贈冰淇淋</span><span class="stroller stroller-ok">🍼 推車可行</span>
-          <div class="spot-desc" style="margin-top:3px">親手撈採綠色魚子醬海藻，搭特製醬汁品嚐，附贈海葡萄口味冰淇淋。</div>
-          <div class="tip-box">🧒 <strong>親子：</strong>5歲剛好適合，動作輕柔即可。農場有冷氣休息區。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 25 分鐘</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🍖</div></div>
-        <div class="tl-right">
-          <span class="spot-plain">晚餐：燒肉自助吃到飽（飲料無限）→ 入住</span>
-          <div class="spot-desc">抵達王子飯店，盡情享用豐盛晚餐。</div>
-        </div>
-      </div>
-
-    </div>
-    <div class="meals-row">
-      <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-content">—</div></div>
-      <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-content">機上餐食</div></div>
-      <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-content">燒肉自助<br>無限暢飲</div></div>
-    </div>
-    <a class="hotel-badge" href="https://maps.google.com/?q=Okinawa+Prince+Hotel+Ocean+View+Ginowan&ll=26.2770,127.7324" target="_blank">
-      <span>🏨</span>
-      <div><div class="hname">沖繩王子大飯店 海景宜野灣</div><div class="hsub">全房海景露台 · 14F無邊際泳池</div></div>
-    </a>
-  </div>
-</div>
-
-<!-- ═══ DAY 2 ═══ -->
-<div class="day-card day-2" id="day2">
-  <div class="day-header" onclick="toggleDay('day2')">
-    <div class="day-number"><span class="d">DAY</span><span class="n">2</span></div>
-    <div class="day-info">
-      <div class="day-title">JUNGLIA 樂園 或 那霸自由行</div>
-      <div class="day-subtitle">二選一行程</div>
-    </div>
-    <div class="day-arrow">▾</div>
-  </div>
-  <div class="day-body">
-    <div style="font-size:11px;color:var(--text-light);margin-bottom:4px;padding-top:6px">請選擇您的行程方案：</div>
-    <div class="variant-toggle">
-      <button class="variant-btn" onclick="switchVariant('day2','A')">🦕 A：JUNGLIA<br><span style="font-size:10px;color:#888">恐龍主題樂園</span></button>
-      <button class="variant-btn active" onclick="switchVariant('day2','B')">🎫 B：自由活動<br><span style="font-size:10px;color:#888">寶可夢中心 ⭐現選</span></button>
-    </div>
-
-    <div class="variant-content" id="day2-A">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">🏨</div><div class="tl-line"></div></div>
-          <div class="tl-right">
-            <span class="spot-plain">飯店早餐後集合</span>
-            <div class="spot-desc">享用早餐後搭遊覽車前往沖繩北部。</div>
+  <!-- 住宿 -->
+  <div class="card">
+    <div class="card-header ch-ocean">🏨 住宿飯店</div>
+    <div class="card-body">
+      <div class="hotel-grid">
+        <div class="hotel-mini">
+          <div class="nights">第 1–2 晚</div>
+          <div class="hname">沖繩王子大飯店<br>海景宜野灣</div>
+          <div class="hotel-tags">
+            <span class="hotel-tag">全房海景</span>
+            <span class="hotel-tag">無邊際泳池</span>
+            <span class="hotel-tag">SPA</span>
           </div>
+          <a class="map-btn" href="https://maps.google.com/?q=Okinawa+Prince+Hotel+Ocean+View+Ginowan&ll=26.2770,127.7324" target="_blank">📍 地圖</a>
         </div>
-        <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 80 分鐘</span></div>
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">🦕</div></div>
-          <div class="tl-right">
-            <a class="spot-link" href="https://maps.google.com/?q=JUNGLIA+Okinawa+本部町&ll=26.6422,127.9736" target="_blank">
-              JUNGLIA Okinawa 侏儸紀叢林樂園
-              <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </a>
-            <span class="tag tag-special">2025新開幕</span><span class="stroller stroller-partial">🍼 可租借推車 ¥1,000（地形起伏）</span>
-            <div class="spot-desc" style="margin-top:3px">沖繩北部山原沉浸式大自然主題樂園，恐龍主題設施、熱氣球體驗、在地美食。午晚餐自理（樂園內）。</div>
-            <div class="tip-box">⭐ <strong>強烈推薦！</strong>提前 Klook 購 Premium Pass，開園即入場。備防曬和點心。</div>
+        <div class="hotel-mini">
+          <div class="nights">第 3–4 晚</div>
+          <div class="hname">Hotel Collective<br>嘉新酒店（那霸）</div>
+          <div class="hotel-tags">
+            <span class="hotel-tag">國際通</span>
+            <span class="hotel-tag">頂樓泳池</span>
+            <span class="hotel-tag">五星</span>
           </div>
+          <a class="map-btn" href="https://maps.google.com/?q=Hotel+Collective+Naha&ll=26.2152,127.6855" target="_blank">📍 地圖</a>
         </div>
       </div>
-      <div class="meals-row">
-        <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-content">飯店早餐</div></div>
-        <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-content">自理<br>樂園內</div></div>
-        <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-content">自理<br>樂園內</div></div>
-      </div>
-    </div>
-
-    <div class="variant-content active" id="day2-B">
-      <div style="font-size:11px;color:var(--ocean-dark);font-weight:600;background:var(--ocean-light);border-radius:8px;padding:6px 10px;margin-bottom:8px;">
-        🏬 以永旺夢樂城（AEON MALL 沖繩萊卡姆）為中心，館內＋周邊一日玩透透！
-      </div>
-      <div class="timeline">
-
-        <div class="transit"><span class="transit-icon">🚕</span><span class="transit-text">從沖繩王子大飯店出發 · 計程車或租車 約 25 分鐘</span></div>
-
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">🏟️</div><div class="tl-line"></div></div>
-          <div class="tl-right">
-            <a class="spot-link" href="https://maps.google.com/?q=中城公園+北中城&ll=26.2851,127.7942" target="_blank">
-              中城公園（Nakagusuku Park）早上放電
-              <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </a>
-            <span class="tag tag-free">免費</span><span class="tag tag-rec">4.5⭐</span><span class="stroller stroller-partial">🍼 推車可進（部分草地較顛簸）</span>
-            <div class="spot-desc" style="margin-top:3px">緊鄰 AEON MALL 南邊，步行約15分或開車3分鐘。有彈跳床、攀爬網、溜滑梯，還設有沙坑，5歲完全適齡！有遮蔭區，大人可以悠閒坐著。</div>
-            <div class="tip-box">🧒 <strong>親子：</strong>趁早上涼爽先讓孩子跑跳，10點前人最少。記得帶水和點心，公園旁有停車場及廁所。</div>
-          </div>
-        </div>
-
-        <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 15 分 或 計程車 約 3 分鐘</span></div>
-
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">🏬</div><div class="tl-line"></div></div>
-          <div class="tl-right">
-            <a class="spot-link" href="https://maps.google.com/?q=イオンモール沖縄ライカム&ll=26.3138,127.7966" target="_blank">
-              AEON MALL 沖繩萊卡姆 抵達
-              <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </a>
-            <div class="spot-desc">10:00 開門。沖繩最大購物中心，三層樓，美食廣場、各式店鋪盡在其中。</div>
-          </div>
-        </div>
-
-        <div class="transit"><span class="transit-icon">🏬</span><span class="transit-text">館內移動 · 步行即達（1F）</span></div>
-
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">⚡</div><div class="tl-line"></div></div>
-          <div class="tl-right">
-            <a class="spot-link" href="https://maps.google.com/?q=ポケモンセンターオキナワ+イオンモール沖縄ライカム&ll=26.3141,127.7963" target="_blank">
-              ⭐ 寶可夢中心 Pokémon Center Okinawa
-              <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </a>
-            <span class="tag tag-special">沖繩限定</span><span class="stroller stroller-ok">🍼 推車友善（AEON MALL 電梯齊全）</span>
-            <div class="spot-desc" style="margin-top:3px">1F，10:00–22:00。沖繩限定皮卡丘、琉球風格商品，比東京/大阪人少超好逛！玩偶、卡牌、文具、餐具全都有，5歲小孩會走不動 😆。TCG 卡包有購買數量限制。</div>
-          </div>
-        </div>
-
-        <div class="transit"><span class="transit-icon">🏬</span><span class="transit-text">館內移動 · 步行即達（1F）</span></div>
-
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">🍜</div><div class="tl-line"></div></div>
-          <div class="tl-right">
-            <span class="spot-plain">☀️ 午餐：AEON MALL 美食廣場</span>
-            <div class="spot-desc">日式、沖繩料理、快餐任選，代金¥2,000 正好在此使用，輕鬆解決全家午餐。</div>
-          </div>
-        </div>
-
-        <div class="transit"><span class="transit-icon">🏬</span><span class="transit-text">館內移動 · 步行即達（1F）</span></div>
-
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">📚</div><div class="tl-line"></div></div>
-          <div class="tl-right">
-            <span class="spot-plain">書店散策 <span class="tag tag-tip">老公最愛</span><span class="stroller stroller-ok">🍼 推車友善（館內電梯齊全）</span></span>
-            <div class="spot-desc" style="margin-top:4px">兩間書店都在 AEON MALL 內，不需出門：</div>
-            <div class="book-links">
-              <a class="book-link" href="https://maps.google.com/?q=未来屋書店+イオンモール沖縄ライカム&ll=26.3148,127.7960" target="_blank">
-                <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                ① Miraiya 未来屋書店（1F）— 選書精良＋文具，10:00開，4.0⭐
-              </a>
-              <a class="book-link" href="https://maps.google.com/?q=ヴィレッジヴァンガード+イオンモール沖縄ライカム&ll=26.3140,127.7967" target="_blank">
-                <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                ② Village Vanguard（4F）— 書×雜貨×動漫，寶藏挖不完！
-              </a>
-            </div>
-            <div class="tip-box" style="margin-top:7px">💡 <strong>分工提案：</strong>老公逛書店，你帶孩子去旁邊的 <strong>ちきゅうのにわ</strong> 室內兒童樂園（AEON MALL 旁，¥700–1,200/孩童）繼續玩，完全不衝突！</div>
-          </div>
-        </div>
-
-        <div class="transit"><span class="transit-icon">🏬</span><span class="transit-text">館內移動 · 步行即達（AEON旁）</span></div>
-
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">🎠</div><div class="tl-line"></div></div>
-          <div class="tl-right">
-            <a class="spot-link" href="https://maps.google.com/?q=ちきゅうのにわ+イオンモール沖縄ライカム&ll=26.3149,127.7979" target="_blank">
-              ちきゅうのにわ 室內兒童樂園（備案）
-              <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </a>
-            <span class="tag tag-rec">4.3⭐</span><span class="stroller stroller-ok">🍼 推車友善（室內平坦）</span>
-            <div class="spot-desc" style="margin-top:3px">AEON MALL 旁 Rycom Village C 2F，滑梯、球池、水玩區、沙坑通通有，5歲以下完美適齡。10:00–20:00，¥1,200–1,600/孩童全日。</div>
-          </div>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">🌙</div><div class="tl-line"></div></div>
-          <div class="tl-right">
-            <a class="spot-link" href="https://maps.google.com/?q=イオンモール沖縄ライカム+フードコート&ll=26.3138,127.7966" target="_blank">
-              晚餐 · AEON MALL 美食廣場或餐廳
-              <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </a>
-            <div class="spot-desc">代金¥3,000 在 AEON MALL 內餐廳或美食廣場使用，省去回那霸再吃飯的交通。</div>
-          </div>
-        </div>
-
-        <div class="transit"><span class="transit-icon">🚕</span><span class="transit-text">返回沖繩王子大飯店 · 計程車或租車 約 25 分鐘</span></div>
-
-      </div>
-      <div class="meals-row">
-        <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-content">飯店早餐</div></div>
-        <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-content">代金¥2,000<br>AEON美食廣場</div></div>
-        <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-content">代金¥3,000<br>AEON MALL餐廳</div></div>
-      </div>
-    </div>
-
-    <a class="hotel-badge" href="https://maps.google.com/?q=Okinawa+Prince+Hotel+Ocean+View+Ginowan&ll=26.2770,127.7324" target="_blank">
-      <span>🏨</span>
-      <div><div class="hname">沖繩王子大飯店 海景宜野灣</div><div class="hsub">全房海景露台 · 14F無邊際泳池</div></div>
-    </a>
-  </div>
-</div>
-
-<!-- ═══ DAY 3 ═══ -->
-<div class="day-card day-3" id="day3">
-  <div class="day-header" onclick="toggleDay('day3')">
-    <div class="day-number"><span class="d">DAY</span><span class="n">3</span></div>
-    <div class="day-info">
-      <div class="day-title">古宇利島 · 美之海 · 美國村</div>
-      <div class="day-subtitle">跨海大橋 → 東亞最大水族館 → 花琉球晚宴</div>
-    </div>
-    <div class="day-arrow">▾</div>
-  </div>
-  <div class="day-body">
-    <div class="timeline">
-
-      <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">從沖繩王子大飯店出發 · 遊覽車 約 80 分鐘</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🌉</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=古宇利大橋+沖縄&ll=26.6865,128.0173" target="_blank">
-            古宇利島大橋 + 海洋塔（電動車）
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <span class="stroller stroller-partial">🍼 推車可行（展望塔有電梯，電動車路面較窄）</span>
-          <div class="spot-desc">跨越2公里湛藍海域，82公尺高展望塔搭電動車覽景，一望無際。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 30 分鐘</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🐋</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=沖縄美ら海水族館&ll=26.6943,127.8780" target="_blank">
-            美之海水族館 + 海豚秀 ☀️海景自助午餐
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <span class="tag tag-special">東亞最大</span><span class="stroller stroller-ok">🍼 推車友善（坡道電梯完備）</span>
-          <div class="spot-desc" style="margin-top:3px">3隻巨大鯨鯊在8公尺高玻璃幕後巡航，世界首創人工珊瑚礁，海豚特技秀精彩無比。</div>
-          <div class="tip-box">🧒 <strong>親子：</strong>鯨鯊+海豚秀是孩子全程最大亮點！記得備玩沙玩具給美國村沙灘。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 50 分鐘</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🛍️</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <span class="spot-plain">免稅店</span>
-          <div class="spot-desc">伴手禮、健康食品、名產一次購足。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 15 分鐘</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🌴</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=美浜アメリカンビレッジ+北谷町&ll=26.3159,127.7540" target="_blank">
-            北谷町美國村
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <span class="stroller stroller-ok">🍼 推車友善（平坦鋪面為主）</span>
-          <div class="spot-desc">美式風情購物娛樂中心，日落海灘賞夕陽絕佳。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 20 分鐘 → 那霸市區</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🎵</div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=花琉球+那覇国際通り&ll=26.2150,127.6860" target="_blank">
-            花琉球 三弦琴表演 × 酒水放題
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <span class="tag tag-special">特別安排</span>
-          <div class="spot-desc" style="margin-top:3px">島唱現場演出、沖繩料理、多款酒水無限暢飲。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 1 分鐘 → 抵達嘉新酒店（花琉球位於國際通，步行即達）</span></div>
-
-    </div>
-    <div class="meals-row">
-      <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-content">飯店早餐</div></div>
-      <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-content">海景自助餐</div></div>
-      <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-content">花琉球<br>酒水放題🎵</div></div>
-    </div>
-    <a class="hotel-badge" href="https://maps.google.com/?q=Hotel+Collective+Naha+国際通り&ll=26.2152,127.6855" target="_blank">
-      <span>🏨</span>
-      <div><div class="hname">Hotel Collective 嘉新酒店</div><div class="hsub">國際通核心 · 五星 · 頂樓露天泳池</div></div>
-    </a>
-  </div>
-</div>
-
-<!-- ═══ DAY 4 ═══ -->
-<div class="day-card day-4" id="day4">
-  <div class="day-header" onclick="toggleDay('day4')">
-    <div class="day-number"><span class="d">DAY</span><span class="n">4</span></div>
-    <div class="day-info">
-      <div class="day-title">那霸自由活動</div>
-      <div class="day-subtitle">贈單軌電車券 · 書店散策 · 公園放電</div>
-    </div>
-    <div class="day-arrow">▾</div>
-  </div>
-  <div class="day-body">
-    <div style="font-size:11px;color:var(--ocean-dark);font-weight:600;background:var(--ocean-light);border-radius:8px;padding:6px 10px;margin-top:6px;margin-bottom:8px;">
-      🚝 全程使用贈送單軌電車一日券，那霸南部串連書店與公園！
-    </div>
-    <div class="timeline">
-
-      <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">從嘉新酒店出發 · 步行至單軌電車牧志站 約 7 分鐘</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🛝</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=波上宮わくわくキッズランド+那覇&ll=26.2202,127.6687" target="_blank">
-            Wakuwaku Kids Land 室內遊樂場（備案）
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <span class="tag tag-rec">下雨天首選</span><span class="stroller stroller-ok">🍼 推車友善（室內平坦）</span>
-          <div class="spot-desc" style="margin-top:3px">攀岩牆、彈跳床、滑梯，¥600/小時（孩童）。帶現金＋穿襪子。10:00開門。天晴則改去奥武山公園（見下方）。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌電車 旭橋站 → 牧志站 · 約 8 分鐘</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🐟</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=牧志公設市場+那覇&ll=26.2176,127.6899" target="_blank">
-            牧志公設市場（孩子看熱帶魚）
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <div class="spot-desc">帶孩子逛市場看琳瑯滿目的熱帶魚和沖繩食材，色彩繽紛超有趣！可順道在市場二樓用午餐。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 · 約 3–5 分鐘</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">📚</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <span class="spot-plain">那霸書店散策 <span class="tag tag-tip">老公最愛</span><span class="stroller stroller-ok">🍼 推車可行（商街平坦）</span></span>
-          <div class="spot-desc" style="margin-top:4px">全部步行可串連，相距不超過10分鐘：</div>
-          <div class="book-links">
-            <a class="book-link" href="https://maps.google.com/?q=古本うらら+那覇+牧志&ll=26.2144,127.6887" target="_blank">
-              <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              ① 古本うらら（4.6⭐）— 沖繩文化古書，11:00開
-            </a>
-            <a class="book-link" href="https://maps.google.com/?q=ファミリーブックス+那覇&ll=26.2127,127.6887" target="_blank">
-              <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              ② Family Books — 二手書＋黑膠，13:00開
-            </a>
-            <a class="book-link" href="https://maps.google.com/?q=丸善+那覇+牧志&ll=26.2187,127.6858" target="_blank">
-              <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              ③ MARUZEN 丸善 — 3層樓精選＋咖啡廳
-            </a>
-            <a class="book-link" href="https://maps.google.com/?q=ジュンク堂書店+那覇店&ll=26.2186,127.6859" target="_blank">
-              <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              ④ JUNKUDO 紀伊國屋 — 那霸最大書店
-            </a>
-          </div>
-          <div class="tip-box" style="margin-top:7px">💡 <strong>分工提案：</strong>Family Books 13:00 才開門，老公等待期間，你帶孩子去附近的國際通玩具店或第一牧志公設市場繼續探索。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌電車 牧志站 → 奥武山公園站 · 約 5 分鐘</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🌳</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=奥武山公園+那覇&ll=26.2034,127.6748" target="_blank">
-            Onoyama Park 奥武山公園（傍晚放電）
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <span class="tag tag-free">免費</span><span class="tag tag-rec">4.7⭐</span><span class="stroller stroller-ok">🍼 推車友善（平坦鋪面）</span>
-          <div class="spot-desc" style="margin-top:3px">超長溜滑梯大人也愛玩！分齡遊具設施，站出口即達。天晴建議把上午改到這裡玩，比 Wakuwaku 更推薦。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌電車 奥武山公園站 → 各站 · 依餐廳地點而定</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🍽️</div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=国際通り+那覇市&ll=26.2151,127.6858" target="_blank">
-            晚餐 · 國際通或周邊自選
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <div class="spot-desc">沖繩麵、塔可飯、烤肉，那霸美食任你挑。</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">返回嘉新酒店 · 單軌電車至牧志站後步行 約 10 分鐘</span></div>
-
-    </div>
-    <div class="meals-row">
-      <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-content">飯店早餐</div></div>
-      <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-content">自理<br>牧志市場周邊</div></div>
-      <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-content">自理<br>國際通周邊</div></div>
-    </div>
-    <a class="hotel-badge" href="https://maps.google.com/?q=Hotel+Collective+Naha+国際通り&ll=26.2152,127.6855" target="_blank">
-      <span>🏨</span>
-      <div><div class="hname">Hotel Collective 嘉新酒店</div><div class="hsub">國際通核心 · 五星 · 頂樓露天泳池</div></div>
-    </a>
-  </div>
-</div>
-
-<!-- ═══ DAY 5 ═══ -->
-<div class="day-card day-5" id="day5">
-  <div class="day-header" onclick="toggleDay('day5')">
-    <div class="day-number"><span class="d">DAY</span><span class="n">5</span></div>
-    <div class="day-info">
-      <div class="day-title">半潛水艇 · 瀨長島 · 返台</div>
-      <div class="day-subtitle">銀河探險號 → Umikaji Terrace → 桃園</div>
-    </div>
-    <div class="day-arrow">▾</div>
-  </div>
-  <div class="day-body">
-    <div class="timeline">
-
-      <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">從嘉新酒店出發 · 遊覽車 約 15 分鐘</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🚢</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=銀河探検号+沖縄+那覇港&ll=26.2100,127.6630" target="_blank">
-            銀河探險號半潛水艇
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <span class="tag tag-special">特別贈送</span><span class="stroller stroller-no">🍼 推車不可上船（需抱小孩）</span>
-          <div class="spot-desc" style="margin-top:3px">坐在船內透過玻璃看珊瑚礁和熱帶魚，不需下水。天候不佳恕不退費。</div>
-          <div class="tip-box">🧒 <strong>親子：</strong>船內安全舒適，孩子看到魚群超興奮！</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 10 分鐘</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">🏛️</div><div class="tl-line"></div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=瀬長島ウミカジテラス+沖縄&ll=26.1767,127.6404" target="_blank">
-            瀨長島 Umikaji Terrace 小希臘
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <span class="stroller stroller-partial">🍼 推車勉強可行（石板坡道為主，需費力推）</span>
-          <div class="spot-desc">純白地中海風商場，邊吃舒芙蕾或塔可飯邊看飛機起降。🍽️ 日式風味午餐</div>
-        </div>
-      </div>
-
-      <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 5 分鐘</span></div>
-
-      <div class="tl-item">
-        <div class="tl-left"><div class="tl-dot">✈️</div></div>
-        <div class="tl-right">
-          <a class="spot-link" href="https://maps.google.com/?q=那霸国際空港&ll=26.1956,127.6457" target="_blank">
-            那霸國際機場 JX871 出發
-            <svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </a>
-          <div class="spot-desc">15:50 起飛 → 16:25 抵達桃園，平安回家！</div>
-        </div>
-      </div>
-
-    </div>
-    <div class="meals-row">
-      <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-content">飯店早餐</div></div>
-      <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-content">日式風味餐</div></div>
-      <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-content">機上餐食</div></div>
     </div>
   </div>
-</div>
 
-</div><!-- /days-container -->
-
-<!-- HOTELS -->
-<div class="section-title"><h2>住宿飯店</h2></div>
-<div class="hotels-grid">
-  <div class="hotel-card">
-    <div class="hotel-card-header">
-      <h3>🌊 沖繩王子大飯店 海景宜野灣</h3>
-      <div class="nights">第 1–2 晚 · Okinawa Prince Hotel Ocean View Ginowan</div>
-    </div>
-    <div class="hotel-features">
-      <div class="feature-chip">全房海景露台</div><div class="feature-chip">14F無邊際泳池</div>
-      <div class="feature-chip">室內溫水池</div><div class="feature-chip">專業SPA+岩盤浴</div>
-      <div class="feature-chip">豐盛早餐</div><div class="feature-chip">親子友善</div>
-    </div>
-  </div>
-  <div class="hotel-card">
-    <div class="hotel-card-header">
-      <h3>🏙️ Hotel Collective 嘉新酒店</h3>
-      <div class="nights">第 3–4 晚 · 那霸國際通核心</div>
-    </div>
-    <div class="hotel-features">
-      <div class="feature-chip">下樓即國際通</div><div class="feature-chip">頂樓露天泳池</div>
-      <div class="feature-chip">桑拿三溫暖</div><div class="feature-chip">客房30m²+</div>
-      <div class="feature-chip">健身房</div><div class="feature-chip">豐盛早餐</div>
-    </div>
-  </div>
-</div>
-
-<!-- PRICING -->
-<div class="section-title"><h2>費用說明</h2></div>
-<div class="pricing-card">
-  <div class="pricing-header">
-    <h2>團費報價</h2>
-    <div class="price-amount">NT$ 46,000</div>
-    <div class="price-unit">每人（刷卡）· 32人以上成團</div>
-    <div style="font-size:11px;margin-top:5px;opacity:.82">匯款優惠 -NT$1,000/人 · 5歲以下不佔床 -NT$2,000</div>
-  </div>
-  <div class="pricing-body">
-    <div class="pricing-row"><div class="icon">✈️</div><div><strong>機票</strong>：全程經濟艙含機場稅燃料稅</div></div>
-    <div class="pricing-row"><div class="icon">🏨</div><div><strong>住宿</strong>：如行程表，雙人一室</div></div>
-    <div class="pricing-row"><div class="icon">🍽️</div><div><strong>餐食</strong>：飯店早餐 + 行程表所列午晚餐</div></div>
-    <div class="pricing-row"><div class="icon">🚌</div><div><strong>交通</strong>：當地合法遊覽車</div></div>
-    <div class="pricing-row"><div class="icon">🧑‍✈️</div><div><strong>領隊導遊</strong>一位全程隨行</div></div>
-    <div class="pricing-row"><div class="icon">🛡️</div><div><strong>保險</strong>：旅責險500萬 + 意外醫療25萬 + 履約責任險</div></div>
-    <div class="pricing-row"><div class="icon">💴</div><div><strong>小費</strong>：NT$300/人/天，共1,500元（已含）</div></div>
-    <div class="pricing-row"><div class="icon">💧</div><div>每人每天一瓶水</div></div>
-    <div class="pricing-row"><div class="icon">🎁</div><div><strong>贈送</strong>：行李束帶、吊牌、護照套、客製布條、手冊、網卡</div></div>
-  </div>
-</div>
-
-<div class="inc-exc" style="margin-top:8px">
-  <div class="inc-card">
-    <div class="inc-card-header red">❌ 費用不含</div>
-    <div class="inc-list">
-      <div class="inc-item"><span>·</span><span>自費行程、房間服務、個人飲料酒水</span></div>
-      <div class="inc-item"><span>·</span><span>行李小費、床頭小費、電話費</span></div>
-      <div class="inc-item"><span>·</span><span>單人房差 · 升等商務艙 · 升等房型</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- KIDS TIPS -->
-<div class="section-title"><h2>親子小貼士</h2></div>
-<div class="kids-section">
-  <div class="kids-card">
-    <h3>🧒 近5歲小孩出遊必知</h3>
-    <div class="kids-tips">
-      <div class="kids-tip"><span>🦕</span><span><strong>JUNGLIA</strong>：第二天強烈推薦A行程，提前Klook買票，開園即入場</span></div>
-      <div class="kids-tip"><span>🐋</span><span><strong>美之海水族館</strong>：鯨鯊+海豚秀，孩子一生難忘</span></div>
+  <!-- 親子貼士 -->
+  <div class="card">
+    <div class="card-header ch-orange">🧒 親子小貼士</div>
+    <div class="card-body">
+      <div class="kids-tip"><span>⚡</span><span><strong>寶可夢中心</strong>：AEON MALL 1F，比東京/大阪人少，有沖繩限定皮卡丘</span></div>
+      <div class="kids-tip"><span>🐋</span><span><strong>美之海水族館</strong>：3隻鯨鯊+海豚秀，孩子一生難忘的震撼</span></div>
       <div class="kids-tip"><span>🚢</span><span><strong>半潛水艇</strong>：無需下水，坐船內看海底，幼兒最安全</span></div>
       <div class="kids-tip"><span>🏊</span><span><strong>泳衣必帶</strong>：兩飯店都有泳池，王子無邊際泳池超夢幻</span></div>
-      <div class="kids-tip"><span>🌞</span><span><strong>防曬</strong>：秋季日曬仍強，帽子、防曬、薄外套必備</span></div>
-      <div class="kids-tip"><span>💴</span><span><strong>費用</strong>：5歲以下不佔床省NT$2,000，確認出發時孩子年齡</span></div>
-      <div class="kids-tip"><span>🎢</span><span><strong>第四天</strong>：上午 Kids Land（室內）→ 下午 奥武山公園（戶外），完美分工</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- JAPANESE PHRASES -->
-<div class="section-title"><h2>實用日語對話</h2></div>
-<div class="jp-section">
-
-  <!-- Category: Taxi -->
-  <div class="jp-cat">
-    <div class="jp-cat-header">🚕 交通・計程車</div>
-    <div class="jp-list">
-
-      <div class="jp-item">
-        <div class="jp-situation">想去某個地方</div>
-        <div class="jp-phrase">
-          <ruby>ここ<rt></rt></ruby>に<ruby>行<rt>い</rt></ruby>って<ruby>ください<rt></rt></ruby>。
-        </div>
-        <div class="jp-romaji">Koko ni itte kudasai.</div>
-        <div class="jp-meaning">請帶我去這裡。（出示手機地圖時說）</div>
-      </div>
-
-      <div class="jp-item">
-        <div class="jp-situation">問多少錢</div>
-        <div class="jp-phrase">
-          イオンモール<ruby>沖縄<rt>おきなわ</rt></ruby>ライカムまでいくらですか？
-        </div>
-        <div class="jp-romaji">Ion mōru Okinawa raikamu made ikura desu ka?</div>
-        <div class="jp-meaning">到 AEON MALL 沖繩萊卡姆要多少錢？</div>
-      </div>
-
-      <div class="jp-item">
-        <div class="jp-situation">請在這裡停車</div>
-        <div class="jp-phrase">
-          ここで<ruby>止<rt>と</rt></ruby>めてください。
-        </div>
-        <div class="jp-romaji">Koko de tomete kudasai.</div>
-        <div class="jp-meaning">請在這裡停車。</div>
-      </div>
-
-      <div class="jp-item">
-        <div class="jp-situation">請等一下</div>
-        <div class="jp-phrase">
-          ちょっと<ruby>待<rt>ま</rt></ruby>ってください。
-        </div>
-        <div class="jp-romaji">Chotto matte kudasai.</div>
-        <div class="jp-meaning">請等一下。</div>
-      </div>
-
+      <div class="kids-tip"><span>🌡️</span><span><strong>11月天氣</strong>：均溫22–26°C，薄外套、防曬都帶，偶有陣雨備雨衣</span></div>
+      <div class="kids-tip"><span>🎮</span><span><strong>皮克敏</strong>：首里城+周邊四寺，一次蒐集多種神社蘑菇</span></div>
+      <div class="kids-tip"><span>💴</span><span><strong>費用</strong>：確認出發時孩子是否滿5歲，未滿可省 NT$2,000</span></div>
     </div>
   </div>
 
-  <!-- Category: Shopping -->
-  <div class="jp-cat">
-    <div class="jp-cat-header">🛍️ 購物・寶可夢中心</div>
-    <div class="jp-list">
+</div><!-- /page-info -->
 
-      <div class="jp-item">
-        <div class="jp-situation">問有沒有沖繩限定商品</div>
-        <div class="jp-phrase">
-          <ruby>沖縄<rt>おきなわ</rt></ruby><ruby>限定<rt>げんてい</rt></ruby>の<ruby>商品<rt>しょうひん</rt></ruby>はありますか？
+
+<!-- ══════════════════════════════════════
+     DAY 1
+══════════════════════════════════════ -->
+<div class="page" id="page-day1">
+
+  <div class="card day-1-accent">
+    <div class="depart-banner">🚄 2026/11/4（三）台灣出發時間表（從左營搭高鐵）</div>
+    <div class="card-body">
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🏠</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=高鐵左營站&ll=22.6428,120.3022" target="_blank">高鐵左營站 07:10 出發<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <div class="spot-desc">建議搭 07:00–07:20 班次，帶小孩提早15分到站。<br><a href="https://www.thsrc.com.tw" target="_blank" style="color:var(--ocean);font-weight:600">🔗 台灣高鐵官網查班次</a></div>
+          </div>
         </div>
-        <div class="jp-romaji">Okinawa gentei no shōhin wa arimasu ka?</div>
-        <div class="jp-meaning">有沖繩限定商品嗎？</div>
-      </div>
+        <div class="transit"><span class="transit-icon">🚄</span><span class="transit-text">高鐵 左營→桃園 · 約 84 分鐘 · NT$1,080/人</span></div>
 
-      <div class="jp-item">
-        <div class="jp-situation">問可不可以試用 / 打開看</div>
-        <div class="jp-phrase">
-          <ruby>見<rt>み</rt></ruby>てもいいですか？
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🚉</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=高鐵桃園站&ll=24.9770,121.2278" target="_blank">高鐵桃園站 抵達（約 08:45）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <div class="spot-desc">出站依指標走地下穿堂，步行約 5–10 分鐘至機捷 A18 站，勿出地面。</div>
+          </div>
         </div>
-        <div class="jp-romaji">Mite mo ii desu ka?</div>
-        <div class="jp-meaning">可以看一下嗎？</div>
-      </div>
+        <div class="transit"><span class="transit-icon">🚇</span><span class="transit-text">機捷 A18→A12 第一航廈 · 約 19 分鐘 · NT$25</span></div>
 
-      <div class="jp-item">
-        <div class="jp-situation">問有沒有其他顏色 / 尺寸</div>
-        <div class="jp-phrase">
-          ほかの<ruby>色<rt>いろ</rt></ruby>／サイズはありますか？
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🛫</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=桃園國際機場第一航廈&ll=25.0792,121.2328" target="_blank">桃園機場 第一航廈 · 09:30 集合<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <div class="spot-desc">星宇 JX870 12:00 起飛。09:30 到集合點辦理登機＆行李託運。</div>
+            <div class="tip tip-blue">⏰ 07:10 左營出發 → 08:50 抵桃園站 → 09:15 到機場，保留30分鐘緩衝。</div>
+          </div>
         </div>
-        <div class="jp-romaji">Hoka no iro / saizu wa arimasu ka?</div>
-        <div class="jp-meaning">有其他顏色／尺寸嗎？</div>
-      </div>
+        <div class="transit"><span class="transit-icon">✈️</span><span class="transit-text">JX870 · 12:00 桃園起飛 → 14:40 那霸落地</span></div>
 
-      <div class="jp-item">
-        <div class="jp-situation">結帳時說免稅</div>
-        <div class="jp-phrase">
-          <ruby>免税<rt>めんぜい</rt></ruby>でお<ruby>願<rt>ねが</rt></ruby>いします。
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">✈️</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=那霸国際空港&ll=26.1956,127.6457" target="_blank">那霸國際機場 14:40 抵達<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <div class="spot-desc">入境後集合上遊覽車。</div>
+          </div>
         </div>
-        <div class="jp-romaji">Menzei de onegai shimasu.</div>
-        <div class="jp-meaning">請幫我辦理免稅。（需出示護照）</div>
-      </div>
+        <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 40 分鐘</span></div>
 
-      <div class="jp-item">
-        <div class="jp-situation">付款</div>
-        <div class="jp-phrase">
-          カードで<ruby>払<rt>はら</rt></ruby>えますか？
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🌿</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=海ん道uminchi+うるま市&ll=26.3492,127.8256" target="_blank">海ん道 UMINCHI 海葡萄農場<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <span class="tag ts">贈冰淇淋</span><span class="stroller s-ok">🍼 推車可</span>
+            <div class="spot-desc" style="margin-top:2px">親手撈採「綠色魚子醬」海葡萄，搭特製醬汁品嚐，附贈冰淇淋。5歲孩子超適合！</div>
+          </div>
         </div>
-        <div class="jp-romaji">Kādo de haraemasu ka?</div>
-        <div class="jp-meaning">可以刷卡嗎？</div>
-      </div>
+        <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 25 分鐘</span></div>
 
-      <div class="jp-item">
-        <div class="jp-situation">問購買數量限制</div>
-        <div class="jp-phrase">
-          おひとりさま<ruby>何個<rt>なんこ</rt></ruby>まで<ruby>買<rt>か</rt></ruby>えますか？
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🍖</div></div>
+          <div class="tl-right">
+            <span class="spot-plain">🌙 晚餐：燒肉自助吃到飽（飲料無限）→ 入住</span>
+          </div>
         </div>
-        <div class="jp-romaji">Ohitori-sama nanko made kaemasu ka?</div>
-        <div class="jp-meaning">每人最多可以買幾個？（買卡包時很實用）</div>
       </div>
-
-      <div class="jp-item">
-        <div class="jp-situation">請幫我包裝成禮物</div>
-        <div class="jp-phrase">
-          プレゼント<ruby>用<rt>よう</rt></ruby>に<ruby>包<rt>つつ</rt></ruby>んでいただけますか？
-        </div>
-        <div class="jp-romaji">Purezento-yō ni tsutsunde itadakemasu ka?</div>
-        <div class="jp-meaning">可以幫我包成禮物嗎？</div>
+      <div class="meals-row">
+        <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">—</div></div>
+        <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-val">機上餐食</div></div>
+        <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-val">燒肉自助<br>無限暢飲</div></div>
       </div>
-
+      <a class="hotel-badge" href="https://maps.google.com/?q=Okinawa+Prince+Hotel+Ocean+View+Ginowan&ll=26.2770,127.7324" target="_blank">
+        🏨 <div><div class="hname">沖繩王子大飯店 海景宜野灣</div><div class="hsub">全房海景露台 · 14F無邊際泳池</div></div>
+      </a>
     </div>
   </div>
 
-  <!-- Category: Restaurant -->
-  <div class="jp-cat">
-    <div class="jp-cat-header">🍜 餐廳・用餐</div>
-    <div class="jp-list">
+</div><!-- /page-day1 -->
 
-      <div class="jp-item">
-        <div class="jp-situation">訂位／詢問有無空位</div>
-        <div class="jp-phrase">
-          <ruby>3人<rt>さんにん</rt></ruby>ですが、<ruby>席<rt>せき</rt></ruby>はありますか？
-        </div>
-        <div class="jp-romaji">San-nin desu ga, seki wa arimasu ka?</div>
-        <div class="jp-meaning">我們3個人，請問有位子嗎？</div>
+
+<!-- ══════════════════════════════════════
+     DAY 2
+══════════════════════════════════════ -->
+<div class="page" id="page-day2">
+  <div class="card day-2-accent">
+    <div class="card-header ch-orange">⚡ Day 2 · 11/5（四）· 二選一方案</div>
+    <div class="card-body">
+      <div class="var-toggle">
+        <button class="var-btn" onclick="switchVariant('day2','A')">🦕 A：JUNGLIA<br><span style="font-size:9px">恐龍主題樂園</span></button>
+        <button class="var-btn active" onclick="switchVariant('day2','B')">⚡ B：AEON MALL<br><span style="font-size:9px">寶可夢 ⭐現選</span></button>
       </div>
 
-      <div class="jp-item">
-        <div class="jp-situation">點餐</div>
-        <div class="jp-phrase">
-          これをください。
+      <!-- A -->
+      <div class="var-content" id="day2-A">
+        <div class="tl">
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🏨</div><div class="tl-line"></div></div>
+            <div class="tl-right"><span class="spot-plain">飯店早餐後集合</span></div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 80 分鐘</span></div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🦕</div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=JUNGLIA+Okinawa&ll=26.6422,127.9736" target="_blank">JUNGLIA Okinawa 侏儸紀叢林樂園<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <span class="tag ts">2025新開幕</span><span class="stroller s-partial">🍼 可租 ¥1,000</span>
+              <div class="spot-desc" style="margin-top:2px">沖繩北部山原沉浸式恐龍主題樂園，午晚餐自理（樂園內）。</div>
+              <div class="tip">⭐ 提前 Klook 買 Premium Pass，開園即入場，備防曬和點心。</div>
+            </div>
+          </div>
         </div>
-        <div class="jp-romaji">Kore o kudasai.</div>
-        <div class="jp-meaning">我要這個。（指菜單圖片時說）</div>
+        <div class="meals-row">
+          <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">飯店早餐</div></div>
+          <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-val">自理(樂園)</div></div>
+          <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-val">自理(樂園)</div></div>
+        </div>
       </div>
 
-      <div class="jp-item">
-        <div class="jp-situation">孩子不吃辣</div>
-        <div class="jp-phrase">
-          <ruby>子供<rt>こども</rt></ruby>がいるので、からくないものをお<ruby>願<rt>ねが</rt></ruby>いします。
+      <!-- B -->
+      <div class="var-content active" id="day2-B">
+        <div class="tip tip-blue" style="margin-bottom:8px">🏬 以永旺夢樂城（AEON MALL 沖繩萊卡姆）為中心，館內＋周邊一日玩透透！</div>
+        <div class="tl">
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🏠</div><div class="tl-line"></div></div>
+            <div class="tl-right"><span class="spot-plain">從王子飯店出發</span></div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚕</span><span class="transit-text">計程車或租車 · 約 25 分鐘</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🏟️</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=中城公園+北中城&ll=26.2851,127.7942" target="_blank">中城公園（早上放電）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <span class="tag tf">免費</span><span class="tag tr">4.5⭐</span><span class="stroller s-partial">🍼 草地較顛</span>
+              <div class="spot-desc" style="margin-top:2px">AEON MALL 旁步行15分。彈跳床、攀爬網、沙坑，5歲完美適齡。</div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 15 分或計程車 約 3 分鐘</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">⚡</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=ポケモンセンターオキナワ&ll=26.3141,127.7963" target="_blank">⭐ 寶可夢中心 Pokémon Center Okinawa（1F）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <span class="tag ts">沖繩限定</span><span class="stroller s-ok">🍼 推車友善</span>
+              <div class="spot-desc" style="margin-top:2px">10:00–22:00。沖繩限定皮卡丘、琉球風格商品。比東京/大阪人少超好逛！<br>⚠️ TCG 卡包有購買數量限制，記得確認。</div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🏬</span><span class="transit-text">館內移動 · 美食廣場</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🍜</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <span class="spot-plain">☀️ 午餐：AEON MALL 美食廣場</span>
+              <div class="spot-desc">日式、沖繩料理、快餐任選。代金 ¥2,000 在此使用。</div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🏬</span><span class="transit-text">館內移動 · 1F / 4F</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">📚</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <span class="spot-plain">書店散策<span class="tag tb">老公最愛</span><span class="stroller s-ok">🍼 推車友善</span></span>
+              <div class="book-links" style="margin-top:4px">
+                <a class="book-link" href="https://maps.google.com/?q=未来屋書店+イオンモール沖縄ライカム&ll=26.3148,127.7960" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>① Miraiya 未来屋書店（1F）4.0⭐</a>
+                <a class="book-link" href="https://maps.google.com/?q=ヴィレッジヴァンガード+イオンモール沖縄ライカム&ll=26.3140,127.7967" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>② Village Vanguard（4F）🎮 任天堂周邊</a>
+              </div>
+              <div class="tip">💡 老公逛書店時，帶孩子去旁邊 <strong>ちきゅうのにわ</strong> 室內兒童樂園（¥1,200–1,600）。</div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🏬</span><span class="transit-text">AEON MALL 餐廳用晚餐</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🌙</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <span class="spot-plain">🌙 晚餐：AEON MALL 餐廳</span>
+              <div class="spot-desc">代金 ¥3,000 在 AEON MALL 使用，省去回那霸再吃飯的交通。</div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚕</span><span class="transit-text">返回王子飯店 · 計程車或租車 · 約 25 分鐘</span></div>
         </div>
-        <div class="jp-romaji">Kodomo ga iru no de, karakunai mono o onegai shimasu.</div>
-        <div class="jp-meaning">我有帶小孩，請給不辣的。</div>
+        <div class="meals-row">
+          <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">飯店早餐</div></div>
+          <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-val">代金¥2,000<br>AEON廣場</div></div>
+          <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-val">代金¥3,000<br>AEON餐廳</div></div>
+        </div>
       </div>
 
-      <div class="jp-item">
-        <div class="jp-situation">結帳</div>
-        <div class="jp-phrase">
-          お<ruby>会計<rt>かいけい</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします。
+      <a class="hotel-badge" href="https://maps.google.com/?q=Okinawa+Prince+Hotel+Ocean+View+Ginowan&ll=26.2770,127.7324" target="_blank">
+        🏨 <div><div class="hname">沖繩王子大飯店 海景宜野灣</div><div class="hsub">全房海景露台 · 14F無邊際泳池</div></div>
+      </a>
+    </div>
+  </div>
+</div><!-- /page-day2 -->
+
+
+<!-- ══════════════════════════════════════
+     DAY 3
+══════════════════════════════════════ -->
+<div class="page" id="page-day3">
+  <div class="card day-3-accent">
+    <div class="card-header ch-green">🐋 Day 3 · 11/6（五）· 古宇利島 → 美之海 → 美國村</div>
+    <div class="card-body">
+      <div class="tl">
+        <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">從王子飯店出發 · 遊覽車 約 80 分鐘</span></div>
+
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🌉</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=古宇利大橋+沖縄&ll=26.6865,128.0173" target="_blank">古宇利島大橋 + 海洋塔（電動車）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <span class="stroller s-partial">🍼 電動車路面較窄</span>
+            <div class="spot-desc" style="margin-top:2px">跨越2公里湛藍海域，82公尺高展望塔覽景，古宇利島神話聖地。</div>
+          </div>
         </div>
-        <div class="jp-romaji">Okaikei o onegai shimasu.</div>
-        <div class="jp-meaning">麻煩結帳。</div>
+        <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 30 分鐘</span></div>
+
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🐋</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=沖縄美ら海水族館&ll=26.6943,127.8780" target="_blank">美之海水族館 + 海豚秀 ☀️海景自助午餐<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <span class="tag ts">東亞最大</span><span class="stroller s-ok">🍼 坡道電梯完備</span>
+            <div class="spot-desc" style="margin-top:2px">3隻巨大鯨鯊在8公尺高玻璃幕後巡航！世界首創人工珊瑚礁，海豚特技秀精彩。</div>
+            <div class="tip">🧒 鯨鯊+海豚秀是全程孩子最大亮點。記得備玩沙玩具給美國村沙灘。</div>
+          </div>
+        </div>
+        <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 50 分鐘</span></div>
+
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🛍️</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <span class="spot-plain">免稅店</span>
+            <div class="spot-desc">伴手禮、健康食品、名產一次購足。</div>
+          </div>
+        </div>
+        <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 15 分鐘</span></div>
+
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🌴</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=美浜アメリカンビレッジ+北谷町&ll=26.3159,127.7540" target="_blank">北谷町美國村<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <span class="stroller s-ok">🍼 平坦鋪面</span>
+            <div class="spot-desc" style="margin-top:2px">美式風情購物娛樂中心，日落海灘賞夕陽絕佳。</div>
+          </div>
+        </div>
+        <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 20 分鐘 → 那霸市區</span></div>
+
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🎵</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=花琉球+那覇国際通り&ll=26.2150,127.6860" target="_blank">🌙 花琉球 三弦琴表演 × 酒水放題<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <span class="tag ts">特別安排</span>
+            <div class="spot-desc" style="margin-top:2px">島唱現場演出、沖繩料理、多款酒水無限暢飲。</div>
+          </div>
+        </div>
+        <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 1 分鐘 → 抵達嘉新酒店</span></div>
+      </div>
+      <div class="meals-row">
+        <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">飯店早餐</div></div>
+        <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-val">海景自助餐</div></div>
+        <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-val">花琉球<br>酒水放題🎵</div></div>
+      </div>
+      <a class="hotel-badge" href="https://maps.google.com/?q=Hotel+Collective+Naha&ll=26.2152,127.6855" target="_blank">
+        🏨 <div><div class="hname">Hotel Collective 嘉新酒店</div><div class="hsub">國際通核心 · 五星 · 頂樓露天泳池</div></div>
+      </a>
+    </div>
+  </div>
+</div><!-- /page-day3 -->
+
+
+<!-- ══════════════════════════════════════
+     DAY 4
+══════════════════════════════════════ -->
+<div class="page" id="page-day4">
+  <div class="card day-4-accent">
+    <div class="card-header ch-purple">🏯 Day 4 · 11/7（六）· 那霸自由日 · 二選一方案</div>
+    <div class="card-body">
+      <div class="var-toggle">
+        <button class="var-btn active" onclick="switchVariant('day4','A')">🏯 A：首里城＋皮克敏<br><span style="font-size:9px">四寺巡禮 ⭐現選</span></button>
+        <button class="var-btn" onclick="switchVariant('day4','B')">🚝 B：那霸市區散策<br><span style="font-size:9px">書店＋公園</span></button>
       </div>
 
+      <!-- A -->
+      <div class="var-content active" id="day4-A">
+        <div class="tl">
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">從嘉新酒店步行至牧志站 約 7 分鐘 → 搭至首里站 約 15 分鐘</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🏯</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=首里城公園&ll=26.2170,127.7195" target="_blank">首里城公園（Shuri Castle）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <span class="tag tr">4.2⭐ 世界遺產</span><span class="stroller s-partial">🍼 石板坡道多</span>
+              <div class="spot-desc" style="margin-top:2px">8:30開園。正殿修復中，外圍免費入場，城牆石獅依然壯觀。首里森御嶽是皮克敏神社地標。<br>💰 外圍免費 · 正殿區 ¥400/大人</div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 5 分鐘（首里城周邊）</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🛕</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <span class="spot-plain">🎮 皮克敏四寺巡禮（首里十二支巡り）<span class="tag ts">神社蘑菇</span></span>
+              <div class="book-links" style="margin-top:4px">
+                <a class="book-link" href="https://maps.google.com/?q=慈眼院+首里観音堂+那覇&ll=26.2231,127.7138" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>① 慈眼院（首里觀音堂）— 1618年，120年老榕樹</a>
+                <a class="book-link" href="https://maps.google.com/?q=太平山安國寺+那覇+首里&ll=26.2196,127.7160" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>② 太平山安國寺 — 550年歷史，可拿御朱印</a>
+                <a class="book-link" href="https://maps.google.com/?q=西来院+達磨寺+那覇+首里&ll=26.2208,127.7145" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>③ 西來院（達磨寺）— 紅色鳥居＋稻荷大明神</a>
+                <a class="book-link" href="https://maps.google.com/?q=盛光寺+那覇+首里&ll=26.2278,127.7073" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>④ 盛光寺 — 儀保站旁，巡完直接搭單軌</a>
+              </div>
+              <div class="tip tip-blue">📍 四間各自是獨立地標，一次蒐集多種蘑菇！帶御朱印帳更有紀念感。全程步行約 30–40 分鐘。</div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌 儀保站 → 牧志站 約 10 分鐘</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🐟</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=牧志公設市場+那覇&ll=26.2176,127.6899" target="_blank">牧志公設市場 + 午餐<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <div class="spot-desc">帶孩子看熱帶魚，市場二樓午餐。</div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 3–5 分鐘</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">📚</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <span class="spot-plain">那霸書店散策<span class="tag tb">老公最愛</span><span class="stroller s-ok">🍼 商街平坦</span></span>
+              <div class="book-links" style="margin-top:4px">
+                <a class="book-link" href="https://maps.google.com/?q=古本うらら+那覇&ll=26.2144,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>① 古本うらら 4.6⭐ — 沖繩文化古書 11:00開</a>
+                <a class="book-link" href="https://maps.google.com/?q=ファミリーブックス+那覇&ll=26.2127,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>② Family Books — 二手書＋黑膠 13:00開</a>
+                <a class="book-link" href="https://maps.google.com/?q=丸善+那覇&ll=26.2187,127.6858" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>③ MARUZEN 丸善 — 3層樓＋咖啡廳</a>
+                <a class="book-link" href="https://maps.google.com/?q=ジュンク堂書店+那覇&ll=26.2186,127.6859" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>④ JUNKUDO 紀伊國屋 — 那霸最大</a>
+              </div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌 牧志站 → 奥武山公園站 約 5 分鐘</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🌳</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=奥武山公園+那覇&ll=26.2034,127.6748" target="_blank">Onoyama Park 奥武山公園（放電）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <span class="tag tf">免費</span><span class="tag tr">4.7⭐</span><span class="stroller s-ok">🍼 平坦鋪面</span>
+              <div class="spot-desc" style="margin-top:2px">超長溜滑梯大人也愛！站出口即達。</div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">返回嘉新酒店 · 至牧志站後步行 約 10 分鐘</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🍽️</div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=国際通り+那覇&ll=26.2151,127.6858" target="_blank">🌙 晚餐 · 國際通自選<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <div class="spot-desc">沖繩麵、塔可飯、烤肉任你挑。</div>
+            </div>
+          </div>
+        </div>
+        <div class="meals-row">
+          <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">飯店早餐</div></div>
+          <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-val">自理<br>牧志市場</div></div>
+          <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-val">自理<br>國際通</div></div>
+        </div>
+      </div>
+
+      <!-- B -->
+      <div class="var-content" id="day4-B">
+        <div class="tl">
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">從嘉新酒店步行至牧志站 約 7 分鐘</span></div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🛝</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=波上宮わくわくキッズランド+那覇&ll=26.2202,127.6687" target="_blank">Wakuwaku Kids Land 室內遊樂場<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <span class="tag ty">下雨天首選</span><span class="stroller s-ok">🍼 室內平坦</span>
+              <div class="spot-desc" style="margin-top:2px">攀岩牆、彈跳床、滑梯，¥600/小時（孩童）。帶現金＋穿襪子，10:00開門。</div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌 旭橋站 → 牧志站 約 8 分鐘</span></div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🐟</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=牧志公設市場+那覇&ll=26.2176,127.6899" target="_blank">牧志公設市場 + 午餐<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <div class="spot-desc">帶孩子看熱帶魚，市場二樓午餐。</div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 3–5 分鐘</span></div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">📚</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <span class="spot-plain">那霸書店散策<span class="tag tb">老公最愛</span><span class="stroller s-ok">🍼 商街平坦</span></span>
+              <div class="book-links" style="margin-top:4px">
+                <a class="book-link" href="https://maps.google.com/?q=古本うらら+那覇&ll=26.2144,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>① 古本うらら 4.6⭐ 11:00開</a>
+                <a class="book-link" href="https://maps.google.com/?q=ファミリーブックス+那覇&ll=26.2127,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>② Family Books 13:00開</a>
+                <a class="book-link" href="https://maps.google.com/?q=丸善+那覇&ll=26.2187,127.6858" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>③ MARUZEN 丸善</a>
+                <a class="book-link" href="https://maps.google.com/?q=ジュンク堂書店+那覇&ll=26.2186,127.6859" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>④ JUNKUDO 紀伊國屋</a>
+              </div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌 牧志站 → 奥武山公園站 約 5 分鐘</span></div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🌳</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=奥武山公園+那覇&ll=26.2034,127.6748" target="_blank">Onoyama Park 奥武山公園<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <span class="tag tf">免費</span><span class="tag tr">4.7⭐</span><span class="stroller s-ok">🍼 平坦鋪面</span>
+              <div class="spot-desc" style="margin-top:2px">超長溜滑梯大人也愛！站出口即達。</div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">返回嘉新酒店 · 至牧志站後步行 約 10 分鐘</span></div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🍽️</div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=国際通り+那覇&ll=26.2151,127.6858" target="_blank">🌙 晚餐 · 國際通自選<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <div class="spot-desc">沖繩麵、塔可飯、烤肉任你挑。</div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">返回嘉新酒店 · 至牧志站後步行 約 10 分鐘</span></div>
+        </div>
+        <div class="meals-row">
+          <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">飯店早餐</div></div>
+          <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-val">自理<br>牧志市場</div></div>
+          <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-val">自理<br>國際通</div></div>
+        </div>
+      </div>
+
+      <a class="hotel-badge" href="https://maps.google.com/?q=Hotel+Collective+Naha&ll=26.2152,127.6855" target="_blank">
+        🏨 <div><div class="hname">Hotel Collective 嘉新酒店</div><div class="hsub">國際通核心 · 五星 · 頂樓露天泳池</div></div>
+      </a>
+    </div>
+  </div>
+</div><!-- /page-day4 -->
+
+
+<!-- ══════════════════════════════════════
+     DAY 5
+══════════════════════════════════════ -->
+<div class="page" id="page-day5">
+  <div class="card day-5-accent">
+    <div class="card-header ch-yellow">🚢 Day 5 · 11/8（日）· 半潛水艇 → 瀨長島 → 返台</div>
+    <div class="card-body">
+      <div class="tl">
+        <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">從嘉新酒店出發 · 遊覽車 約 15 分鐘</span></div>
+
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🚢</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=銀河探検号+沖縄+那覇港&ll=26.2100,127.6630" target="_blank">銀河探險號半潛水艇<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <span class="tag ts">特別贈送</span><span class="stroller s-no">🍼 推車不可上船</span>
+            <div class="spot-desc" style="margin-top:2px">船內透過玻璃看珊瑚礁和熱帶魚，不需下水。<br>⚠️ 遇天候不佳恕不退費。</div>
+            <div class="tip">🧒 船內安全舒適，孩子看到魚群超興奮！上下船時需要抱小孩。</div>
+          </div>
+        </div>
+        <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 10 分鐘</span></div>
+
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🏛️</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=瀬長島ウミカジテラス+沖縄&ll=26.1767,127.6404" target="_blank">瀨長島 Umikaji Terrace 小希臘 ☀️日式午餐<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <span class="stroller s-partial">🍼 石板坡道費力</span>
+            <div class="spot-desc" style="margin-top:2px">純白地中海風商場，邊吃舒芙蕾或塔可飯邊看飛機起降。旅程最美的句點！</div>
+          </div>
+        </div>
+        <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 5 分鐘</span></div>
+
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">✈️</div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=那霸国際空港&ll=26.1956,127.6457" target="_blank">那霸國際機場 JX871 15:50 出發<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <div class="spot-desc">16:25 抵達桃園，平安回家！🎉</div>
+          </div>
+        </div>
+      </div>
+      <div class="meals-row">
+        <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">飯店早餐</div></div>
+        <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-val">日式風味餐</div></div>
+        <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-val">機上餐食</div></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /page-day5 -->
+
+
+<!-- ══════════════════════════════════════
+     JAPANESE
+══════════════════════════════════════ -->
+<div class="page" id="page-japanese">
+  <p style="font-size:11px;color:var(--text3);padding:0 2px 8px">點擊任一句子放大顯示，對著店員指給他看！</p>
+
+  <div class="card">
+    <div class="card-header ch-ocean">🚕 交通・計程車</div>
+    <div class="card-body" style="padding:0 14px">
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">出示地圖說目的地</div><div class="jp-phrase-preview">ここに行ってください</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase">ここに<ruby>行<rt>い</rt></ruby>ってください。</div><div style="display:none" class="jp-romaji">Koko ni itte kudasai.</div><div style="display:none" class="jp-meaning">請帶我去這裡。</div></div>
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">請在這裡停車</div><div class="jp-phrase-preview">ここで止めてください</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase">ここで<ruby>止<rt>と</rt></ruby>めてください。</div><div style="display:none" class="jp-romaji">Koko de tomete kudasai.</div><div style="display:none" class="jp-meaning">請在這裡停車。</div></div>
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">請等一下</div><div class="jp-phrase-preview">ちょっと待ってください</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase">ちょっと<ruby>待<rt>ま</rt></ruby>ってください。</div><div style="display:none" class="jp-romaji">Chotto matte kudasai.</div><div style="display:none" class="jp-meaning">請等一下。</div></div>
     </div>
   </div>
 
-  <!-- Category: Emergency -->
-  <div class="jp-cat">
-    <div class="jp-cat-header">🆘 緊急・求助</div>
-    <div class="jp-list">
-
-      <div class="jp-item">
-        <div class="jp-situation">迷路了</div>
-        <div class="jp-phrase">
-          <ruby>道<rt>みち</rt></ruby>に<ruby>迷<rt>まよ</rt></ruby>ってしまいました。
-        </div>
-        <div class="jp-romaji">Michi ni mayotte shimaimashita.</div>
-        <div class="jp-meaning">我迷路了。</div>
-      </div>
-
-      <div class="jp-item">
-        <div class="jp-situation">孩子不見了</div>
-        <div class="jp-phrase">
-          <ruby>子供<rt>こども</rt></ruby>が<ruby>迷子<rt>まいご</rt></ruby>になりました。<ruby>助<rt>たす</rt></ruby>けてください！
-        </div>
-        <div class="jp-romaji">Kodomo ga maigo ni narimashita. Tasukete kudasai!</div>
-        <div class="jp-meaning">我的孩子走丟了，請幫我！</div>
-      </div>
-
-      <div class="jp-item">
-        <div class="jp-situation">需要救護車</div>
-        <div class="jp-phrase">
-          <ruby>救急車<rt>きゅうきゅうしゃ</rt></ruby>を<ruby>呼<rt>よ</rt></ruby>んでください！
-        </div>
-        <div class="jp-romaji">Kyūkyūsha o yonde kudasai!</div>
-        <div class="jp-meaning">請叫救護車！（日本緊急電話：119）</div>
-      </div>
-
+  <div class="card">
+    <div class="card-header ch-ocean">🛍️ 購物・寶可夢中心</div>
+    <div class="card-body" style="padding:0 14px">
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">問有沒有沖繩限定</div><div class="jp-phrase-preview">沖縄限定の商品はありますか？</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase"><ruby>沖縄<rt>おきなわ</rt></ruby><ruby>限定<rt>げんてい</rt></ruby>の<ruby>商品<rt>しょうひん</rt></ruby>はありますか？</div><div style="display:none" class="jp-romaji">Okinawa gentei no shōhin wa arimasu ka?</div><div style="display:none" class="jp-meaning">有沖繩限定商品嗎？</div></div>
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">問購買數量限制（買卡包）</div><div class="jp-phrase-preview">おひとりさま何個まで買えますか？</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase">おひとりさま<ruby>何個<rt>なんこ</rt></ruby>まで<ruby>買<rt>か</rt></ruby>えますか？</div><div style="display:none" class="jp-romaji">Ohitori-sama nanko made kaemasu ka?</div><div style="display:none" class="jp-meaning">每人最多可以買幾個？</div></div>
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">辦免稅（需出示護照）</div><div class="jp-phrase-preview">免税でお願いします</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase"><ruby>免税<rt>めんぜい</rt></ruby>でお<ruby>願<rt>ねが</rt></ruby>いします。</div><div style="display:none" class="jp-romaji">Menzei de onegai shimasu.</div><div style="display:none" class="jp-meaning">請幫我辦理免稅。</div></div>
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">可以刷卡嗎</div><div class="jp-phrase-preview">カードで払えますか？</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase">カードで<ruby>払<rt>はら</rt></ruby>えますか？</div><div style="display:none" class="jp-romaji">Kādo de haraemasu ka?</div><div style="display:none" class="jp-meaning">可以刷卡嗎？</div></div>
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">包成禮物</div><div class="jp-phrase-preview">プレゼント用に包んでいただけますか？</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase">プレゼント<ruby>用<rt>よう</rt></ruby>に<ruby>包<rt>つつ</rt></ruby>んでいただけますか？</div><div style="display:none" class="jp-romaji">Purezento-yō ni tsutsunde itadakemasu ka?</div><div style="display:none" class="jp-meaning">可以幫我包成禮物嗎？</div></div>
     </div>
   </div>
 
-</div>
+  <div class="card">
+    <div class="card-header ch-ocean">🍜 餐廳・用餐</div>
+    <div class="card-body" style="padding:0 14px">
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">詢問有無空位（3人）</div><div class="jp-phrase-preview">3人ですが、席はありますか？</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase"><ruby>3人<rt>さんにん</rt></ruby>ですが、<ruby>席<rt>せき</rt></ruby>はありますか？</div><div style="display:none" class="jp-romaji">San-nin desu ga, seki wa arimasu ka?</div><div style="display:none" class="jp-meaning">我們3個人，請問有位子嗎？</div></div>
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">點這個（指菜單）</div><div class="jp-phrase-preview">これをください</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase">これをください。</div><div style="display:none" class="jp-romaji">Kore o kudasai.</div><div style="display:none" class="jp-meaning">我要這個。</div></div>
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">孩子不吃辣</div><div class="jp-phrase-preview">子供がいるので、からくないものを…</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase"><ruby>子供<rt>こども</rt></ruby>がいるので、からくないものをお<ruby>願<rt>ねが</rt></ruby>いします。</div><div style="display:none" class="jp-romaji">Kodomo ga iru no de, karakunai mono o onegai shimasu.</div><div style="display:none" class="jp-meaning">我有帶小孩，請給不辣的。</div></div>
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">結帳</div><div class="jp-phrase-preview">お会計をお願いします</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase">お<ruby>会計<rt>かいけい</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします。</div><div style="display:none" class="jp-romaji">Okaikei o onegai shimasu.</div><div style="display:none" class="jp-meaning">麻煩結帳。</div></div>
+    </div>
+  </div>
 
-<style>
-.jp-section{padding:8px 12px 4px;display:flex;flex-direction:column;gap:10px}
-.jp-cat{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;box-shadow:0 2px 8px rgba(0,90,130,.06)}
-.jp-cat-header{background:linear-gradient(135deg,var(--ocean) 0%,var(--ocean-dark) 100%);color:#fff;padding:10px 14px;font-size:13px;font-weight:700}
-.jp-list{padding:4px 0}
-.jp-item{padding:10px 14px;border-bottom:1px dashed var(--border)}
-.jp-item:last-child{border-bottom:none}
-.jp-situation{font-size:10px;color:var(--text-light);font-weight:500;letter-spacing:.05em;margin-bottom:4px}
-.jp-phrase{font-size:15px;line-height:2;color:var(--text);margin-bottom:2px}
-.jp-phrase ruby rt{font-size:9px;color:var(--ocean-dark)}
-.jp-romaji{font-size:11px;color:#7a8a9a;font-style:italic;margin-bottom:3px}
-.jp-meaning{font-size:12px;color:var(--text-light);line-height:1.4}
-</style>
-<div class="notes-card">
-  <h3>📋 注意事項</h3>
-  <ul>
-    <li><span>📌</span><span>訂金 NT$10,000/位，需同時提供護照資訊</span></li>
-    <li><span>📌</span><span>報價為32人/車以上，不足須補差價或重新報價</span></li>
-    <li><span>📌</span><span>正確航班時間以行前說明為主，公司保有變動權</span></li>
-    <li><span>📌</span><span>半潛水艇遇天候不佳或不可抗力，不另退費</span></li>
-    <li><span>📌</span><span>第二天A/B行程需於報名時確認選擇</span></li>
-  </ul>
-</div>
+  <div class="card">
+    <div class="card-header ch-red">🆘 緊急・求助</div>
+    <div class="card-body" style="padding:0 14px">
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">迷路了</div><div class="jp-phrase-preview">道に迷ってしまいました</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase"><ruby>道<rt>みち</rt></ruby>に<ruby>迷<rt>まよ</rt></ruby>ってしまいました。</div><div style="display:none" class="jp-romaji">Michi ni mayotte shimaimashita.</div><div style="display:none" class="jp-meaning">我迷路了。</div></div>
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">孩子走丟了</div><div class="jp-phrase-preview">子供が迷子になりました！</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase"><ruby>子供<rt>こども</rt></ruby>が<ruby>迷子<rt>まいご</rt></ruby>になりました。<ruby>助<rt>たす</rt></ruby>けてください！</div><div style="display:none" class="jp-romaji">Kodomo ga maigo ni narimashita. Tasukete kudasai!</div><div style="display:none" class="jp-meaning">我的孩子走丟了，請幫我！</div></div>
+      <div class="jp-item" onclick="showJP(this)"><div class="jp-situation">需要救護車</div><div class="jp-phrase-preview">救急車を呼んでください！</div><div class="jp-arrow">›</div><div style="display:none" class="jp-phrase"><ruby>救急車<rt>きゅうきゅうしゃ</rt></ruby>を<ruby>呼<rt>よ</rt></ruby>んでください！</div><div style="display:none" class="jp-romaji">Kyūkyūsha o yonde kudasai!</div><div style="display:none" class="jp-meaning">請叫救護車！（緊急：119）</div></div>
+    </div>
+  </div>
 
-<div class="footer">
-  <strong>山富國際旅行社股份有限公司</strong>
-  2026 大云永續 · 沖繩極境出發！從JUNGLIA玩到浪漫美國村
+</div><!-- /page-japanese -->
+
+
+<!-- ══════════════════════════════════════
+     PRACTICAL
+══════════════════════════════════════ -->
+<div class="page" id="page-practical">
+
+  <!-- 出發前確認 -->
+  <div class="card">
+    <div class="card-header ch-green">✅ 出發前確認清單</div>
+    <div class="card-body">
+      <div class="section-divider">🧳 行李 & 文件</div>
+      <div class="check-item"><input type="checkbox" id="c1"><label for="c1">護照（效期 > 6 個月）</label></div>
+      <div class="check-item"><input type="checkbox" id="c2"><label for="c2">高鐵票（左營→桃園）已訂好</label></div>
+      <div class="check-item"><input type="checkbox" id="c3"><label for="c3">旅遊保險單 & 網卡</label></div>
+      <div class="check-item"><input type="checkbox" id="c4"><label for="c4">日幣現金（Wakuwaku 等現金場合）</label></div>
+      <div class="check-item"><input type="checkbox" id="c5"><label for="c5">Klook 預購 JUNGLIA Premium Pass（若選A方案）</label></div>
+      <div class="check-item"><input type="checkbox" id="c6"><label for="c6">御朱印帳（若想在首里四寺蓋章）</label></div>
+      <div class="section-divider" style="margin-top:8px">👶 孩子裝備</div>
+      <div class="check-item"><input type="checkbox" id="c7"><label for="c7">泳衣（兩飯店都有泳池）</label></div>
+      <div class="check-item"><input type="checkbox" id="c8"><label for="c8">防曬乳 & 帽子</label></div>
+      <div class="check-item"><input type="checkbox" id="c9"><label for="c9">薄外套（11月均溫22–26°C，晚上涼）</label></div>
+      <div class="check-item"><input type="checkbox" id="c10"><label for="c10">玩沙玩具（美國村日落海灘用）</label></div>
+      <div class="check-item"><input type="checkbox" id="c11"><label for="c11">室內遊樂場的襪子（Kids Land必備）</label></div>
+      <div class="check-item"><input type="checkbox" id="c12"><label for="c12">常備藥 & 體溫計</label></div>
+    </div>
+  </div>
+
+</div><!-- /page-practical -->
+
+</div><!-- /pages -->
+
+<!-- JP Overlay -->
+<div class="jp-big-overlay" id="jpOverlay" onclick="closeJP()">
+  <div class="jp-big-box" onclick="event.stopPropagation()">
+    <div class="jp-big-situation" id="jpBigSituation"></div>
+    <div class="jp-big-phrase" id="jpBigPhrase"></div>
+    <div class="jp-big-romaji" id="jpBigRomaji"></div>
+    <div class="jp-big-meaning" id="jpBigMeaning"></div>
+    <div class="jp-big-hint">對著店員指這裡即可</div>
+    <button class="jp-close-btn" onclick="closeJP()">關閉</button>
+  </div>
 </div>
 
 <script>
-function toggleDay(id){document.getElementById(id).classList.toggle('open')}
+// ── PAGE SWITCHING ──
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  // find and activate the correct tab
+  event.currentTarget.classList.add('active');
+  // scroll tab bar to show active
+  event.currentTarget.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+// ── VARIANT SWITCH ──
 function switchVariant(day,v){
-  const card=document.getElementById(day);
-  card.querySelectorAll('.variant-btn').forEach((b,i)=>b.classList.toggle('active',(i===0&&v==='A')||(i===1&&v==='B')));
-  card.querySelectorAll('.variant-content').forEach(c=>c.classList.remove('active'));
+  const card=document.getElementById('page-'+day);
+  card.querySelectorAll('.var-btn').forEach((b,i)=>b.classList.toggle('active',(i===0&&v==='A')||(i===1&&v==='B')));
+  card.querySelectorAll('.var-content').forEach(c=>c.classList.remove('active'));
   card.querySelector('#'+day+'-'+v).classList.add('active');
 }
-document.getElementById('day1').classList.add('open');
+
+// ── JP OVERLAY ──
+function showJP(el){
+  document.getElementById('jpBigSituation').textContent=el.querySelector('.jp-situation').textContent;
+  document.getElementById('jpBigPhrase').innerHTML=el.querySelector('.jp-phrase').innerHTML;
+  document.getElementById('jpBigRomaji').textContent=el.querySelector('.jp-romaji').textContent;
+  document.getElementById('jpBigMeaning').textContent=el.querySelector('.jp-meaning').textContent;
+  document.getElementById('jpOverlay').classList.add('active');
+}
+function closeJP(){document.getElementById('jpOverlay').classList.remove('active')}
+
+// ── WEATHER ──
+async function loadWeather(){
+  try{
+    const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=26.21&longitude=127.68&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Asia%2FTokyo&forecast_days=7');
+    const d=await r.json();
+    document.getElementById('weather-loading').style.display='none';
+    const codeToIcon=c=>{if(c<=1)return'☀️';if(c<=3)return'⛅';if(c<=48)return'🌫️';if(c<=67)return'🌧️';if(c<=77)return'❄️';if(c<=82)return'🌦️';return'⛈️'};
+    const days=['日','一','二','三','四','五','六'];
+    const wrap=document.getElementById('weather-items');
+    d.daily.time.forEach((t,i)=>{
+      const dt=new Date(t);
+      const el=document.createElement('div');
+      el.className='weather-item';
+      el.innerHTML=`<div class="weather-date">${dt.getMonth()+1}/${dt.getDate()}(${days[dt.getDay()]})</div><div class="weather-icon">${codeToIcon(d.daily.weathercode[i])}</div><div class="weather-temp">${Math.round(d.daily.temperature_2m_min[i])}–${Math.round(d.daily.temperature_2m_max[i])}°C</div>`;
+      wrap.appendChild(el);
+    });
+  }catch(e){
+    document.getElementById('weather-loading').textContent='天氣資料暫時無法載入';
+  }
+}
+loadWeather();
 </script>
 </body>
 </html>
