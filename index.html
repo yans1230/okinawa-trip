@@ -254,7 +254,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
   <button class="tab-btn tab-1" onclick="showPage('day1')"><span class="icon">✈️</span>Day 1</button>
   <button class="tab-btn tab-2" onclick="showPage('day2')"><span class="icon">⚡</span>Day 2</button>
   <button class="tab-btn tab-3" onclick="showPage('day3')"><span class="icon">🐋</span>Day 3</button>
-  <button class="tab-btn tab-4" onclick="showPage('day4')"><span class="icon">🏯</span>Day 4</button>
+  <button class="tab-btn tab-4" onclick="showPage('day4')"><span class="icon">🛕</span>Day 4</button>
   <button class="tab-btn tab-5" onclick="showPage('day5')"><span class="icon">🚢</span>Day 5</button>
   <button class="tab-btn" onclick="showPage('japanese')"><span class="icon">🗣️</span>日語</button>
   <button class="tab-btn" onclick="showPage('omiyage')"><span class="icon">🎁</span>伴手禮</button>
@@ -613,150 +613,88 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 ══════════════════════════════════════ -->
 <div class="page" id="page-day4">
   <div class="card day-4-accent">
-    <div class="card-header ch-purple">🏯 Day 4 · 11/7（六）· 那霸自由日 · 二選一方案</div>
+    <div class="card-header ch-purple">🛕 Day 4 · 11/7（六）· 波上宮 → 書店散策 → 公園</div>
     <div class="card-body">
-      <div class="var-toggle">
-        <button class="var-btn active" onclick="switchVariant('day4','A')">🏯 A：首里城＋皮克敏<br><span style="font-size:9px">四寺巡禮 ⭐現選</span></button>
-        <button class="var-btn" onclick="switchVariant('day4','B')">🚝 B：那霸市區散策<br><span style="font-size:9px">書店＋公園</span></button>
+      <div class="tip tip-blue" style="margin-bottom:10px">🚝 全程使用贈送單軌電車一日券，那霸市區串連神社・書店・公園！</div>
+      <div class="tl">
+
+        <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">從嘉新酒店步行至旭橋站 約 5 分鐘</span></div>
+
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🛕</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=波上宮&ll=26.2207,127.6711" target="_blank">波上宮（Naminoue Shrine）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <span class="tag tr">4.4⭐ 琉球總鎮守</span><span class="tag ts">皮克敏神社</span><span class="stroller s-ok">🍼 推車可行</span>
+            <div class="spot-desc" style="margin-top:3px">沖繩最重要的守護神社，座落於懸崖上俯瞰東海，氣勢壯觀。9:00–17:00，免費參拜。是皮克敏的神社類地標，可蒐集神社蘑菇！神社旁邊即是波上宮海灘，孩子可以在沙灘玩耍。</div>
+            <div class="tip">🎮 <strong>皮克敏：</strong>神社地標，可蒐集神社蘑菇。帶御朱印帳更有紀念感！</div>
+          </div>
+        </div>
+
+        <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 5 分鐘（沿海濱步道）</span></div>
+
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🏖️</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=波の上ビーチ+那覇&ll=26.2223,127.6698" target="_blank">波上宮海灘（Naminoue Beach）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <span class="tag tf">免費</span><span class="stroller s-ok">🍼 推車可行</span>
+            <div class="spot-desc" style="margin-top:3px">神社參拜後順道讓孩子在沙灘玩耍，11月氣溫舒適、人潮少，是放電的好機會。記得帶玩沙玩具！</div>
+          </div>
+        </div>
+
+        <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">步行至旭橋站 約 5 分鐘 → 單軌 旭橋站 → 牧志站 約 8 分鐘</span></div>
+
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🐟</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=牧志公設市場+那覇&ll=26.2176,127.6899" target="_blank">牧志公設市場 + 午餐<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <div class="spot-desc">帶孩子看色彩繽紛的熱帶魚和沖繩食材，二樓餐廳午餐，沖繩麵、刺身定食都推薦。</div>
+          </div>
+        </div>
+
+        <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 3–5 分鐘</span></div>
+
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">📚</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <span class="spot-plain">那霸書店散策<span class="tag tb">老公最愛</span><span class="stroller s-ok">🍼 商街平坦</span></span>
+            <div class="spot-desc" style="margin-top:3px;margin-bottom:4px">全部步行串連，相距不超過10分鐘：</div>
+            <div class="book-links">
+              <a class="book-link" href="https://maps.google.com/?q=古本うらら+那覇&ll=26.2144,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>① 古本うらら 4.6⭐ — 沖繩文化古書（11:00開）</a>
+              <a class="book-link" href="https://maps.google.com/?q=ファミリーブックス+那覇&ll=26.2127,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>② Family Books — 二手書＋黑膠（13:00開）</a>
+              <a class="book-link" href="https://maps.google.com/?q=丸善+那覇&ll=26.2187,127.6858" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>③ MARUZEN 丸善 — 3層樓＋咖啡廳</a>
+              <a class="book-link" href="https://maps.google.com/?q=ジュンク堂書店+那覇&ll=26.2186,127.6859" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>④ JUNKUDO 紀伊國屋 — 那霸最大書店</a>
+            </div>
+            <div class="tip">💡 Family Books 13:00 才開。老公逛書店時，帶孩子去附近的國際通玩具店或牧志市場繼續探索。</div>
+          </div>
+        </div>
+
+        <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌 牧志站 → 奥武山公園站 約 5 分鐘</span></div>
+
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🌳</div><div class="tl-line"></div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=奥武山公園+那覇&ll=26.2034,127.6748" target="_blank">Onoyama Park 奥武山公園（傍晚放電）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <span class="tag tf">免費</span><span class="tag tr">4.7⭐</span><span class="stroller s-ok">🍼 平坦鋪面</span>
+            <div class="spot-desc" style="margin-top:3px">超長溜滑梯大人也愛！分齡遊具，站出口即達。書店逛完順路過來讓孩子盡情放電收尾。</div>
+          </div>
+        </div>
+
+        <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">返回嘉新酒店 · 至牧志站後步行 約 10 分鐘</span></div>
+
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot">🍽️</div></div>
+          <div class="tl-right">
+            <a class="spot-link" href="https://maps.google.com/?q=国際通り+那覇&ll=26.2151,127.6858" target="_blank">🌙 晚餐 · 國際通自選<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <div class="spot-desc">沖繩麵、塔可飯、烤肉任你挑，就在嘉新酒店旁邊。</div>
+          </div>
+        </div>
+
       </div>
-
-      <!-- A -->
-      <div class="var-content active" id="day4-A">
-        <div class="tl">
-          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">從嘉新酒店步行至牧志站 約 7 分鐘 → 搭至首里站 約 15 分鐘</span></div>
-
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot">🏯</div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <a class="spot-link" href="https://maps.google.com/?q=首里城公園&ll=26.2170,127.7195" target="_blank">首里城公園（Shuri Castle）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-              <span class="tag tr">4.2⭐ 世界遺產</span><span class="stroller s-partial">🍼 石板坡道多</span>
-              <div class="spot-desc" style="margin-top:2px">8:30開園。正殿修復中，外圍免費入場，城牆石獅依然壯觀。首里森御嶽是皮克敏神社地標。<br>💰 外圍免費 · 正殿區 ¥400/大人</div>
-            </div>
-          </div>
-          <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 5 分鐘（首里城周邊）</span></div>
-
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot">🛕</div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <span class="spot-plain">🎮 皮克敏四寺巡禮（首里十二支巡り）<span class="tag ts">神社蘑菇</span></span>
-              <div class="book-links" style="margin-top:4px">
-                <a class="book-link" href="https://maps.google.com/?q=慈眼院+首里観音堂+那覇&ll=26.2231,127.7138" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>① 慈眼院（首里觀音堂）— 1618年，120年老榕樹</a>
-                <a class="book-link" href="https://maps.google.com/?q=太平山安國寺+那覇+首里&ll=26.2196,127.7160" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>② 太平山安國寺 — 550年歷史，可拿御朱印</a>
-                <a class="book-link" href="https://maps.google.com/?q=西来院+達磨寺+那覇+首里&ll=26.2208,127.7145" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>③ 西來院（達磨寺）— 紅色鳥居＋稻荷大明神</a>
-                <a class="book-link" href="https://maps.google.com/?q=盛光寺+那覇+首里&ll=26.2278,127.7073" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>④ 盛光寺 — 儀保站旁，巡完直接搭單軌</a>
-              </div>
-              <div class="tip tip-blue">📍 四間各自是獨立地標，一次蒐集多種蘑菇！帶御朱印帳更有紀念感。全程步行約 30–40 分鐘。</div>
-            </div>
-          </div>
-          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌 儀保站 → 牧志站 約 10 分鐘</span></div>
-
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot">🐟</div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <a class="spot-link" href="https://maps.google.com/?q=牧志公設市場+那覇&ll=26.2176,127.6899" target="_blank">牧志公設市場 + 午餐<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-              <div class="spot-desc">帶孩子看熱帶魚，市場二樓午餐。</div>
-            </div>
-          </div>
-          <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 3–5 分鐘</span></div>
-
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot">📚</div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <span class="spot-plain">那霸書店散策<span class="tag tb">老公最愛</span><span class="stroller s-ok">🍼 商街平坦</span></span>
-              <div class="book-links" style="margin-top:4px">
-                <a class="book-link" href="https://maps.google.com/?q=古本うらら+那覇&ll=26.2144,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>① 古本うらら 4.6⭐ — 沖繩文化古書 11:00開</a>
-                <a class="book-link" href="https://maps.google.com/?q=ファミリーブックス+那覇&ll=26.2127,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>② Family Books — 二手書＋黑膠 13:00開</a>
-                <a class="book-link" href="https://maps.google.com/?q=丸善+那覇&ll=26.2187,127.6858" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>③ MARUZEN 丸善 — 3層樓＋咖啡廳</a>
-                <a class="book-link" href="https://maps.google.com/?q=ジュンク堂書店+那覇&ll=26.2186,127.6859" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>④ JUNKUDO 紀伊國屋 — 那霸最大</a>
-              </div>
-            </div>
-          </div>
-          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌 牧志站 → 奥武山公園站 約 5 分鐘</span></div>
-
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot">🌳</div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <a class="spot-link" href="https://maps.google.com/?q=奥武山公園+那覇&ll=26.2034,127.6748" target="_blank">Onoyama Park 奥武山公園（放電）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-              <span class="tag tf">免費</span><span class="tag tr">4.7⭐</span><span class="stroller s-ok">🍼 平坦鋪面</span>
-              <div class="spot-desc" style="margin-top:2px">超長溜滑梯大人也愛！站出口即達。</div>
-            </div>
-          </div>
-          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">返回嘉新酒店 · 至牧志站後步行 約 10 分鐘</span></div>
-
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot">🍽️</div></div>
-            <div class="tl-right">
-              <a class="spot-link" href="https://maps.google.com/?q=国際通り+那覇&ll=26.2151,127.6858" target="_blank">🌙 晚餐 · 國際通自選<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-              <div class="spot-desc">沖繩麵、塔可飯、烤肉任你挑。</div>
-            </div>
-          </div>
-        </div>
-        <div class="meals-row">
-          <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">飯店早餐</div></div>
-          <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-val">自理<br>牧志市場</div></div>
-          <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-val">自理<br>國際通</div></div>
-        </div>
+      <div class="meals-row">
+        <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">飯店早餐</div></div>
+        <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-val">自理<br>牧志市場</div></div>
+        <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-val">自理<br>國際通</div></div>
       </div>
-
-      <!-- B -->
-      <div class="var-content" id="day4-B">
-        <div class="tl">
-          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">從嘉新酒店步行至牧志站 約 7 分鐘</span></div>
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot">🛝</div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <a class="spot-link" href="https://maps.google.com/?q=波上宮わくわくキッズランド+那覇&ll=26.2202,127.6687" target="_blank">Wakuwaku Kids Land 室內遊樂場<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-              <span class="tag ty">下雨天首選</span><span class="stroller s-ok">🍼 室內平坦</span>
-              <div class="spot-desc" style="margin-top:2px">攀岩牆、彈跳床、滑梯，¥600/小時（孩童）。帶現金＋穿襪子，10:00開門。</div>
-            </div>
-          </div>
-          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌 旭橋站 → 牧志站 約 8 分鐘</span></div>
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot">🐟</div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <a class="spot-link" href="https://maps.google.com/?q=牧志公設市場+那覇&ll=26.2176,127.6899" target="_blank">牧志公設市場 + 午餐<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-              <div class="spot-desc">帶孩子看熱帶魚，市場二樓午餐。</div>
-            </div>
-          </div>
-          <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 3–5 分鐘</span></div>
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot">📚</div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <span class="spot-plain">那霸書店散策<span class="tag tb">老公最愛</span><span class="stroller s-ok">🍼 商街平坦</span></span>
-              <div class="book-links" style="margin-top:4px">
-                <a class="book-link" href="https://maps.google.com/?q=古本うらら+那覇&ll=26.2144,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>① 古本うらら 4.6⭐ 11:00開</a>
-                <a class="book-link" href="https://maps.google.com/?q=ファミリーブックス+那覇&ll=26.2127,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>② Family Books 13:00開</a>
-                <a class="book-link" href="https://maps.google.com/?q=丸善+那覇&ll=26.2187,127.6858" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>③ MARUZEN 丸善</a>
-                <a class="book-link" href="https://maps.google.com/?q=ジュンク堂書店+那覇&ll=26.2186,127.6859" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>④ JUNKUDO 紀伊國屋</a>
-              </div>
-            </div>
-          </div>
-          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌 牧志站 → 奥武山公園站 約 5 分鐘</span></div>
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot">🌳</div><div class="tl-line"></div></div>
-            <div class="tl-right">
-              <a class="spot-link" href="https://maps.google.com/?q=奥武山公園+那覇&ll=26.2034,127.6748" target="_blank">Onoyama Park 奥武山公園<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-              <span class="tag tf">免費</span><span class="tag tr">4.7⭐</span><span class="stroller s-ok">🍼 平坦鋪面</span>
-              <div class="spot-desc" style="margin-top:2px">超長溜滑梯大人也愛！站出口即達。</div>
-            </div>
-          </div>
-          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">返回嘉新酒店 · 至牧志站後步行 約 10 分鐘</span></div>
-          <div class="tl-item">
-            <div class="tl-left"><div class="tl-dot">🍽️</div></div>
-            <div class="tl-right">
-              <a class="spot-link" href="https://maps.google.com/?q=国際通り+那覇&ll=26.2151,127.6858" target="_blank">🌙 晚餐 · 國際通自選<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-              <div class="spot-desc">沖繩麵、塔可飯、烤肉任你挑。</div>
-            </div>
-          </div>
-          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">返回嘉新酒店 · 至牧志站後步行 約 10 分鐘</span></div>
-        </div>
-        <div class="meals-row">
-          <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">飯店早餐</div></div>
-          <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-val">自理<br>牧志市場</div></div>
-          <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-val">自理<br>國際通</div></div>
-        </div>
-      </div>
-
       <a class="hotel-badge" href="https://maps.google.com/?q=Hotel+Collective+Naha&ll=26.2152,127.6855" target="_blank">
         🏨 <div><div class="hname">Hotel Collective 嘉新酒店</div><div class="hsub">國際通核心 · 五星 · 頂樓露天泳池</div></div>
       </a>
