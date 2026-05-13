@@ -238,6 +238,14 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 .om-glink{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:700;color:var(--ocean);text-decoration:none;border:1px solid var(--ocean-light);border-radius:5px;padding:2px 8px;flex-shrink:0;white-space:nowrap}
 .om-glink:active{opacity:.6}
 .om-price{font-size:13px;font-weight:700;color:var(--ocean2);background:var(--ocean-light);border-radius:6px;padding:2px 8px;white-space:nowrap}
+
+/* ── SHOPPING MEMO ── */
+.shop-memo{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+.shop-tag{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:600;padding:2px 8px;border-radius:12px;white-space:nowrap}
+.shop-food{background:#fff3e0;color:#d06000;border:1px solid #ffd080}
+.shop-pharma{background:#e8f5ff;color:#0066aa;border:1px solid #99ccff}
+.shop-kids{background:#f0fff4;color:#1a7a40;border:1px solid #80ddaa}
+.shop-souvenir{background:#f5e8ff;color:#7020b0;border:1px solid #cc88ff}
 </style>
 </head>
 <body>
@@ -337,8 +345,6 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
       <div class="kids-tip"><span>🚢</span><span><strong>半潛水艇</strong>：無需下水，坐船內看海底，幼兒最安全</span></div>
       <div class="kids-tip"><span>🏊</span><span><strong>泳衣必帶</strong>：兩飯店都有泳池，王子無邊際泳池超夢幻</span></div>
       <div class="kids-tip"><span>🌡️</span><span><strong>11月天氣</strong>：均溫22–26°C，薄外套、防曬都帶，偶有陣雨備雨衣</span></div>
-      <div class="kids-tip"><span>🎮</span><span><strong>皮克敏</strong>：首里城+周邊四寺，一次蒐集多種神社蘑菇</span></div>
-      <div class="kids-tip"><span>💴</span><span><strong>費用</strong>：確認出發時孩子是否滿5歲，未滿可省 NT$2,000</span></div>
     </div>
   </div>
 
@@ -397,6 +403,8 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
             <a class="spot-link" href="https://maps.google.com/?q=海ん道uminchi+うるま市&ll=26.3492,127.8256" target="_blank">海ん道 UMINCHI 海葡萄農場<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
             <span class="tag ts">贈冰淇淋</span><span class="stroller s-ok">🍼 推車可</span>
             <div class="spot-desc" style="margin-top:2px">親手撈採「綠色魚子醬」海葡萄，搭特製醬汁品嚐，附贈冰淇淋。5歲孩子超適合！</div>
+            <div class="shop-memo"><span class="shop-tag shop-food">🍬 零食伴手禮</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
+            <div style="background:linear-gradient(90deg,#fff8f0,#fff);border-left:3px solid #e07b00;border-radius:0 6px 6px 0;padding:6px 10px;font-size:11px;color:#9a5000;margin-top:5px;line-height:1.5">🛒 <strong>農場直賣所</strong>：海葡萄醬汁組合、海葡萄加工食品，現場直購最新鮮，比超市便宜。</div>
           </div>
         </div>
         <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 25 分鐘</span></div>
@@ -467,7 +475,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
             <div class="tl-left"><div class="tl-dot">🏠</div><div class="tl-line"></div></div>
             <div class="tl-right"><span class="spot-plain">從王子飯店出發</span></div>
           </div>
-          <div class="transit"><span class="transit-icon">🚕</span><span class="transit-text">計程車或租車 · 約 25 分鐘</span></div>
+          <div class="transit"><span class="transit-icon">🚕</span><span class="transit-text">計程車 · 約 25 分鐘 · 單程約 ¥2,000–2,500</span></div>
 
           <div class="tl-item">
             <div class="tl-left"><div class="tl-dot">🏟️</div><div class="tl-line"></div></div>
@@ -485,6 +493,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
               <a class="spot-link" href="https://maps.google.com/?q=ポケモンセンターオキナワ&ll=26.3141,127.7963" target="_blank">⭐ 寶可夢中心 Pokémon Center Okinawa（1F）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
               <span class="tag ts">沖繩限定</span><span class="stroller s-ok">🍼 推車友善</span>
               <div class="spot-desc" style="margin-top:2px">10:00–22:00。沖繩限定皮卡丘、琉球風格商品。比東京/大阪人少超好逛！<br>⚠️ TCG 卡包有購買數量限制，記得確認。</div>
+            <div class="shop-memo"><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
             </div>
           </div>
           <div class="transit"><span class="transit-icon">🏬</span><span class="transit-text">館內移動 · 美食廣場</span></div>
@@ -518,7 +527,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
               <div class="spot-desc">代金 ¥3,000 在 AEON MALL 使用，省去回那霸再吃飯的交通。</div>
             </div>
           </div>
-          <div class="transit"><span class="transit-icon">🚕</span><span class="transit-text">返回王子飯店 · 計程車或租車 · 約 25 分鐘</span></div>
+          <div class="transit"><span class="transit-icon">🚕</span><span class="transit-text">返回王子飯店 · 計程車 · 約 25 分鐘 · 單程約 ¥2,000–2,500</span></div>
         </div>
         <div class="meals-row">
           <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">飯店早餐</div></div>
@@ -561,6 +570,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
             <a class="spot-link" href="https://maps.google.com/?q=沖縄美ら海水族館&ll=26.6943,127.8780" target="_blank">美之海水族館 + 海豚秀 ☀️海景自助午餐<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
             <span class="tag ts">東亞最大</span><span class="stroller s-ok">🍼 坡道電梯完備</span>
             <div class="spot-desc" style="margin-top:2px">3隻巨大鯨鯊在8公尺高玻璃幕後巡航！世界首創人工珊瑚礁，海豚特技秀精彩。</div>
+              <div style="background:linear-gradient(90deg,#fff8f0,#fff);border-left:3px solid #e07b00;border-radius:0 6px 6px 0;padding:6px 10px;font-size:11px;color:#9a5000;margin-top:5px;line-height:1.5">🛒 <strong>水族館禮品店</strong>：鯨鯊玩偶、孩子泳衣、海洋主題文具，出口處必逛，比外面便宜！</div>
             <div class="tip">🧒 鯨鯊+海豚秀是全程孩子最大亮點。記得備玩沙玩具給美國村沙灘。</div>
           </div>
         </div>
@@ -571,6 +581,8 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
           <div class="tl-right">
             <span class="spot-plain">免稅店</span>
             <div class="spot-desc">伴手禮、健康食品、名產一次購足。</div>
+            <div class="shop-memo"><span class="shop-tag shop-food">🍬 零食伴手禮</span><span class="shop-tag shop-pharma">💊 藥妝</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
+              <div style="background:linear-gradient(90deg,#fff8f0,#fff);border-left:3px solid #e07b00;border-radius:0 6px 6px 0;padding:6px 10px;font-size:11px;color:#9a5000;margin-top:5px;line-height:1.5">🛒 <strong>掃貨重點</strong>：ちんすこう、紅芋點心、健康食品、泡盛；已含免稅，大量採購最划算。</div>
           </div>
         </div>
         <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 15 分鐘</span></div>
@@ -581,6 +593,8 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
             <a class="spot-link" href="https://maps.google.com/?q=美浜アメリカンビレッジ+北谷町&ll=26.3159,127.7540" target="_blank">北谷町美國村<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
             <span class="stroller s-ok">🍼 平坦鋪面</span>
             <div class="spot-desc" style="margin-top:2px">美式風情購物娛樂中心，日落海灘賞夕陽絕佳。</div>
+            <div class="shop-memo"><span class="shop-tag shop-food">🍬 零食伴手禮</span><span class="shop-tag shop-kids">👕 小孩衣物</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
+              <div style="background:linear-gradient(90deg,#fff8f0,#fff);border-left:3px solid #e07b00;border-radius:0 6px 6px 0;padding:6px 10px;font-size:11px;color:#9a5000;margin-top:5px;line-height:1.5">🛒 <strong>購物亮點</strong>：美式潮牌童裝、紀念T-shirt、沖繩風格雜貨；Don Quijote（唐吉軻德）就在附近，藥妝零食超齊全。</div>
           </div>
         </div>
         <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 20 分鐘 → 那霸市區</span></div>
@@ -626,6 +640,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
             <a class="spot-link" href="https://maps.google.com/?q=波上宮&ll=26.2207,127.6711" target="_blank">波上宮（Naminoue Shrine）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
             <span class="tag tr">4.4⭐ 琉球總鎮守</span><span class="tag ts">皮克敏神社</span><span class="stroller s-ok">🍼 推車可行</span>
             <div class="spot-desc" style="margin-top:3px">沖繩最重要的守護神社，座落於懸崖上俯瞰東海，氣勢壯觀。9:00–17:00，免費參拜。是皮克敏的神社類地標，可蒐集神社蘑菇！神社旁邊即是波上宮海灘，孩子可以在沙灘玩耍。</div>
+            <div style="background:linear-gradient(90deg,#fff8f0,#fff);border-left:3px solid #e07b00;border-radius:0 6px 6px 0;padding:6px 10px;font-size:11px;color:#9a5000;margin-top:5px;line-height:1.5">🛒 <strong>神社內社務所</strong>：御守（護身符）、御朱印（¥300–500），琉球設計的御守很有特色，可當伴手禮。</div>
             <div class="tip">🎮 <strong>皮克敏：</strong>神社地標，可蒐集神社蘑菇。帶御朱印帳更有紀念感！</div>
           </div>
         </div>
@@ -648,6 +663,8 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
           <div class="tl-right">
             <a class="spot-link" href="https://maps.google.com/?q=牧志公設市場+那覇&ll=26.2176,127.6899" target="_blank">牧志公設市場 + 午餐<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
             <div class="spot-desc">帶孩子看色彩繽紛的熱帶魚和沖繩食材，二樓餐廳午餐，沖繩麵、刺身定食都推薦。</div>
+            <div class="shop-memo"><span class="shop-tag shop-food">🍬 零食伴手禮</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
+          <div style="background:linear-gradient(90deg,#fff8f0,#fff);border-left:3px solid #e07b00;border-radius:0 6px 6px 0;padding:6px 10px;font-size:11px;color:#9a5000;margin-top:5px;line-height:1.5">🛒 <strong>市場周邊</strong>：國際通藥妝店集中（Matsumoto Kiyoshi、Daikoku Drug），零食伴手禮、藥妝、孩子用品一次買齊，是回台灣前最後補貨的好時機。</div>
           </div>
         </div>
 
@@ -665,6 +682,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
               <a class="book-link" href="https://maps.google.com/?q=ジュンク堂書店+那覇&ll=26.2186,127.6859" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>④ JUNKUDO 紀伊國屋 — 那霸最大書店</a>
             </div>
             <div class="tip">💡 Family Books 13:00 才開。老公逛書店時，帶孩子去附近的國際通玩具店或牧志市場繼續探索。</div>
+            <div class="shop-memo"><span class="shop-tag shop-kids">👕 小孩衣物</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
           </div>
         </div>
 
@@ -730,6 +748,8 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
             <a class="spot-link" href="https://maps.google.com/?q=瀬長島ウミカジテラス+沖縄&ll=26.1767,127.6404" target="_blank">瀨長島 Umikaji Terrace 小希臘 ☀️日式午餐<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
             <span class="stroller s-partial">🍼 石板坡道費力</span>
             <div class="spot-desc" style="margin-top:2px">純白地中海風商場，邊吃舒芙蕾或塔可飯邊看飛機起降。旅程最美的句點！</div>
+            <div class="shop-memo"><span class="shop-tag shop-food">🍬 零食伴手禮</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
+          <div style="background:linear-gradient(90deg,#fff8f0,#fff);border-left:3px solid #e07b00;border-radius:0 6px 6px 0;padding:6px 10px;font-size:11px;color:#9a5000;margin-top:5px;line-height:1.5">🛒 <strong>最後購物機會</strong>：瀨長島 Umikaji Terrace 有沖繩海鹽、手工藝品、限定點心小舖，離機場僅5分鐘，是登機前最後補買伴手禮的好地點。</div>
           </div>
         </div>
         <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 5 分鐘</span></div>
