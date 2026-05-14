@@ -239,7 +239,50 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 .om-glink:active{opacity:.6}
 .om-price{font-size:13px;font-weight:700;color:var(--ocean2);background:var(--ocean-light);border-radius:6px;padding:2px 8px;white-space:nowrap}
 
-/* ── SHOPPING MEMO ── */
+/* ── AEON FLOOR ── */
+.aeon-hero{background:linear-gradient(135deg,#e31837 0%,#c8001a 100%);color:#fff;border-radius:var(--radius);padding:14px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px}
+.aeon-hero-logo{font-size:32px;flex-shrink:0}
+.aeon-hero-title{font-size:15px;font-weight:900;line-height:1.3}
+.aeon-hero-sub{font-size:11px;opacity:.85;margin-top:3px}
+.aeon-info-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.aeon-info-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.aeon-info-label{font-size:10px;color:var(--text3);margin-bottom:3px;font-weight:600;letter-spacing:.05em}
+.aeon-info-val{font-size:12px;color:var(--text);font-weight:600;line-height:1.5}
+.aeon-alert{background:#fff8e0;border:1px solid #f0d060;border-radius:10px;padding:10px 12px;font-size:12px;color:#8a6000;margin-bottom:10px;display:flex;gap:8px;line-height:1.5}
+.floor-tabs{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin-bottom:10px}
+.floor-tabs::-webkit-scrollbar{display:none}
+.floor-btn{flex-shrink:0;padding:5px 14px;border-radius:20px;border:2px solid var(--border);background:var(--white);font-size:12px;font-weight:600;font-family:'Noto Sans TC',sans-serif;cursor:pointer;color:var(--text2);transition:all .2s;white-space:nowrap}
+.floor-btn.f-active{color:#fff;border-color:transparent}
+.floor-btn[data-f="1f"].f-active{background:#e31837}
+.floor-btn[data-f="2f"].f-active{background:#e07b00}
+.floor-btn[data-f="3f"].f-active{background:#2a9d5c}
+.floor-btn[data-f="4f"].f-active{background:#7b2d8b}
+.floor-btn[data-f="5f"].f-active{background:#0077b6}
+.floor-page{display:none}
+.floor-page.f-show{display:block}
+.floor-header{border-radius:10px;padding:10px 14px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.floor-header .f-num{font-size:28px;font-weight:900;color:#fff;font-family:'Noto Sans TC',sans-serif;line-height:1;width:44px;text-align:center}
+.floor-header .f-info{flex:1}
+.floor-header .f-title{font-size:14px;font-weight:700;color:#fff;line-height:1.3}
+.floor-header .f-hours{font-size:11px;color:rgba(255,255,255,.8);margin-top:2px}
+.fh-1f{background:linear-gradient(135deg,#e31837,#ff5050)}
+.fh-2f{background:linear-gradient(135deg,#e07b00,#ffaa44)}
+.fh-3f{background:linear-gradient(135deg,#2a9d5c,#4dc880)}
+.fh-4f{background:linear-gradient(135deg,#7b2d8b,#b060cc)}
+.fh-5f{background:linear-gradient(135deg,#0077b6,#33aaee)}
+.zone-card{background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden}
+.zone-header{padding:9px 13px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--border);background:var(--gray)}
+.zone-body{padding:10px 13px}
+.shop-row{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--gray2);font-size:12px;line-height:1.4}
+.shop-row:last-child{border-bottom:none}
+.shop-emoji{font-size:16px;flex-shrink:0;margin-top:1px}
+.shop-name{font-weight:600;color:var(--text);flex:1}
+.shop-desc{font-size:11px;color:var(--text2);margin-top:1px}
+.shop-badge{font-size:9px;font-weight:700;padding:1px 6px;border-radius:6px;white-space:nowrap;margin-left:4px;vertical-align:middle}
+.sb-must{background:#fff0e8;color:#d06030;border:1px solid #ffd0b8}
+.sb-kid{background:#e6f7ee;color:#1a7a40;border:1px solid #90d8a8}
+.sb-book{background:#e8f0ff;color:#2a4aaa;border:1px solid #b0c4ff}
+.sb-food{background:#fff8e0;color:#9a6000;border:1px solid #ffd060}
 .shop-memo{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
 .shop-tag{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:600;padding:2px 8px;border-radius:12px;white-space:nowrap}
 .shop-food{background:#fff3e0;color:#d06000;border:1px solid #ffd080}
@@ -266,6 +309,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
   <button class="tab-btn tab-5" onclick="showPage('day5')"><span class="icon">🚢</span>Day 5</button>
   <button class="tab-btn" onclick="showPage('japanese')"><span class="icon">🗣️</span>日語</button>
   <button class="tab-btn" onclick="showPage('omiyage')"><span class="icon">🎁</span>伴手禮</button>
+  <button class="tab-btn" onclick="showPage('aeon')"><span class="icon">🏬</span>AEON</button>
   <button class="tab-btn" onclick="showPage('practical')"><span class="icon">📋</span>實用</button>
 </div>
 
@@ -516,7 +560,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
             <div class="tl-right">
               <span class="spot-plain">書店散策<span class="tag tb">老公最愛</span><span class="stroller s-ok">🍼 推車友善</span></span>
               <div class="book-links" style="margin-top:4px">
-                <a class="book-link" href="https://maps.google.com/?q=未来屋書店+イオンモール沖縄ライカム&ll=26.3148,127.7960" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>① Miraiya 未来屋書店（1F）4.0⭐ — 選書＋文具</a>
+                <a class="book-link" href="https://maps.google.com/?q=未来屋書店+イオンモール沖縄ライカム&ll=26.3148,127.7960" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>① Miraiya 未来屋書店（1F 獨立棟）4.0⭐ — 選書＋文具＋Tully's Coffee</a>
                 <a class="book-link" href="https://maps.google.com/?q=ヴィレッジヴァンガード+イオンモール沖縄ライカム&ll=26.3140,127.7967" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>② Village Vanguard（4F）🎮 書×雜貨×任天堂周邊</a>
               </div>
               <div class="shop-memo"><span class="shop-tag shop-food">🍬 零食伴手禮</span><span class="shop-tag shop-kids">👕 小孩衣物</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
@@ -834,6 +878,413 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 
 </div><!-- /page-japanese -->
 
+
+<!-- ══════════════════════════════════════
+     AEON MALL FLOOR GUIDE
+══════════════════════════════════════ -->
+<div class="page" id="page-aeon">
+
+  <!-- Hero -->
+  <div class="aeon-hero">
+    <div class="aeon-hero-logo">🏬</div>
+    <div>
+      <div class="aeon-hero-title">永旺夢樂城 沖繩萊卡姆<br>AEON MALL Okinawa Rycom</div>
+      <div class="aeon-hero-sub">沖繩最大購物中心 · 約200間專門店 · 全棟5層</div>
+    </div>
+  </div>
+
+  <!-- 基本資訊 -->
+  <div class="aeon-info-row">
+    <div class="aeon-info-card">
+      <div class="aeon-info-label">🕙 營業時間</div>
+      <div class="aeon-info-val">專門店 10:00–22:00<br>餐廳 11:00–23:00<br>AEON超市 08:00–23:00</div>
+    </div>
+    <div class="aeon-info-card">
+      <div class="aeon-info-label">📍 地址</div>
+      <div class="aeon-info-val">北中城村<br>字ライカム1番地<br>🅿 停車免費</div>
+    </div>
+    <div class="aeon-info-card">
+      <div class="aeon-info-label">🚌 公車</div>
+      <div class="aeon-info-val">沖縄バス 92番<br>琉球バス 21番<br>直達バス停 徒步0分</div>
+    </div>
+    <div class="aeon-info-card">
+      <div class="aeon-info-label">🔗 官網</div>
+      <div class="aeon-info-val"><a href="https://okinawarycom.aeonmall.jp" target="_blank" style="color:var(--ocean);font-weight:600">官方網站</a><br><a href="https://okinawarycom.aeonmall.jp/floormap" target="_blank" style="color:var(--ocean)">樓層地圖</a></div>
+    </div>
+  </div>
+
+  <!-- 折價券提醒 -->
+  <div class="aeon-alert">
+    <span style="font-size:18px;flex-shrink:0">🎟️</span>
+    <span><strong>觀光客優惠！</strong>入館後先到 <strong>1F 観光サービスセンター（旅遊服務中心）</strong>，出示外國護照即可領取 <strong>¥500 折價券</strong>，可在指定店舖使用。先領再逛最划算！</span>
+  </div>
+
+  <!-- 樓層切換 -->
+  <div class="floor-tabs">
+    <button class="floor-btn f-active" data-f="1f" onclick="showFloor('1f',this)">1F 入口・寶可夢</button>
+    <button class="floor-btn" data-f="2f" onclick="showFloor('2f',this)">2F 超市・時裝</button>
+    <button class="floor-btn" data-f="3f" onclick="showFloor('3f',this)">3F 服飾・美食廣場</button>
+    <button class="floor-btn" data-f="4f" onclick="showFloor('4f',this)">4F 兒童・土産・電影</button>
+    <button class="floor-btn" data-f="5f" onclick="showFloor('5f',this)">5F 景觀餐廳・娛樂</button>
+  </div>
+
+  <!-- ── 1F ── -->
+  <div class="floor-page f-show" id="floor-1f">
+    <div class="floor-header fh-1f">
+      <div class="f-num">1F</div>
+      <div class="f-info">
+        <div class="f-title">入口層 · 旅遊服務 · 寶可夢</div>
+        <div class="f-hours">10:00–22:00</div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🎟️ 旅遊服務・設施</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🛎️</div>
+          <div>
+            <div class="shop-name">観光サービスセンター（旅遊服務中心）<span class="shop-badge sb-must">必去</span></div>
+            <div class="shop-desc">外國旅客出示護照可領 ¥500 折價券。行李寄放、觀光諮詢、時刻表查詢都可在此辦理。入館第一站！</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">📦</div>
+          <div>
+            <div class="shop-name">沖縄ヤマト運輸 服務台</div>
+            <div class="shop-desc">購物後行李可宅配到飯店或機場，免抱大包小包逛街。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">💃</div>
+          <div>
+            <div class="shop-name">EXPG STUDIO OKINAWA</div>
+            <div class="shop-desc">舞蹈體驗工作室，偶爾有體驗活動。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">⭐ 必去景點</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">⚡</div>
+          <div>
+            <div class="shop-name">Pokémon Center Okinawa<span class="shop-badge sb-must">必去</span><span class="shop-badge sb-kid">孩子最愛</span></div>
+            <div class="shop-desc">沖繩限定皮卡丘・琉球風格商品・玩偶・TCG 卡包。比東京/大阪人少超好逛。⚠️ 卡包有購買數量限制。10:00–22:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">📚 書店棟（1F・2F 獨立館）</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">📖</div>
+          <div>
+            <div class="shop-name">未来屋書店（Miraiya）<span class="shop-badge sb-book">書店</span><span class="shop-badge sb-must">1F 獨立棟</span></div>
+            <div class="shop-desc">1F＋2F 兩層獨立書店棟，從主館延伸連通。精選書籍、雜誌、文具、沖繩相關書籍，內附 Tully's Coffee 咖啡廳，可買書坐著喝咖啡。4.0⭐ 10:00–22:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">👗 時裝</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🇸🇪</div>
+          <div>
+            <div class="shop-name">H&M（1F・2F 跨層）<span class="shop-badge sb-kid">孩子有</span></div>
+            <div class="shop-desc">歐美休閒風，男女童裝齊全，CP值高，孩子衣物好選擇。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 2F ── -->
+  <div class="floor-page" id="floor-2f">
+    <div class="floor-header fh-2f">
+      <div class="f-num">2F</div>
+      <div class="f-info">
+        <div class="f-title">超市・生活・時裝・ATM</div>
+        <div class="f-hours">AEON超市 08:00–23:00 / 專門店 10:00–22:00</div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🛒 超市・日用品</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🛒</div>
+          <div>
+            <div class="shop-name">AEON STYLE ライカム店（2F）<span class="shop-badge sb-must">必逛</span><span class="shop-badge sb-food">伴手禮</span></div>
+            <div class="shop-desc">08:00 早開，是全館最早開的！沖繩食品・零食・生活用品・泡盛・雪鹽等在地商品一應俱全，採買伴手禮最划算。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">💊</div>
+          <div>
+            <div class="shop-name">りゅうせきライフサポート（藥妝）</div>
+            <div class="shop-desc">08:00 早開，沖繩在地藥妝店，日用品・藥品・美妝・健康食品。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🏧</div>
+          <div>
+            <div class="shop-name">ATM キャッシュコーナー・イオン銀行</div>
+            <div class="shop-desc">換現金、提款都在這裡，visa/master/銀聯皆可用。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">👗 時裝・雜貨</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🌏</div>
+          <div>
+            <div class="shop-name">H&M（2F 延伸）<span class="shop-badge sb-kid">孩子有</span></div>
+            <div class="shop-desc">童裝・女裝・男裝，歐美風格，價格親民。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🧿</div>
+          <div>
+            <div class="shop-name">アメツチテラス（チャイハネ）</div>
+            <div class="shop-desc">亞洲民族風雜貨、服飾、生活用品，獨特伴手禮好選擇。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🍳</div>
+          <div>
+            <div class="shop-name">ABC Cooking Studio</div>
+            <div class="shop-desc">料理教室，偶有短期體驗課程可報名。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🏄</div>
+          <div>
+            <div class="shop-name">XLARGE / X-girl・Oakley Store</div>
+            <div class="shop-desc">街頭潮牌服飾、運動太陽眼鏡，沖繩海邊風格。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 3F ── -->
+  <div class="floor-page" id="floor-3f">
+    <div class="floor-header fh-3f">
+      <div class="f-num">3F</div>
+      <div class="f-info">
+        <div class="f-title">AEON大樓 · 服飾 · 美食廣場</div>
+        <div class="f-hours">09:00–22:00 / 美食廣場 10:00–22:00</div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🍽️ ライカムグルメワールド（美食廣場）<span class="shop-badge sb-must" style="font-size:10px">約2,200席</span></div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🌏</div>
+          <div>
+            <div class="shop-name">世界美食廣場（約2,200座）<span class="shop-badge sb-must">午餐首選</span></div>
+            <div class="shop-desc">沖繩麵・拉麵・丼飯・炸雞・漢堡・沙拉・甜點齊備，可用旅遊代金券。適合全家各選各的，孩子容易點餐。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🛍️ AEON 大樓・服飾・鞋子</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🏪</div>
+          <div>
+            <div class="shop-name">イオンライカム店（3F）</div>
+            <div class="shop-desc">家電・寢具・廚具・嬰兒用品、日用品，採買生活用品。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">👟</div>
+          <div>
+            <div class="shop-name">ABC-MART・ABC-MART GRAND STAGE</div>
+            <div class="shop-desc">日本最大連鎖鞋店，男女童鞋齊全，NIKE・New Balance・ASICS等品牌，可試穿。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">👘</div>
+          <div>
+            <div class="shop-name">アンティカルチャー</div>
+            <div class="shop-desc">沖繩風民族服飾，有成人兒童款，照片紀念穿搭好選擇。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">📱</div>
+          <div>
+            <div class="shop-name">au Style ライカム・各電信門市</div>
+            <div class="shop-desc">手機/SIM卡相關，有問題可詢問。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 4F ── -->
+  <div class="floor-page" id="floor-4f">
+    <div class="floor-header fh-4f">
+      <div class="f-num">4F</div>
+      <div class="f-info">
+        <div class="f-title">書店・兒童・時裝・電影・沖繩土產</div>
+        <div class="f-hours">10:00–22:00 / 餐廳街 11:00–23:00 / 電影院 10:00–24:00</div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">📚 書店・雜貨</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🎮</div>
+          <div>
+            <div class="shop-name">Village Vanguard<span class="shop-badge sb-book">書店</span><span class="shop-badge sb-kid">孩子有</span></div>
+            <div class="shop-desc">書×動漫×雜貨×任天堂周邊，挖寶天堂！Switch遊戲、周邊商品豐富，孩子大人都愛。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🧒 兒童・時裝</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">👗</div>
+          <div>
+            <div class="shop-name">apres les cours<span class="shop-badge sb-kid">兒童服飾</span></div>
+            <div class="shop-desc">法式風格兒童服飾，設計感強，尺寸齊全，帶孩子採購好選擇。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">👟</div>
+          <div>
+            <div class="shop-name">ABC-MART ANNEX</div>
+            <div class="shop-desc">鞋類選品店，有童鞋專區。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🧥</div>
+          <div>
+            <div class="shop-name">WEGO</div>
+            <div class="shop-desc">日系平價時尚，男女裝均有，街頭感強。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🏪</div>
+          <div>
+            <div class="shop-name">イオンライカム店（4F）</div>
+            <div class="shop-desc">嬰兒・兒童用品區，尿布、玩具、學習用品齊全。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🎌 沖繩土產・其他</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🎁</div>
+          <div>
+            <div class="shop-name">楽市楽座<span class="shop-badge sb-food">土產</span></div>
+            <div class="shop-desc">沖繩伴手禮専門店！ちんすこう・紅芋タルト・泡盛・雪鹽等全部有，一站買齊，比機場便宜。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">📮</div>
+          <div>
+            <div class="shop-name">イオンモール内郵便局</div>
+            <div class="shop-desc">寄包裹、換匯、郵票都可辦理。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🎬</div>
+          <div>
+            <div class="shop-name">シネマライカム（電影院）</div>
+            <div class="shop-desc">播映日本・好萊塢最新電影，10:00–24:00，孩子疲倦時的好選擇。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🍽️</div>
+          <div>
+            <div class="shop-name">4F レストラン街</div>
+            <div class="shop-desc">居酒屋・燒肉・沖繩料理等多種正餐選擇，11:00–23:00。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🎠 兒童遊樂</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🎡</div>
+          <div>
+            <div class="shop-name">ちきゅうのにわ 室內兒童樂園<span class="shop-badge sb-kid">強力推薦</span></div>
+            <div class="shop-desc">Rycom Village C 2F（4F 連通），滑梯・球池・水玩區・沙坑，5歲以下完美適齡。<br>10:00–20:00 · ¥1,200–1,600/孩童全日</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 5F ── -->
+  <div class="floor-page" id="floor-5f">
+    <div class="floor-header fh-5f">
+      <div class="f-num">5F</div>
+      <div class="f-info">
+        <div class="f-title">景觀餐廳 · 娛樂 · 特色設施</div>
+        <div class="f-hours">11:00–23:00</div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🌅 ライカムスカイダイナー（景觀餐廳街）</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🌅</div>
+          <div>
+            <div class="shop-name">景觀餐廳街（5F）</div>
+            <div class="shop-desc">從5樓可眺望沖繩中部壯闊景色，含日料・鐵板燒・創意料理等高檔餐廳，適合晚餐特別一餐。11:00–23:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🎪 娛樂設施</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">💩</div>
+          <div>
+            <div class="shop-name">うんこミュージアム OKINAWA<span class="shop-badge sb-kid">孩子超愛</span></div>
+            <div class="shop-desc">超搞笑的互動體驗型博物館！5歲孩子絕對笑翻，拍照道具多，大人也會玩得很開心。需購票入場。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🔐</div>
+          <div>
+            <div class="shop-name">OKI ESCAPE（密室逃脫）</div>
+            <div class="shop-desc">沖繩主題密室逃脫體驗，需預約，適合成人或較大孩童。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-aeon -->
 
 <!-- ══════════════════════════════════════
      PRACTICAL
@@ -1199,6 +1650,14 @@ function omUpdateStats(){
   document.getElementById('om-total').textContent=all.length;
   document.getElementById('om-done').textContent=done.length;
   document.getElementById('om-left').textContent=all.length-done.length;
+}
+
+// ── AEON FLOOR ──
+function showFloor(f, btn) {
+  document.querySelectorAll('.floor-page').forEach(p => p.classList.remove('f-show'));
+  document.querySelectorAll('.floor-btn').forEach(b => b.classList.remove('f-active'));
+  document.getElementById('floor-' + f).classList.add('f-show');
+  btn.classList.add('f-active');
 }
 
 loadWeather();
