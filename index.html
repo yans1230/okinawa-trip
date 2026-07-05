@@ -170,6 +170,29 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 .p-row:last-child{border-bottom:none}
 .p-icon{font-size:13px;flex-shrink:0;margin-top:1px}
 
+/* ── iias FLOOR ── */
+.iias-hero{background:linear-gradient(135deg,#006cb5 0%,#00a0e9 100%);color:#fff;border-radius:var(--radius);padding:14px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px}
+.iias-hero-logo{font-size:32px;flex-shrink:0}
+.iias-hero-title{font-size:15px;font-weight:900;line-height:1.3}
+.iias-hero-sub{font-size:11px;opacity:.85;margin-top:3px}
+.iias-floor-tabs{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin-bottom:10px}
+.iias-floor-tabs::-webkit-scrollbar{display:none}
+.iias-floor-btn{flex-shrink:0;padding:5px 14px;border-radius:20px;border:2px solid var(--border);background:var(--white);font-size:12px;font-weight:600;font-family:'Noto Sans TC',sans-serif;cursor:pointer;color:var(--text2);transition:all .2s;white-space:nowrap}
+.iias-floor-btn.fi-active{color:#fff;border-color:transparent}
+.iias-floor-btn[data-if="1f"].fi-active{background:#0077b6}
+.iias-floor-btn[data-if="2f"].fi-active{background:#e07b00}
+.iias-floor-btn[data-if="3f"].fi-active{background:#2a9d5c}
+.iias-floor-page{display:none}
+.iias-floor-page.fi-show{display:block}
+.iias-floor-header{border-radius:10px;padding:10px 14px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.iias-floor-header .fi-num{font-size:28px;font-weight:900;color:#fff;line-height:1;width:44px;text-align:center}
+.iias-floor-header .fi-info{flex:1}
+.iias-floor-header .fi-title{font-size:14px;font-weight:700;color:#fff;line-height:1.3}
+.iias-floor-header .fi-hours{font-size:11px;color:rgba(255,255,255,.8);margin-top:2px}
+.fih-1f{background:linear-gradient(135deg,#0077b6,#33aaee)}
+.fih-2f{background:linear-gradient(135deg,#e07b00,#ffaa44)}
+.fih-3f{background:linear-gradient(135deg,#2a9d5c,#4dc880)}
+
 /* ── CHECKLIST ── */
 .check-item{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--gray2);font-size:13px;color:var(--text2)}
 .check-item:last-child{border-bottom:none}
@@ -305,11 +328,12 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
   <button class="tab-btn tab-1" onclick="showPage('day1')"><span class="icon">✈️</span>Day 1</button>
   <button class="tab-btn tab-2" onclick="showPage('day2')"><span class="icon">⚡</span>Day 2</button>
   <button class="tab-btn tab-3" onclick="showPage('day3')"><span class="icon">🐋</span>Day 3</button>
-  <button class="tab-btn tab-4" onclick="showPage('day4')"><span class="icon">🛕</span>Day 4</button>
+  <button class="tab-btn tab-4" onclick="showPage('day4')"><span class="icon">🛕🐠</span>Day 4</button>
   <button class="tab-btn tab-5" onclick="showPage('day5')"><span class="icon">🚢</span>Day 5</button>
   <button class="tab-btn" onclick="showPage('japanese')"><span class="icon">🗣️</span>日語</button>
   <button class="tab-btn" onclick="showPage('omiyage')"><span class="icon">🎁</span>伴手禮</button>
   <button class="tab-btn" onclick="showPage('aeon')"><span class="icon">🏬</span>AEON</button>
+  <button class="tab-btn" onclick="showPage('iias')"><span class="icon">🐠</span>iias</button>
   <button class="tab-btn" onclick="showPage('practical')"><span class="icon">📋</span>實用</button>
 </div>
 
@@ -686,92 +710,196 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 ══════════════════════════════════════ -->
 <div class="page" id="page-day4">
   <div class="card day-4-accent">
-    <div class="card-header ch-purple">🛕 Day 4 · 11/7（六）· 波上宮 → 書店散策 → 公園</div>
+    <div class="card-header ch-purple">🛕 Day 4 · 11/7（六）· 那霸自由日 · 二選一方案</div>
     <div class="card-body">
-      <div class="tip tip-blue" style="margin-bottom:10px">🚝 全程使用贈送單軌電車一日券，那霸市區串連神社・書店・公園！</div>
-      <div class="tl">
+      <div class="var-toggle">
+        <button class="var-btn active" onclick="switchVariant('day4','A')">🛕 A：波上宮＋書店<br><span style="font-size:9px">神社・書店・公園</span></button>
+        <button class="var-btn" onclick="switchVariant('day4','B')">🐠 B：DMM水族館＋書店<br><span style="font-size:9px">水族館・iias午餐・書店</span></button>
+      </div>
 
-        <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">從嘉新酒店步行至旭橋站 約 5 分鐘</span></div>
+      <!-- ── A 方案：波上宮 ── -->
+      <div class="var-content active" id="day4-A">
+        <div class="tip tip-blue" style="margin-bottom:8px">🚝 全程使用贈送單軌電車一日券，那霸市區串連神社・書店・公園！</div>
+        <div class="tl">
 
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">🛕</div><div class="tl-line"></div></div>
-          <div class="tl-right">
-            <a class="spot-link" href="https://maps.google.com/?q=波上宮&ll=26.2207,127.6711" target="_blank">波上宮（Naminoue Shrine）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-            <span class="tag tr">4.4⭐ 琉球總鎮守</span><span class="tag ts">皮克敏神社</span><span class="stroller s-ok">🍼 推車可行</span>
-            <div class="spot-desc" style="margin-top:3px">沖繩最重要的守護神社，座落於懸崖上俯瞰東海，氣勢壯觀。9:00–17:00，免費參拜。是皮克敏的神社類地標，可蒐集神社蘑菇！神社旁邊即是波上宮海灘，孩子可以在沙灘玩耍。</div>
-            <div style="background:linear-gradient(90deg,#fff8f0,#fff);border-left:3px solid #e07b00;border-radius:0 6px 6px 0;padding:6px 10px;font-size:11px;color:#9a5000;margin-top:5px;line-height:1.5">🛒 <strong>神社內社務所</strong>：御守（護身符）、御朱印（¥300–500），琉球設計的御守很有特色，可當伴手禮。</div>
-            <div class="tip">🎮 <strong>皮克敏：</strong>神社地標，可蒐集神社蘑菇。帶御朱印帳更有紀念感！</div>
-          </div>
-        </div>
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">從嘉新酒店步行至旭橋站 約 5 分鐘</span></div>
 
-        <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 5 分鐘（沿海濱步道）</span></div>
-
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">🏖️</div><div class="tl-line"></div></div>
-          <div class="tl-right">
-            <a class="spot-link" href="https://maps.google.com/?q=波の上ビーチ+那覇&ll=26.2223,127.6698" target="_blank">波上宮海灘（Naminoue Beach）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-            <span class="tag tf">免費</span><span class="stroller s-ok">🍼 推車可行</span>
-            <div class="spot-desc" style="margin-top:3px">神社參拜後順道讓孩子在沙灘玩耍，11月氣溫舒適、人潮少，是放電的好機會。記得帶玩沙玩具！</div>
-          </div>
-        </div>
-
-        <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">步行至旭橋站 約 5 分鐘 → 單軌 旭橋站 → 牧志站 約 8 分鐘</span></div>
-
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">🐟</div><div class="tl-line"></div></div>
-          <div class="tl-right">
-            <a class="spot-link" href="https://maps.google.com/?q=牧志公設市場+那覇&ll=26.2176,127.6899" target="_blank">牧志公設市場 + 午餐<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-            <div class="spot-desc">帶孩子看色彩繽紛的熱帶魚和沖繩食材，二樓餐廳午餐，沖繩麵、刺身定食都推薦。</div>
-            <div class="shop-memo"><span class="shop-tag shop-food">🍬 零食伴手禮</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
-          <div style="background:linear-gradient(90deg,#fff8f0,#fff);border-left:3px solid #e07b00;border-radius:0 6px 6px 0;padding:6px 10px;font-size:11px;color:#9a5000;margin-top:5px;line-height:1.5">🛒 <strong>市場周邊</strong>：國際通藥妝店集中（Matsumoto Kiyoshi、Daikoku Drug），零食伴手禮、藥妝、孩子用品一次買齊，是回台灣前最後補貨的好時機。</div>
-          </div>
-        </div>
-
-        <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 3–5 分鐘</span></div>
-
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">📚</div><div class="tl-line"></div></div>
-          <div class="tl-right">
-            <span class="spot-plain">那霸書店散策<span class="tag tb">老公最愛</span><span class="stroller s-ok">🍼 商街平坦</span></span>
-            <div class="spot-desc" style="margin-top:3px;margin-bottom:4px">全部步行串連，相距不超過10分鐘：</div>
-            <div class="book-links">
-              <a class="book-link" href="https://maps.google.com/?q=古本うらら+那覇&ll=26.2144,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>① 古本うらら 4.6⭐ — 沖繩文化古書（11:00開）</a>
-              <a class="book-link" href="https://maps.google.com/?q=ファミリーブックス+那覇&ll=26.2127,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>② Family Books — 二手書＋黑膠（13:00開）</a>
-              <a class="book-link" href="https://maps.google.com/?q=丸善+那覇&ll=26.2187,127.6858" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>③ MARUZEN 丸善 — 3層樓＋咖啡廳</a>
-              <a class="book-link" href="https://maps.google.com/?q=ジュンク堂書店+那覇&ll=26.2186,127.6859" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>④ JUNKUDO 紀伊國屋 — 那霸最大書店</a>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🛕</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=波上宮&ll=26.2207,127.6711" target="_blank">波上宮（Naminoue Shrine）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <span class="tag tr">4.4⭐ 琉球總鎮守</span><span class="tag ts">皮克敏神社</span><span class="stroller s-ok">🍼 推車可行</span>
+              <div class="spot-desc" style="margin-top:3px">沖繩最重要的守護神社，座落於懸崖上俯瞰東海，氣勢壯觀。9:00–17:00，免費參拜。是皮克敏的神社類地標，可蒐集神社蘑菇！神社旁邊即是波上宮海灘，孩子可以在沙灘玩耍。</div>
+              <div style="background:linear-gradient(90deg,#fff8f0,#fff);border-left:3px solid #e07b00;border-radius:0 6px 6px 0;padding:6px 10px;font-size:11px;color:#9a5000;margin-top:5px;line-height:1.5">🛒 <strong>神社內社務所</strong>：御守（護身符）、御朱印（¥300–500），琉球設計的御守很有特色，可當伴手禮。</div>
+              <div class="tip">🎮 <strong>皮克敏：</strong>神社地標，可蒐集神社蘑菇。帶御朱印帳更有紀念感！</div>
             </div>
-            <div class="tip">💡 Family Books 13:00 才開。老公逛書店時，帶孩子去附近的國際通玩具店或牧志市場繼續探索。</div>
-            <div class="shop-memo"><span class="shop-tag shop-kids">👕 小孩衣物</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
           </div>
-        </div>
 
-        <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌 牧志站 → 奥武山公園站 約 5 分鐘</span></div>
+          <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 5 分鐘（沿海濱步道）</span></div>
 
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">🌳</div><div class="tl-line"></div></div>
-          <div class="tl-right">
-            <a class="spot-link" href="https://maps.google.com/?q=奥武山公園+那覇&ll=26.2034,127.6748" target="_blank">Onoyama Park 奥武山公園（傍晚放電）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-            <span class="tag tf">免費</span><span class="tag tr">4.7⭐</span><span class="stroller s-ok">🍼 平坦鋪面</span>
-            <div class="spot-desc" style="margin-top:3px">超長溜滑梯大人也愛！分齡遊具，站出口即達。書店逛完順路過來讓孩子盡情放電收尾。</div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🏖️</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=波の上ビーチ+那覇&ll=26.2223,127.6698" target="_blank">波上宮海灘（Naminoue Beach）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <span class="tag tf">免費</span><span class="stroller s-ok">🍼 推車可行</span>
+              <div class="spot-desc" style="margin-top:3px">神社參拜後順道讓孩子在沙灘玩耍，11月氣溫舒適、人潮少，是放電的好機會。記得帶玩沙玩具！</div>
+            </div>
           </div>
-        </div>
 
-        <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">返回嘉新酒店 · 至牧志站後步行 約 10 分鐘</span></div>
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">步行至旭橋站 約 5 分鐘 → 單軌 旭橋站 → 牧志站 約 8 分鐘</span></div>
 
-        <div class="tl-item">
-          <div class="tl-left"><div class="tl-dot">🍽️</div></div>
-          <div class="tl-right">
-            <a class="spot-link" href="https://maps.google.com/?q=国際通り+那覇&ll=26.2151,127.6858" target="_blank">🌙 晚餐 · 國際通自選<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-            <div class="spot-desc">沖繩麵、塔可飯、烤肉任你挑，就在嘉新酒店旁邊。</div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🐟</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=牧志公設市場+那覇&ll=26.2176,127.6899" target="_blank">牧志公設市場 + 午餐<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <div class="spot-desc">帶孩子看色彩繽紛的熱帶魚和沖繩食材，二樓餐廳午餐，沖繩麵、刺身定食都推薦。</div>
+              <div class="shop-memo"><span class="shop-tag shop-food">🍬 零食伴手禮</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
+            </div>
           </div>
-        </div>
 
+          <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 3–5 分鐘</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">📚</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <span class="spot-plain">那霸書店散策<span class="tag tb">老公最愛</span><span class="stroller s-ok">🍼 商街平坦</span></span>
+              <div class="spot-desc" style="margin-top:3px;margin-bottom:4px">全部步行串連，相距不超過10分鐘：</div>
+              <div class="book-links">
+                <a class="book-link" href="https://maps.google.com/?q=古本うらら+那覇&ll=26.2144,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>① 古本うらら 4.6⭐ — 沖繩文化古書（11:00開）</a>
+                <a class="book-link" href="https://maps.google.com/?q=ファミリーブックス+那覇&ll=26.2127,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>② Family Books — 二手書＋黑膠（13:00開）</a>
+                <a class="book-link" href="https://maps.google.com/?q=丸善+那覇&ll=26.2187,127.6858" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>③ MARUZEN 丸善 — 3層樓＋咖啡廳</a>
+                <a class="book-link" href="https://maps.google.com/?q=ジュンク堂書店+那覇&ll=26.2186,127.6859" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>④ JUNKUDO 紀伊國屋 — 那霸最大書店</a>
+              </div>
+              <div class="tip">💡 Family Books 13:00 才開。老公逛書店時，帶孩子去附近的國際通玩具店或牧志市場繼續探索。</div>
+              <div class="shop-memo"><span class="shop-tag shop-kids">👕 小孩衣物</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
+            </div>
+          </div>
+
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌 牧志站 → 奥武山公園站 約 5 分鐘</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🌳</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=奥武山公園+那覇&ll=26.2034,127.6748" target="_blank">Onoyama Park 奥武山公園（傍晚放電）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <span class="tag tf">免費</span><span class="tag tr">4.7⭐</span><span class="stroller s-ok">🍼 平坦鋪面</span>
+              <div class="spot-desc" style="margin-top:3px">超長溜滑梯大人也愛！分齡遊具，站出口即達。書店逛完順路過來讓孩子盡情放電收尾。</div>
+            </div>
+          </div>
+
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">返回嘉新酒店 · 至牧志站後步行 約 10 分鐘</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🍽️</div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=国際通り+那覇&ll=26.2151,127.6858" target="_blank">🌙 晚餐 · 國際通自選<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <div class="spot-desc">沖繩麵、塔可飯、烤肉任你挑，就在嘉新酒店旁邊。</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="meals-row">
+          <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">飯店早餐</div></div>
+          <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-val">自理<br>牧志市場</div></div>
+          <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-val">自理<br>國際通</div></div>
+        </div>
       </div>
-      <div class="meals-row">
-        <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">飯店早餐</div></div>
-        <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-val">自理<br>牧志市場</div></div>
-        <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-val">自理<br>國際通</div></div>
+
+      <!-- ── B 方案：DMM 水族館 ── -->
+      <div class="var-content" id="day4-B">
+        <div class="tip tip-blue" style="margin-bottom:8px">🚝 單軌＋步行串連豐崎水族館・iias 午餐・那霸書店！</div>
+        <div class="tl">
+
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">從嘉新酒店步行至牧志站 約 7 分鐘 → 單軌至旭橋站 約 5 分鐘</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🚌</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <span class="spot-plain">旭橋バスターミナル → iias 沖縄豊崎</span>
+              <div class="spot-desc">搭沖縄バス 101番 或 那覇バス 46番，方向「豊崎」→「イーアス沖縄豊崎」站下車，約 25 分鐘。<br>💴 票價約 <strong>¥260–310/人</strong>（帶零錢備用，車上不找大鈔）</div>
+            </div>
+          </div>
+
+          <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">巴士 · 約 25 分鐘 · ¥260–310/人</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🐠</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?cid=13453682174408098423" target="_blank">DMM かりゆし水族館<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <span class="tag tr">4.2⭐</span><span class="tag ts">互動體驗型</span><span class="stroller s-ok">🍼 推車友善</span>
+              <div class="spot-desc" style="margin-top:3px">09:00–19:00。與美之海水族館不同，這裡以<strong>互動體驗</strong>為特色！可以近距離接觸水獺、樹懶、貓頭鷹，還有觸摸魚池和珍珠體驗（另計費）。附設咖啡廳，周圍是漂亮的水族箱，氣氛絕佳。<br>💰 大人 ¥2,400 · 孩童（4–14歲）¥1,300 · 3歲以下免費<br>🎫 建議提前網路購票，可省 ¥200</div>
+              <div class="tip">🧒 <strong>親子：</strong>比美之海更小巧、更互動，孩子可以近距離看動物。觸摸池需排隊，建議早到！</div>
+            </div>
+          </div>
+
+          <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行 約 3 分鐘（同一複合設施內）</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🍽️</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?cid=7569476655862808405" target="_blank">☀️ 午餐 · iias 沖縄豊崎<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <span class="tag tr">4.2⭐</span><span class="stroller s-ok">🍼 推車友善</span>
+              <div class="spot-desc" style="margin-top:3px">10:00–21:00。DMM水族館同棟購物商場，面海景觀餐廳、美食廣場均有。Uniqlo・GU・西松屋（嬰兒童裝）・H&M 等品牌齊備，可以邊吃午餐邊逛。</div>
+              <div class="shop-memo"><span class="shop-tag shop-food">🍬 零食伴手禮</span><span class="shop-tag shop-kids">👕 小孩衣物</span><span class="shop-tag shop-pharma">💊 藥妝</span></div>
+            </div>
+          </div>
+
+          <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">巴士 返回旭橋バスターミナル · 約 25 分鐘 · ¥260–310/人</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🚝</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <span class="spot-plain">旭橋 → 單軌 → 牧志站</span>
+              <div class="spot-desc">單軌旭橋站 → 牧志站，約 8 分鐘。</div>
+            </div>
+          </div>
+
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌 旭橋站 → 牧志站 約 8 分鐘</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">📚</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <span class="spot-plain">那霸書店散策<span class="tag tb">老公最愛</span><span class="stroller s-ok">🍼 商街平坦</span></span>
+              <div class="spot-desc" style="margin-top:3px;margin-bottom:4px">全部步行串連，相距不超過10分鐘：</div>
+              <div class="book-links">
+                <a class="book-link" href="https://maps.google.com/?q=古本うらら+那覇&ll=26.2144,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>① 古本うらら 4.6⭐ — 沖繩文化古書（11:00開）</a>
+                <a class="book-link" href="https://maps.google.com/?q=ファミリーブックス+那覇&ll=26.2127,127.6887" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>② Family Books — 二手書＋黑膠（13:00開）</a>
+                <a class="book-link" href="https://maps.google.com/?q=丸善+那覇&ll=26.2187,127.6858" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>③ MARUZEN 丸善 — 3層樓＋咖啡廳</a>
+                <a class="book-link" href="https://maps.google.com/?q=ジュンク堂書店+那覇&ll=26.2186,127.6859" target="_blank"><svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>④ JUNKUDO 紀伊國屋 — 那霸最大書店</a>
+              </div>
+              <div class="tip">💡 Family Books 13:00 才開。老公逛書店時，帶孩子去附近的國際通玩具店繼續探索。</div>
+              <div class="shop-memo"><span class="shop-tag shop-kids">👕 小孩衣物</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
+            </div>
+          </div>
+
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌 牧志站 → 奥武山公園站 約 5 分鐘</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🌳</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=奥武山公園+那覇&ll=26.2034,127.6748" target="_blank">Onoyama Park 奥武山公園（傍晚放電）<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <span class="tag tf">免費</span><span class="tag tr">4.7⭐</span><span class="stroller s-ok">🍼 平坦鋪面</span>
+              <div class="spot-desc" style="margin-top:3px">超長溜滑梯大人也愛！分齡遊具，站出口即達。</div>
+            </div>
+          </div>
+
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">返回嘉新酒店 · 至牧志站後步行 約 10 分鐘</span></div>
+
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🍽️</div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=国際通り+那覇&ll=26.2151,127.6858" target="_blank">🌙 晚餐 · 國際通自選<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <div class="spot-desc">沖繩麵、塔可飯、烤肉任你挑，就在嘉新酒店旁邊。</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="meals-row">
+          <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">飯店早餐</div></div>
+          <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-val">自理<br>iias 豐崎</div></div>
+          <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-val">自理<br>國際通</div></div>
+        </div>
       </div>
+
       <a class="hotel-badge" href="https://maps.google.com/?q=Hotel+Collective+Naha&ll=26.2152,127.6855" target="_blank">
         🏨 <div><div class="hname">Hotel Collective 嘉新酒店</div><div class="hsub">國際通核心 · 五星 · 頂樓露天泳池</div></div>
       </a>
@@ -1287,6 +1415,464 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 
 </div><!-- /page-aeon -->
 
+</div><!-- /page-aeon -->
+
+<!-- ══════════════════════════════════════
+     iias 沖繩豐崎
+══════════════════════════════════════ -->
+<div class="page" id="page-iias">
+
+  <!-- Hero -->
+  <div class="iias-hero">
+    <div class="iias-hero-logo">🐠</div>
+    <div>
+      <div class="iias-hero-title">iias 沖縄豊崎<br>イーアス沖縄豊崎</div>
+      <div class="iias-hero-sub">海景購物中心 · 3層 · DMM水族館 · Little Universe · 近那霸機場</div>
+    </div>
+  </div>
+
+  <!-- 基本資訊 -->
+  <div class="aeon-info-row" style="margin-bottom:10px">
+    <div class="aeon-info-card">
+      <div class="aeon-info-label">🕙 營業時間</div>
+      <div class="aeon-info-val">購物 10:00–21:00<br>超市 09:00–22:00<br>餐廳 11:00–23:00</div>
+    </div>
+    <div class="aeon-info-card">
+      <div class="aeon-info-label">📍 地址</div>
+      <div class="aeon-info-val">豊見城市豊崎3-35<br>🅿 免費停車場</div>
+    </div>
+    <div class="aeon-info-card">
+      <div class="aeon-info-label">🚌 公車</div>
+      <div class="aeon-info-val">101番・46番<br>那覇バスターミナル<br>約25分 · ¥260–310</div>
+    </div>
+    <div class="aeon-info-card">
+      <div class="aeon-info-label">🔗 官網</div>
+      <div class="aeon-info-val"><a href="https://toyosaki.iias.jp" target="_blank" style="color:var(--ocean);font-weight:600">官方網站</a><br><a href="https://toyosaki.iias.jp/shopsearch/floor" target="_blank" style="color:var(--ocean)">樓層地圖</a></div>
+    </div>
+  </div>
+
+  <!-- 特色提示 -->
+  <div class="aeon-alert" style="margin-bottom:10px">
+    <span style="font-size:18px;flex-shrink:0">🌊</span>
+    <span>面向<strong>美らSUNビーチ</strong>，設施海岸側有大量海景露天餐廳。DMM 水族館購票後可在館內<strong>Aquarium Café</strong>享用美食，周圍全是水族箱，氣氛絕佳！</span>
+  </div>
+
+  <!-- 樓層切換 -->
+  <div class="iias-floor-tabs">
+    <button class="iias-floor-btn fi-active" data-if="1f" onclick="showIiasFloor('1f',this)">1F 水族館・超市・美食</button>
+    <button class="iias-floor-btn" data-if="2f" onclick="showIiasFloor('2f',this)">2F Uniqlo・H&M・時裝</button>
+    <button class="iias-floor-btn" data-if="3f" onclick="showIiasFloor('3f',this)">3F GU・西松屋・娛樂</button>
+  </div>
+
+  <!-- ── 1F ── -->
+  <div class="iias-floor-page fi-show" id="iias-floor-1f">
+    <div class="iias-floor-header fih-1f">
+      <div class="fi-num">1F</div>
+      <div class="fi-info">
+        <div class="fi-title">水族館・超市・餐廳・家電</div>
+        <div class="fi-hours">購物 10:00–21:00 / 超市 09:00–22:00 / 餐廳 11:00–23:00</div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">⭐ 必去景點</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🐠</div>
+          <div>
+            <div class="shop-name">DMM かりゆし水族館<span class="shop-badge sb-must">必去</span><span class="shop-badge sb-kid">孩子最愛</span></div>
+            <div class="shop-desc">09:00–19:00。互動體驗型水族館，可近距離接觸水獺・樹懶・貓頭鷹，有觸摸魚池・珍珠體驗（另計費）。<br>💰 大人 ¥2,400 · 孩童（4–14歲）¥1,300 · 3歲以下免費<br>🎫 官網購票可省約 ¥200，建議提前預購。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🛒 超市・日用品</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🛒</div>
+          <div>
+            <div class="shop-name">イオンスタイル豊崎（スーパー）<span class="shop-badge sb-food">09:00早開</span></div>
+            <div class="shop-desc">09:00–22:00。沖繩食材・零食・生鮮・日用品，採買伴手禮和食品最方便，比機場便宜。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🎁</div>
+          <div>
+            <div class="shop-name">イオンスタイル豊崎（お土産・日用品）<span class="shop-badge sb-food">伴手禮</span></div>
+            <div class="shop-desc">沖繩伴手禮・生活雑貨，與超市相鄰，逛完超市順帶買禮品。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🌺</div>
+          <div>
+            <div class="shop-name">おきなわのおくりもの</div>
+            <div class="shop-desc">沖繩雜貨專門店，琉球玻璃、藍染、陶器等工藝品，高質感伴手禮首選。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">💊</div>
+          <div>
+            <div class="shop-name">サツドラ（ドラッグストア）<span class="shop-badge sb-must">藥妝</span></div>
+            <div class="shop-desc">藥妝・醫藥品・美妝・保健食品，北海道系連鎖藥妝，品項齊全價格划算。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🍽️ 餐廳・美食</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🍔</div>
+          <div>
+            <div class="shop-name">A&W<span class="shop-badge sb-kid">孩子最愛</span></div>
+            <div class="shop-desc">沖繩名物速食連鎖！根汁汽水（ルートビア）免費無限暢飲，漢堡薯條，孩子超愛。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🍜</div>
+          <div>
+            <div class="shop-name">沖縄そばと沖縄ちゃんぽんのお店 やっぱりちゃん</div>
+            <div class="shop-desc">沖繩麵和沖繩什錦湯麵，在地家常口味，午餐好選擇。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🌮</div>
+          <div>
+            <div class="shop-name">タコライスcafeきじむなぁ</div>
+            <div class="shop-desc">沖繩必吃塔可飯（タコライス）名店，在地口味道地，必試！</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🥩</div>
+          <div>
+            <div class="shop-name">OK STEAK×HAMBURG</div>
+            <div class="shop-desc">牛排漢堡排，份量紮實，C/P值高，適合午餐。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🍣</div>
+          <div>
+            <div class="shop-name">鮨びたろう</div>
+            <div class="shop-desc">壽司・海鮮料理，新鮮食材，海景位置一流。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🍩</div>
+          <div>
+            <div class="shop-name">JACK IN THE DONUTS</div>
+            <div class="shop-desc">甜甜圈專賣店，各種口味，下午茶輕食好選擇。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">☕</div>
+          <div>
+            <div class="shop-name">LOCALO COFFEE</div>
+            <div class="shop-desc">沖繩在地精品咖啡，海景座位，逛完水族館來一杯。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🛍️ 其他店舖</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">📺</div>
+          <div>
+            <div class="shop-name">コジマ×ビックカメラ</div>
+            <div class="shop-desc">大型家電・玩具・手機，需要充電器等旅行小物在這買。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🏊</div>
+          <div>
+            <div class="shop-name">スーパースポーツゼビオ</div>
+            <div class="shop-desc">大型運動用品店，泳衣、運動鞋、戶外裝備齊全。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🎰</div>
+          <div>
+            <div class="shop-name">TOY GACHA（カプセルトイ）</div>
+            <div class="shop-desc">扭蛋專門店，孩子超愛！多種主題扭蛋機，帶零錢備用。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">💴</div>
+          <div>
+            <div class="shop-name">ダイソー（百元商店）</div>
+            <div class="shop-desc">日本最大百元連鎖，旅行小物、零食、文具補充都方便。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 2F ── -->
+  <div class="iias-floor-page" id="iias-floor-2f">
+    <div class="iias-floor-header fih-2f">
+      <div class="fi-num">2F</div>
+      <div class="fi-info">
+        <div class="fi-title">Uniqlo・H&M・時裝・服飾</div>
+        <div class="fi-hours">10:00–21:00 / インフォメーション・免稅服務在此</div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🛎️ 服務設施</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🛎️</div>
+          <div>
+            <div class="shop-name">インフォメーションカウンター<span class="shop-badge sb-must">2F メインエントランス</span></div>
+            <div class="shop-desc">2F 主入口右手邊。外幣兌換機・免稅服務櫃台都在這裡，入館後先確認。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">👶</div>
+          <div>
+            <div class="shop-name">ベビーカー貸出（推車租借）<span class="shop-badge sb-kid">親子必知</span></div>
+            <div class="shop-desc">インフォメーション旁邊。¥100 リターン式（歸還取回），提供嬰兒推車及輪椅租借。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">👗 時裝・服飾</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🇯🇵</div>
+          <div>
+            <div class="shop-name">ユニクロ（Uniqlo）<span class="shop-badge sb-kid">孩子童裝</span><span class="shop-badge sb-must">必逛</span></div>
+            <div class="shop-desc">10:00–21:00。男女童裝齊全，沖繩限定 UT 可能有。台灣沒有的款式在這挖寶，孩子衣物 C/P 值最高。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🇸🇪</div>
+          <div>
+            <div class="shop-name">H&M（レディス・メンズ・キッズ）<span class="shop-badge sb-kid">孩子童裝</span></div>
+            <div class="shop-desc">歐美休閒風，男女童裝選擇多，沖繩夏日風格服飾。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🌺</div>
+          <div>
+            <div class="shop-name">MAJUN OKINAWA（レディス・メンズ・キッズ）<span class="shop-badge sb-kid">孩子有</span></div>
+            <div class="shop-desc">沖繩在地品牌，夏威夷＋琉球融合風格，獨特性高，是沖繩限定伴手禮好選擇。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🌴</div>
+          <div>
+            <div class="shop-name">Kahiko（ハワイアンファッション雑貨）</div>
+            <div class="shop-desc">夏威夷風情服飾＆雜貨，沖繩氣氛十足，紀念品好選擇。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">👟</div>
+          <div>
+            <div class="shop-name">VANS / SKECHERS</div>
+            <div class="shop-desc">潮流鞋款，戶外輕便鞋，沖繩散步好用。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🕶️</div>
+          <div>
+            <div class="shop-name">オークリーストア / レイバンストア</div>
+            <div class="shop-desc">太陽眼鏡專門店，沖繩日曬強，入手好時機。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🍽️ 餐廳・咖啡</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🌺</div>
+          <div>
+            <div class="shop-name">Ma-Blue Garden House（ハワイアンスタイル）</div>
+            <div class="shop-desc">夏威夷風情餐廳，海景露天座位，適合午餐放鬆用餐。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🥩</div>
+          <div>
+            <div class="shop-name">サムズ（鉄板焼ステーキ）</div>
+            <div class="shop-desc">鐵板燒牛排，份量足、品質高，適合晚餐犒賞自己。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🧋</div>
+          <div>
+            <div class="shop-name">ゴンチャ（Gong Cha）</div>
+            <div class="shop-desc">台灣人熟悉的貢茶，逛街中途補充手搖飲。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🛍️ 其他</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🍎</div>
+          <div>
+            <div class="shop-name">C smart（Apple 製品販売）</div>
+            <div class="shop-desc">Apple 授權店，iPhone、iPad、AirPods 等，旅行途中設備問題可來詢問。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">💆</div>
+          <div>
+            <div class="shop-name">ラフィネ（リラクゼーション）</div>
+            <div class="shop-desc">全身按摩・足底按摩，逛街累了來放鬆，不需預約。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🌸</div>
+          <div>
+            <div class="shop-name">SuiSavon 首里石鹸</div>
+            <div class="shop-desc">沖繩首里發跡的天然石鹼（手工皂）品牌，香氣怡人，精緻伴手禮首選。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">😺</div>
+          <div>
+            <div class="shop-name">Cat Cafe MOFF（猫カフェ）<span class="shop-badge sb-kid">孩子最愛</span></div>
+            <div class="shop-desc">貓咪咖啡廳，與各種貓咪互動。帶孩子必訪，療癒系體驗。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 3F ── -->
+  <div class="iias-floor-page" id="iias-floor-3f">
+    <div class="iias-floor-header fih-3f">
+      <div class="fi-num">3F</div>
+      <div class="fi-info">
+        <div class="fi-title">GU・西松屋・Loft・namco・Little Universe</div>
+        <div class="fi-hours">10:00–21:00 / namco 10:00–22:00</div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">⭐ 親子必去</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🌏</div>
+          <div>
+            <div class="shop-name">Little Universe OKINAWA<span class="shop-badge sb-must">必去</span><span class="shop-badge sb-kid">孩子超愛</span></div>
+            <div class="shop-desc">沉浸式宇宙・地球體驗型博物館！360度巨型螢幕帶你「遨遊宇宙」，5歲孩子視覺震撼。需購票入場，建議提前確認官網時刻表。<br><a href="https://www.little-universe.com" target="_blank" style="color:var(--ocean);font-size:11px">🔗 Little Universe 官網</a></div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🎮</div>
+          <div>
+            <div class="shop-name">namco アミューズメント<span class="shop-badge sb-kid">孩子最愛</span></div>
+            <div class="shop-desc">10:00–22:00（16歲未下18:00後需家長陪同）。大型遊樂場，抓娃娃機・太鼓の達人・各式電玩，換硬幣後讓孩子盡情玩！</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🧒</div>
+          <div>
+            <div class="shop-name">西松屋チェーン<span class="shop-badge sb-kid">孩子用品</span></div>
+            <div class="shop-desc">日本最大嬰幼兒用品連鎖！嬰兒尿布・童裝・玩具・學習用品，價格超實惠，孩子衣物補充最划算。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">👗 時裝・服飾</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🇯🇵</div>
+          <div>
+            <div class="shop-name">ジーユー（GU）<span class="shop-badge sb-kid">孩子童裝</span><span class="shop-badge sb-must">必逛</span></div>
+            <div class="shop-desc">Uniqlo 副牌，平價時尚，童裝款式多且便宜，是孩子添購衣物的好地方。跟 Uniqlo 不同樓層，兩間分開逛。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">👟</div>
+          <div>
+            <div class="shop-name">ABC-MART / ABC-MART SPORTS</div>
+            <div class="shop-desc">男女童鞋齊全，NIKE・ASICS・New Balance 等主流品牌，可試穿。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🎽</div>
+          <div>
+            <div class="shop-name">Right-on</div>
+            <div class="shop-desc">牛仔褲・休閒服飾，日本在地品牌，價格親民。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🧣</div>
+          <div>
+            <div class="shop-name">チャイハネ（エスニックファッション）</div>
+            <div class="shop-desc">亞洲民族風服飾與雜貨，獨特風格，伴手禮好選擇。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="zone-card">
+      <div class="zone-header">🏪 生活雑貨・其他</div>
+      <div class="zone-body">
+        <div class="shop-row">
+          <div class="shop-emoji">🛒</div>
+          <div>
+            <div class="shop-name">ロフト（Loft）<span class="shop-badge sb-must">必逛</span></div>
+            <div class="shop-desc">日本知名生活雜貨連鎖，文具・美妝・旅行用品・小物，逛完絕對買超出預算。伴手禮和自用都適合。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🪙</div>
+          <div>
+            <div class="shop-name">THREEPPY（300円雑貨）</div>
+            <div class="shop-desc">Daiso 姊妹品牌，全品 300 円，設計感更強的雜貨小物，文具・廚房用品都好逛。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🎰</div>
+          <div>
+            <div class="shop-name">ガシャポンバンダイオフィシャルショップ</div>
+            <div class="shop-desc">萬代官方扭蛋店，限定款式多，鋼彈・假面騎士・Ultraman 系列，孩子和大人都愛。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">👓</div>
+          <div>
+            <div class="shop-name">JINS（アイウエア）</div>
+            <div class="shop-desc">平價眼鏡連鎖，有藍光眼鏡，旅途中需要眼鏡備品可在此配。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">☕</div>
+          <div>
+            <div class="shop-name">スターバックスコーヒー</div>
+            <div class="shop-desc">沖繩限定星巴克杯組・商品，逛完購物來歇腳。</div>
+          </div>
+        </div>
+        <div class="shop-row">
+          <div class="shop-emoji">🍢</div>
+          <div>
+            <div class="shop-name">串家物語（串揚げビュッフェ）</div>
+            <div class="shop-desc">串炸自助吃到飽，種類豐富，大人小孩都適合，午晚餐好選擇。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-iias -->
+
 <!-- ══════════════════════════════════════
      PRACTICAL
 ══════════════════════════════════════ -->
@@ -1659,6 +2245,14 @@ function showFloor(f, btn) {
   document.querySelectorAll('.floor-btn').forEach(b => b.classList.remove('f-active'));
   document.getElementById('floor-' + f).classList.add('f-show');
   btn.classList.add('f-active');
+}
+
+// ── iias FLOOR ──
+function showIiasFloor(f, btn) {
+  document.querySelectorAll('.iias-floor-page').forEach(p => p.classList.remove('fi-show'));
+  document.querySelectorAll('.iias-floor-btn').forEach(b => b.classList.remove('fi-active'));
+  document.getElementById('iias-floor-' + f).classList.add('fi-show');
+  btn.classList.add('fi-active');
 }
 
 loadWeather();
