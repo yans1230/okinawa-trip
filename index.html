@@ -313,6 +313,16 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 .shop-kids{background:#f0fff4;color:#1a7a40;border:1px solid #80ddaa}
 .shop-souvenir{background:#f5e8ff;color:#7020b0;border:1px solid #cc88ff}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+.map-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:10px}
+.map-title{padding:8px 12px;font-size:13px;font-weight:700;color:var(--ocean2);border-bottom:1px solid var(--border)}
+.day-map{height:240px;width:100%;z-index:1}
+.map-legend{padding:6px 12px;font-size:11px;color:var(--text2);line-height:1.6}
+.num-pin{width:24px;height:24px;border-radius:50%;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4)}
+.hotel-pin{background:#555}
+</style>
 </head>
 <body>
 
@@ -404,6 +414,20 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
     </div>
   </div>
 
+  <!-- 梯次資訊 -->
+  <div class="card">
+    <div class="card-header ch-ocean">📅 出發日期</div>
+    <div class="card-body">
+      <div style="background:var(--ocean-light);border-radius:10px;padding:12px;text-align:center">
+        <div style="font-size:11px;color:var(--text3);margin-bottom:3px">第四梯</div>
+        <div style="font-size:18px;font-weight:900;color:var(--ocean2);line-height:1.3">11/04(三) ~ 11/08(日)</div>
+      </div>
+      <div style="margin-top:10px;padding:8px 10px;background:var(--green-light);border-radius:8px;font-size:11px;color:var(--green);line-height:1.5">
+        👶 <strong>五歲以下不佔床可減免 NT$2,000</strong><br><span style="font-size:10px;opacity:.85">（ＮＯ早餐＆加床需求服務）</span>
+      </div>
+    </div>
+  </div>
+
   <!-- 親子貼士 -->
   <div class="card">
     <div class="card-header ch-orange">🧒 親子小貼士</div>
@@ -423,6 +447,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
      DAY 1
 ══════════════════════════════════════ -->
 <div class="page" id="page-day1">
+  <div class="map-card"><div class="map-title">🗺️ 今日點位地圖</div><div id="map-day1" class="day-map"></div><div class="map-legend" id="legend-day1"></div></div>
 
   <div class="card day-1-accent">
     <div class="depart-banner">🚄 2026/11/4（三）台灣出發時間表（從左營搭高鐵）</div>
@@ -468,7 +493,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
         <div class="tl-item">
           <div class="tl-left"><div class="tl-dot">🌿</div><div class="tl-line"></div></div>
           <div class="tl-right">
-            <a class="spot-link" href="https://maps.google.com/?q=海ん道uminchi+うるま市&ll=26.3492,127.8256" target="_blank">海ん道 UMINCHI 海葡萄農場<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+            <a class="spot-link" href="https://maps.google.com/?q=海ぶどう農園+海ん道+糸満&ll=26.1143,127.6652" target="_blank">海ん道 UMINCHI 海葡萄農場<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
             <span class="tag ts">贈冰淇淋</span><span class="stroller s-ok">🍼 推車可</span>
             <div class="spot-desc" style="margin-top:2px">親手撈採「綠色魚子醬」海葡萄，搭特製醬汁品嚐，附贈冰淇淋。5歲孩子超適合！</div>
             <div class="shop-memo"><span class="shop-tag shop-food">🍬 零食伴手禮</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
@@ -502,6 +527,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
      DAY 2
 ══════════════════════════════════════ -->
 <div class="page" id="page-day2">
+  <div class="map-card"><div class="map-title">🗺️ 今日點位地圖</div><div id="map-day2" class="day-map"></div><div class="map-legend" id="legend-day2"></div></div>
   <div class="card day-2-accent">
     <div class="card-header ch-orange">⚡ Day 2 · 11/5（四）· 二選一方案</div>
     <div class="card-body">
@@ -523,7 +549,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
             <div class="tl-right">
               <a class="spot-link" href="https://maps.google.com/?q=JUNGLIA+Okinawa&ll=26.6422,127.9736" target="_blank">JUNGLIA Okinawa 侏儸紀叢林樂園<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
               <span class="tag ts">2025新開幕</span><span class="stroller s-partial">🍼 可租 ¥1,000</span>
-              <div class="spot-desc" style="margin-top:2px">沖繩北部山原沉浸式恐龍主題樂園，午晚餐自理（樂園內）。</div>
+              <div class="spot-desc" style="margin-top:2px">在沖繩北部的山原之森，結合頂尖科技與在地風情打造的沉浸式大自然樂園。無論是追求刺激的冒險家，還是想享受親子時光的家庭，都能在充滿驚喜的設施與道地美食中找到樂趣。午晚餐自理（樂園內）。</div>
               <div class="tip">⭐ 提前 Klook 買 Premium Pass，開園即入場，備防曬和點心。</div>
             </div>
           </div>
@@ -537,6 +563,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 
       <!-- B -->
       <div class="var-content active" id="day2-B">
+        <div class="tip tip-green" style="margin-bottom:6px">🎫 <strong>本行程包含：</strong>贈單軌電車一日券 ＋ <strong>代金 ¥5,000/位</strong>（午餐¥2,000＋晚餐¥3,000）</div>
         <div class="tip tip-blue" style="margin-bottom:8px">🏬 全天集中在永旺夢樂城沖繩萊卡姆（AEON MALL Okinawa Rycom），館內一站搞定！</div>
         <div class="tl">
 
@@ -631,6 +658,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
      DAY 3
 ══════════════════════════════════════ -->
 <div class="page" id="page-day3">
+  <div class="map-card"><div class="map-title">🗺️ 今日點位地圖</div><div id="map-day3" class="day-map"></div><div class="map-legend" id="legend-day3"></div></div>
   <div class="card day-3-accent">
     <div class="card-header ch-green">🐋 Day 3 · 11/6（五）· 古宇利島 → 美之海 → 美國村</div>
     <div class="card-body">
@@ -709,6 +737,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
      DAY 4
 ══════════════════════════════════════ -->
 <div class="page" id="page-day4">
+  <div class="map-card"><div class="map-title">🗺️ 今日點位地圖</div><div id="map-day4" class="day-map"></div><div class="map-legend" id="legend-day4"></div></div>
   <div class="card day-4-accent">
     <div class="card-header ch-purple">🛕 Day 4 · 11/7（六）· 那霸自由日 · 二選一方案</div>
     <div class="card-body">
@@ -912,6 +941,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
      DAY 5
 ══════════════════════════════════════ -->
 <div class="page" id="page-day5">
+  <div class="map-card"><div class="map-title">🗺️ 今日點位地圖</div><div id="map-day5" class="day-map"></div><div class="map-legend" id="legend-day5"></div></div>
   <div class="card day-5-accent">
     <div class="card-header ch-yellow">🚢 Day 5 · 11/8（日）· 半潛水艇 → 瀨長島 → 返台</div>
     <div class="card-body">
@@ -2177,6 +2207,42 @@ function showPage(id){
   event.currentTarget.classList.add('active');
   // scroll tab bar to show active
   event.currentTarget.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  if(id.startsWith('day'))drawDayMap(id);
+}
+
+
+// ── DAY MAPS ──
+const H1={n:'王子飯店',ll:[26.2770,127.7324],h:1}, H2={n:'嘉新酒店',ll:[26.2152,127.6855],h:1};
+const BOOK={n:'那霸書店區',ll:[26.2150,127.6880]}, MAKI={n:'牧志公設市場',ll:[26.2176,127.6899]}, ONO={n:'奥武山公園',ll:[26.2034,127.6748]};
+const ROUTES={
+ 'day1':{c:'#0077b6',p:[{n:'那霸機場',ll:[26.1956,127.6457]},{n:'UMINCHI 海葡萄農場',ll:[26.1143,127.6652]},H1]},
+ 'day2-A':{c:'#e07b00',p:[H1,{n:'JUNGLIA',ll:[26.6422,127.9736]},H1]},
+ 'day2-B':{c:'#e07b00',p:[H1,{n:'AEON MALL 萊卡姆',ll:[26.3138,127.7966]},H1]},
+ 'day3':{c:'#2a9d5c',p:[H1,{n:'古宇利海洋塔',ll:[26.7005,128.0242]},{n:'美之海水族館',ll:[26.6943,127.8780]},{n:'北谷美國村',ll:[26.3159,127.7540]},{n:'花琉球',ll:[26.2173,127.6908]},H2]},
+ 'day4-A':{c:'#7b2d8b',p:[H2,{n:'波上宮',ll:[26.2207,127.6711]},{n:'波之上海灘',ll:[26.2223,127.6698]},MAKI,BOOK,ONO,H2]},
+ 'day4-B':{c:'#7b2d8b',p:[H2,{n:'DMM水族館',ll:[26.1564,127.6507]},{n:'iias 豐崎',ll:[26.1577,127.6520]},MAKI,BOOK,ONO,H2]},
+ 'day5':{c:'#d4a017',p:[H2,{n:'銀河探險號',ll:[26.2100,127.6630]},{n:'瀨長島',ll:[26.1765,127.6404]},{n:'那霸機場',ll:[26.1956,127.6457]}]}
+};
+const MAPS={}, CUR={day2:'B',day4:'A'};
+function drawDayMap(day){
+  if(typeof L==='undefined')return;
+  const key=CUR[day]?day+'-'+CUR[day]:day, r=ROUTES[key]; if(!r)return;
+  let m=MAPS[day];
+  if(!m){m=MAPS[day]={map:L.map('map-'+day,{scrollWheelZoom:false,attributionControl:true}),layer:null};
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(m.map);}
+  if(m.layer)m.layer.remove();
+  const g=L.layerGroup(), seen={}; let i=0, legend=[];
+  r.p.forEach(pt=>{
+    const k=pt.ll.join(); if(seen[k])return; seen[k]=1;
+    const lab=pt.h?'🏨':String(++i);
+    const icon=L.divIcon({className:'',html:`<div class="num-pin ${pt.h?'hotel-pin':''}" style="${pt.h?'':'background:'+r.c}">${lab}</div>`,iconSize:[24,24],iconAnchor:[12,12]});
+    L.marker(pt.ll,{icon}).bindPopup(`<b>${pt.n}</b><br><a href="https://maps.google.com/?q=${pt.ll.join(',')}" target="_blank">Google 導航</a>`).addTo(g);
+    legend.push(`${lab} ${pt.n}`);
+  });
+  L.polyline(r.p.map(x=>x.ll),{color:r.c,weight:3,dashArray:'6 6',opacity:.8}).addTo(g);
+  g.addTo(m.map); m.layer=g;
+  document.getElementById('legend-'+day).textContent=legend.join('　');
+  setTimeout(()=>{m.map.invalidateSize();m.map.fitBounds(L.latLngBounds(r.p.map(x=>x.ll)),{padding:[25,25]});},60);
 }
 
 // ── VARIANT SWITCH ──
@@ -2185,6 +2251,7 @@ function switchVariant(day,v){
   card.querySelectorAll('.var-btn').forEach((b,i)=>b.classList.toggle('active',(i===0&&v==='A')||(i===1&&v==='B')));
   card.querySelectorAll('.var-content').forEach(c=>c.classList.remove('active'));
   card.querySelector('#'+day+'-'+v).classList.add('active');
+  CUR[day]=v; drawDayMap(day);
 }
 
 // ── JP OVERLAY ──
