@@ -739,6 +739,22 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
             <div class="spot-desc" style="margin-top:2px">3隻巨大鯨鯊在8公尺高玻璃幕後巡航！世界首創人工珊瑚礁，海豚特技秀精彩。</div>
               <div style="background:linear-gradient(90deg,#fff8f0,#fff);border-left:3px solid #e07b00;border-radius:0 6px 6px 0;padding:6px 10px;font-size:11px;color:#9a5000;margin-top:5px;line-height:1.5">🛒 <strong>水族館禮品店</strong>：鯨鯊玩偶、孩子泳衣、海洋主題文具，出口處必逛，比外面便宜！</div>
             <div class="tip">🧒 鯨鯊+海豚秀是全程孩子最大亮點。記得備玩沙玩具給美國村沙灘。</div>
+            <div style="margin-top:8px;border:2px solid #7cb342;border-radius:10px;overflow:hidden">
+              <div style="background:linear-gradient(90deg,#dcedc8,#f1f8e9);padding:7px 10px;font-size:13px;font-weight:700;color:#33691e">🌸 皮克敏海洋博任務（漫步各地迷你活動）</div>
+              <div style="padding:8px 10px;font-size:12px;color:var(--text2);line-height:1.6">
+                🎯 <strong>目標：收集 4 個地點 → 金色禮物貼紙</strong>（每年可領一次）<br>
+                🚶 建議順序：② → ③ → ① 或 ⑤，大約多走 15–20 分鐘，推車可通行
+                <div id="map-pikmin" style="height:200px;border-radius:8px;margin:8px 0;z-index:1"></div>
+                <div class="check-item"><input type="checkbox" id="pk2"><label for="pk2"><strong>② 美麗海水族館</strong>：明信片・行程內</label></div>
+                <div class="check-item"><input type="checkbox" id="pk3"><label for="pk3"><strong>③ 海豚劇場</strong>：明信片・看海豚秀就到（約 270m）</label></div>
+                <div class="check-item"><input type="checkbox" id="pk1"><label for="pk1"><strong>① 翡翠海灘</strong>：衝浪板鑰匙圈・往北約 500m</label></div>
+                <div class="check-item"><input type="checkbox" id="pk5"><label for="pk5"><strong>⑤ 海洋文化館</strong>：珊瑚・往南約 430m</label></div>
+                <div class="check-item" style="opacity:.75"><input type="checkbox" id="pk4"><label for="pk4">④ 沖繩鄉土村：夏季貼紙・約 550m（時間夠再去）</label></div>
+                <div class="check-item" style="opacity:.75"><input type="checkbox" id="pk6"><label for="pk6">⑥ 熱帶夢幻中心：照片徽章・約 800m（較遠）</label></div>
+                <div class="check-item" style="opacity:.6"><input type="checkbox" id="pk7"><label for="pk7">⑦ 夕陽廣場：明信片・約 1.1km（南端，不建議）</label></div>
+                <div style="font-size:11px;color:var(--text3);margin-top:4px">活動 10/7 開始、永久常駐。海洋文化館、熱帶夢幻中心週三休館（11/6 是週五 OK）。能收幾個看導遊給的自由時間；①④ 地圖位置為估計。</div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 · 約 70 分鐘</span></div>
@@ -2277,6 +2293,7 @@ function showPage(id){
   // scroll tab bar to show active
   event.currentTarget.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
   if(id.startsWith('day'))drawDayMap(id);
+  if(id==='day3')drawPikminMap();
 }
 
 
@@ -2312,6 +2329,22 @@ function drawDayMap(day){
   g.addTo(m.map); m.layer=g;
   document.getElementById('legend-'+day).textContent=legend.join('　');
   setTimeout(()=>{m.map.invalidateSize();m.map.fitBounds(L.latLngBounds(r.p.map(x=>x.ll)),{padding:[25,25]});},60);
+}
+
+
+// ── PIKMIN MAP ──
+let PKMAP=null;
+function drawPikminMap(){
+  if(typeof L==='undefined'||PKMAP)return;
+  const pts=[['①','翡翠海灘',[26.6985,127.8795],1],['②','美麗海水族館',[26.6943,127.8780],1],['③','海豚劇場',[26.6928,127.8758],1],['④','沖繩鄉土村',[26.6888,127.8790],0],['⑤','海洋文化館',[26.6904,127.8780],1],['⑥','熱帶夢幻中心',[26.6873,127.8761],0],['⑦','夕陽廣場',[26.6849,127.8750],0]];
+  PKMAP=L.map('map-pikmin',{scrollWheelZoom:false});
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(PKMAP);
+  pts.forEach(([n,name,ll,rec])=>{
+    const icon=L.divIcon({className:'',html:`<div class="num-pin" style="background:${rec?'#7cb342':'#aaa'}">${n.replace(/[①-⑦]/,c=>'①②③④⑤⑥⑦'.indexOf(c)+1)}</div>`,iconSize:[24,24],iconAnchor:[12,12]});
+    L.marker(ll,{icon}).bindPopup(`<b>${n} ${name}</b>`).addTo(PKMAP);
+  });
+  L.polyline([pts[1][2],pts[2][2],pts[0][2]],{color:'#7cb342',weight:3,dashArray:'6 6'}).addTo(PKMAP);
+  setTimeout(()=>{PKMAP.invalidateSize();PKMAP.fitBounds(L.latLngBounds(pts.map(p=>p[2])),{padding:[20,20]});},80);
 }
 
 // ── VARIANT SWITCH ──
