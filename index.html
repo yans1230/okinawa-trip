@@ -825,11 +825,12 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 <div class="page" id="page-day4">
   <div class="map-card"><div class="map-title">🗺️ 今日點位地圖</div><div id="map-day4" class="day-map"></div><div class="map-legend" id="legend-day4"></div></div>
   <div class="card day-4-accent">
-    <div class="card-header ch-purple">🛕 Day 4 · 11/7（六）· 那霸自由日 · 二選一方案</div>
+    <div class="card-header ch-purple">🛕 Day 4 · 11/7（六）· 那霸自由日 · 三選一方案</div>
     <div class="card-body">
       <div style="background:var(--purple-light);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:6px">🧭 <strong>手冊推薦・嘉新酒店周邊</strong><br>🚶 國際通 3 分・RYUBO 百貨 5 分・第一牧志公設市場 8 分<br>🚝 首里城公園 約 15 分・DFS 免稅店 2 站<br>🎫 單軌一日券當天不限次數搭乘</div>
       <div class="var-toggle">
         <button class="var-btn active" onclick="switchVariant('day4','A')">🛕 A：波上宮＋書店<br><span style="font-size:9px">書店優先版</span></button>
+        <button class="var-btn" onclick="switchVariant('day4','A2')">🌳 A2：奥武山＋書店<br><span style="font-size:9px">親子放電版</span></button>
         <button class="var-btn" onclick="switchVariant('day4','B')">🐠 B：DMM水族館＋書店<br><span style="font-size:9px">親子亮點＋書店版</span></button>
       </div>
 
@@ -880,6 +881,51 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
             </div>
           </div>
           <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌回縣廳前站 → 走路回嘉新酒店</span></div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🍽️</div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=国際通り+那覇&ll=26.2151,127.6858" target="_blank">🌙 晚餐｜國際通自選<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <div class="spot-desc" style="margin-top:2px">餐後早點回飯店休息。</div>
+            </div>
+          </div>
+        </div>
+        <div class="meals-row">
+          <div class="meal-item"><div class="meal-label">🌅 早餐</div><div class="meal-val">飯店早餐</div></div>
+          <div class="meal-item"><div class="meal-label">☀️ 午餐</div><div class="meal-val">自理<br>牧志市場</div></div>
+          <div class="meal-item"><div class="meal-label">🌙 晚餐</div><div class="meal-val">自理<br>國際通</div></div>
+        </div>
+      </div>
+
+      <!-- ── A2 方案：奥武山＋書店 ── -->
+      <div class="var-content" id="day4-A2">
+        <div class="tip tip-blue" style="margin-bottom:8px">🌳 <strong>親子放電＋書店版</strong>：上午讓小孩在公園跑跳，下午留完整書店時間（約 3.5 小時）；<strong>捨棄波上宮</strong>，移動最少</div>
+        <div class="tl">
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">嘉新酒店走到縣廳前站（約 7 分）→ 單軌至奥武山公園站（約 2 站）</span></div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🌳</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=奥武山公園+那覇&ll=26.2034,127.6748" target="_blank">9:30–11:30｜奥武山公園・放電約 2 小時<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <span class="tag tf">免費</span><span class="stroller s-ok">🍼 平坦鋪面</span><div class="spot-desc" style="margin-top:2px">大型綜合公園，有兒童遊具區和大草坪，趁上午涼爽讓小孩盡情跑跳（遊具位置以園內地圖為準）。記得帶水、毛巾和防曬；下雨就改成直接去牧志、延長書店時間。</div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚝</span><span class="transit-text">單軌 奥武山公園站 → 牧志站（約 10 分）</span></div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">🐟</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <a class="spot-link" href="https://maps.google.com/?q=牧志公設市場+那覇&ll=26.2176,127.6899" target="_blank">午餐｜牧志公設市場<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
+              <div class="spot-desc" style="margin-top:2px">二樓餐廳午餐，飯後可以短暫休息。<br>🔴 <strong>寶可夢人孔蓋</strong>：走 2 分到 てんぶす那覇 拍<strong>風速狗</strong></div><div class="shop-memo"><span class="shop-tag shop-food">🍬 零食伴手禮</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
+            </div>
+          </div>
+          <div class="transit"><span class="transit-icon">🚶</span><span class="transit-text">步行約 3–5 分</span></div>
+          <div class="tl-item">
+            <div class="tl-left"><div class="tl-dot">📚</div><div class="tl-line"></div></div>
+            <div class="tl-right">
+              <span class="spot-plain">13:00–16:30｜牧志／國際通書店時間<span class="tag tb">老公最愛</span><span class="stroller s-ok">🍼 商街平坦</span></span>
+              <div class="spot-desc" style="margin-top:4px"><strong>一間特色古書店＋淳久堂</strong>，順序：午餐 → 古書店 → 淳久堂 → 晚餐<br>
+⚪ <strong>特色古書店（擇一，30–60 分）</strong>：<a href="https://maps.google.com/?q=古本うらら+那覇&ll=26.2144,127.6887" target="_blank" style="color:var(--ocean)">古本うらら</a>（沖繩文化古書）或 <a href="https://maps.google.com/?q=ファミリーブックス+那覇&ll=26.2127,127.6887" target="_blank" style="color:var(--ocean)">Family Books</a>（二手書＋黑膠）；營業時間<span style="font-size:10px;background:#fff3cd;color:#8a6d00;border-radius:4px;padding:0 4px;margin-left:3px">出發前確認</span><br>
+🔵 <strong>主力（預留 90–120 分）</strong>：<a href="https://maps.google.com/?q=ジュンク堂書店+那覇店&ll=26.2186,127.6859" target="_blank" style="color:var(--ocean)">淳久堂書店那霸店（ジュンク堂／JUNKUDO）</a>＋同址 MARUZEN 文具區<br>📍 牧志1-19-29 D-naha 1–3F・10:00–21:00</div><div class="shop-memo"><span class="shop-tag shop-kids">👕 小孩衣物</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
+            </div>
+          </div>
           <div class="tl-item">
             <div class="tl-left"><div class="tl-dot">🍽️</div></div>
             <div class="tl-right">
@@ -948,10 +994,10 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
       </div>
 
       <div style="margin-top:10px;background:var(--yellow-light);border-radius:8px;padding:9px 11px;font-size:12px;color:#7a5a10;line-height:1.7">
-        💡 <strong>兩案共同提醒</strong><br>
+        💡 <strong>各案共同提醒</strong><br>
         🍼 帶<strong>輕便傘車</strong>：波上宮、牧志、國際通、DMM、iias 之間移動都用得到<br>
         📚 書店採「<strong>一間特色古書店＋淳久堂</strong>」，大人逛得盡興，小孩也有休息空間<br>
-        🌳 奥武山公園<strong>只放 A 案、且書店提早結束才去</strong>；B 案不安排<br>
+        🌳 奥武山公園：A 案書店提早結束才去；<strong>A2 案改成上午主行程</strong>；B 案不安排<br>
         🛍️ 選 B 方案時，iias 只吃午餐、短暫休息，主要採購留給 Day 2 的 AEON MALL<br>
         🔴 寶可夢人孔蓋：國際通 <a href="https://www.google.com/maps/search/?api=1&query=26.21641,127.68942" target="_blank" style="color:var(--ocean)">てんぶす那覇廣場</a>（牧志3-2）有<strong>風速狗</strong>，A 案午餐後、B 案晚上順路拍；A 案若書店提早結束，可改去首里 <a href="https://www.google.com/maps/search/?api=1&query=26.22005,127.71657" target="_blank" style="color:var(--ocean)">龍潭廣場</a>（卡蒂狗，與奥武山公園二選一）
       </div>
@@ -1166,9 +1212,10 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
       <div class="kids-tip"><span>⚡</span><span><strong>Day 2</strong>：B 案早餐後先拍 #1，再去搭 92 號公車；A 案（JUNGLIA）無順路人孔蓋</span></div>
       <div class="kids-tip"><span>🐋</span><span><strong>Day 3</strong>：美之海出來拍 #2 吼鯨王（先問導遊集合點）；美國村往海邊走拍 #3 卡蒂狗；早上出發前可補拍 #1</span></div>
       <div class="kids-tip"><span>🛕</span><span><strong>Day 4 A</strong>：牧志市場午餐 → #4 てんぶす（2 分）→ 書店；書店提早結束時，#6 首里龍潭 與奥武山公園二選一</span></div>
+      <div class="kids-tip"><span>🌳</span><span><strong>Day 4 A2</strong>：上午奥武山公園 → 牧志市場午餐 → #4 てんぶす（2 分）→ 書店</span></div>
       <div class="kids-tip"><span>🐠</span><span><strong>Day 4 B</strong>：DMM → iias 午餐 → #5 道の駅豊崎（6 分）→ 回那霸書店 → 晚上國際通拍 #4</span></div>
       <div class="kids-tip"><span>🚢</span><span><strong>Day 5</strong>：遊覽車行程，無順路人孔蓋（道の駅いとまん 不在路線上）</span></div>
-      <div style="font-size:12px;color:#8a2020;background:var(--red-light);border-radius:8px;padding:7px 10px;margin-top:8px;line-height:1.6">🎯 A 案可拍 <strong>4 個</strong>（加首里 5 個）；B 案可拍 <strong>5 個</strong></div>
+      <div style="font-size:12px;color:#8a2020;background:var(--red-light);border-radius:8px;padding:7px 10px;margin-top:8px;line-height:1.6">🎯 A／A2 案可拍 <strong>4 個</strong>（A 加首里 5 個）；B 案可拍 <strong>5 個</strong></div>
     </div>
   </div>
   <div class="om-section-title">📸 順路人孔蓋（📷 實拍・🔍 圖片）</div>
@@ -2461,6 +2508,7 @@ const ROUTES={
  'day2-B':{c:'#e07b00',p:[H1,{n:'AEON MALL 萊卡姆',ll:[26.3138,127.7966]},H1]},
  'day3':{c:'#2a9d5c',p:[H1,{n:'古宇利海洋塔',ll:[26.7005,128.0242]},{n:'美之海水族館',ll:[26.6943,127.8780]},{n:'北谷美國村',ll:[26.3159,127.7540]},{n:'花琉球',ll:[26.2173,127.6908]},H2]},
  'day4-A':{c:'#7b2d8b',p:[H2,{n:'波上宮',ll:[26.2207,127.6711]},{n:'波之上海灘',ll:[26.2223,127.6698]},MAKI,BOOK,{n:'奥武山公園（選擇性）',ll:[26.2034,127.6748]},H2]},
+ 'day4-A2':{c:'#7b2d8b',p:[H2,{n:'奥武山公園',ll:[26.2034,127.6748]},MAKI,{n:'てんぶす人孔蓋',ll:[26.21641,127.68942]},BOOK,{n:'國際通晚餐',ll:[26.2151,127.6858]},H2]},
  'day4-B':{c:'#7b2d8b',p:[H2,{n:'DMM水族館',ll:[26.1564,127.6507]},{n:'iias 豐崎',ll:[26.1577,127.6520]},BOOK,{n:'國際通晚餐',ll:[26.2151,127.6858]},H2]},
  'day5':{c:'#d4a017',p:[H2,{n:'銀河探險號',ll:[26.2100,127.6630]},{n:'UMINCHI 海葡萄農場',ll:[26.1143,127.6652]},{n:'那霸機場',ll:[26.1956,127.6457]}]}
 };
@@ -2520,7 +2568,7 @@ function drawPikminMap(){
 // ── VARIANT SWITCH ──
 function switchVariant(day,v){
   const card=document.getElementById('page-'+day);
-  card.querySelectorAll('.var-btn').forEach((b,i)=>b.classList.toggle('active',(i===0&&v==='A')||(i===1&&v==='B')));
+  card.querySelectorAll('.var-btn').forEach(b=>b.classList.toggle('active',b.getAttribute('onclick').includes("'"+v+"')")));
   card.querySelectorAll('.var-content').forEach(c=>c.classList.remove('active'));
   card.querySelector('#'+day+'-'+v).classList.add('active');
   CUR[day]=v; drawDayMap(day);
