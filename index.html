@@ -262,6 +262,16 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 .om-glink:active{opacity:.6}
 .om-price{font-size:13px;font-weight:700;color:var(--ocean2);background:var(--ocean-light);border-radius:6px;padding:2px 8px;white-space:nowrap}
 
+.pf-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:8px;overflow:hidden;cursor:pointer;transition:opacity .2s}
+.pf-card.pf-done{opacity:.5}
+.pf-card.pf-done .om-name{text-decoration:line-through;color:var(--text3)}
+.pf-card.pf-done .om-check{background:var(--green);border-color:var(--green);color:#fff}
+.pf-card .om-footer{justify-content:flex-end}
+.pf-table{width:100%;border-collapse:collapse;font-size:12px;line-height:1.5}
+.pf-table th{background:var(--red-light);color:#8a2020;font-weight:700;padding:5px 4px;text-align:left;white-space:nowrap}
+.pf-table td{padding:6px 4px;border-bottom:1px solid var(--border);vertical-align:top}
+.pf-table td:first-child{white-space:nowrap;color:var(--ocean2)}
+
 /* ── AEON FLOOR ── */
 .aeon-hero{background:linear-gradient(135deg,#e31837 0%,#c8001a 100%);color:#fff;border-radius:var(--radius);padding:14px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px}
 .aeon-hero-logo{font-size:32px;flex-shrink:0}
@@ -340,6 +350,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
   <button class="tab-btn tab-3" onclick="showPage('day3')"><span class="icon">🐋</span>Day 3</button>
   <button class="tab-btn tab-4" onclick="showPage('day4')"><span class="icon">🛕🐠</span>Day 4</button>
   <button class="tab-btn tab-5" onclick="showPage('day5')"><span class="icon">🚢</span>Day 5</button>
+  <button class="tab-btn" onclick="showPage('pokefuta')"><span class="icon">🔴</span>人孔蓋</button>
   <button class="tab-btn" onclick="showPage('japanese')"><span class="icon">🗣️</span>日語</button>
   <button class="tab-btn" onclick="showPage('omiyage')"><span class="icon">🎁</span>伴手禮</button>
   <button class="tab-btn" onclick="showPage('aeon')"><span class="icon">🏬</span>AEON</button>
@@ -478,6 +489,21 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
       <div class="kids-tip"><span>💰</span><span>現金：台幣 10 萬元、外幣等值 US$1 萬以內</span></div>
       <div class="kids-tip"><span>📌</span><span>航班、高鐵、補助金、行李規定<strong>以旅行社最終通知為準</strong></span></div>
       <div class="kids-tip"><span>🚫</span><span><strong>內建不可拆電池的離子夾／整髮器</strong>全面禁止（托運、手提都不行）；插電式無電池的不受限</span></div>
+    </div>
+  </div>
+
+  <!-- 寶可夢人孔蓋 -->
+  <div class="card">
+    <div class="card-header ch-red">🔴 寶可夢人孔蓋（ポケふた）收集路線</div>
+    <div class="card-body" style="padding-top:6px">
+      <div style="font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:6px">順路就能拍到 <strong>6 個</strong>；人孔蓋多半也是 Pokémon GO 的補給站，可以順便領「明信片」。</div>
+      <div class="kids-tip"><span>🏖️</span><span><strong>Day 2/3・宜野灣トロピカルビーチ</strong>：太陽珊瑚＋愛心魚，王子飯店旁（步行約 5–10 分，估算）</span></div>
+      <div class="kids-tip"><span>🐋</span><span><strong>Day 3・海洋博公園</strong>：吼鯨王，總合案內所前、過馬路的人行道</span></div>
+      <div class="kids-tip"><span>🌴</span><span><strong>Day 3・北谷美國村</strong>：卡蒂狗（2025/8 新設），確切位置<span style="font-size:10px;background:#fff3cd;color:#8a6d00;border-radius:4px;padding:0 4px;margin-left:3px">出發前確認</span></span></div>
+      <div class="kids-tip"><span>🛍️</span><span><strong>Day 4・國際通 てんぶす那覇廣場</strong>：風速狗，嘉新酒店步行可到</span></div>
+      <div class="kids-tip"><span>🦕</span><span><strong>Day 4 B・道の駅豊崎</strong>：心鱗寶＋牙牙，iias 附近（てぃぐま館前人行道）</span></div>
+      <div class="kids-tip"><span>✈️</span><span><strong>Day 1/5・那霸機場</strong>：「やちむん卡蒂狗」，位置與是否在國際線範圍<span style="font-size:10px;background:#fff3cd;color:#8a6d00;border-radius:4px;padding:0 4px;margin-left:3px">出發前確認</span></span></div>
+      <div style="font-size:11px;color:var(--text3);margin-top:6px;line-height:1.6">不順路（跟團無法繞）：道の駅いとまん（沙丘娃＋卡咪龜）、沖繩兒童王國、浦添組踊公園、石川（肯泰羅）、名護（電飛鼠＋啄啄鳥）、南城物產館。</div>
     </div>
   </div>
 
@@ -622,6 +648,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
       <div class="var-content active" id="day2-B">
         <div class="tip tip-green" style="margin-bottom:6px">🎫 <strong>B 行程專屬：發放 ¥6,000 日幣現金/位</strong><br>午餐 ¥2,000 ＋ 晚餐 ¥3,000 ＋ 交通補貼 ¥1,000（原一日券轉換），公車費用從這裡支出</div>
         <div class="tip tip-blue" style="margin-bottom:8px">🏬 全天集中在永旺夢樂城沖繩萊卡姆（AEON MALL Okinawa Rycom），館內一站搞定！</div>
+        <div style="margin-top:6px;background:#fff0f0;border-left:3px solid #e53935;border-radius:0 6px 6px 0;padding:6px 10px;font-size:12px;color:#8a2020;line-height:1.6">🔴 <strong>寶可夢人孔蓋</strong>：早餐後或晚上回飯店後，散步到 <a href="https://maps.google.com/?q=宜野湾トロピカルビーチ&ll=26.2790,127.7323" target="_blank" style="color:var(--ocean)">宜野灣トロピカルビーチ</a> 拍<strong>太陽珊瑚＋愛心魚</strong>（王子飯店旁，步行約 5–10 分，估算）；Day 3 早上出發前也可以</div>
         <div class="tl">
 
           <div class="tl-item">
@@ -740,6 +767,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
             <div class="spot-desc" style="margin-top:2px">黑潮之海大水槽中的鯨鯊與魟魚，震撼大玻璃前近距離觀賞！世界首創人工珊瑚礁，海豚特技秀精彩。</div>
               <div style="background:linear-gradient(90deg,#fff8f0,#fff);border-left:3px solid #e07b00;border-radius:0 6px 6px 0;padding:6px 10px;font-size:11px;color:#9a5000;margin-top:5px;line-height:1.5">🛒 <strong>水族館禮品店</strong>：鯨鯊玩偶、孩子泳衣、海洋主題文具，出口處必逛，比外面便宜！</div>
             <div class="tip">🧒 鯨鯊+海豚秀是全程孩子最大亮點。記得備玩沙玩具給美國村沙灘。</div>
+            <div style="margin-top:6px;background:#fff0f0;border-left:3px solid #e53935;border-radius:0 6px 6px 0;padding:6px 10px;font-size:12px;color:#8a2020;line-height:1.6">🔴 <strong>寶可夢人孔蓋</strong>：<a href="https://maps.google.com/?q=海洋博公園+総合案内所&ll=26.6930,127.8800" target="_blank" style="color:var(--ocean)">海洋博公園</a> <strong>吼鯨王</strong>，在總合案內所前、過馬路的人行道；請導遊告知集合點後順路拍</div>
             <div style="margin-top:8px;border:2px solid #7cb342;border-radius:10px;overflow:hidden">
               <div style="background:linear-gradient(90deg,#dcedc8,#f1f8e9);padding:7px 10px;font-size:13px;font-weight:700;color:#33691e">🌸 皮克敏海洋博任務（漫步各地迷你活動）</div>
               <div style="padding:8px 10px;font-size:12px;color:var(--text2);line-height:1.6">
@@ -767,6 +795,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
             <a class="spot-link" href="https://maps.google.com/?q=美浜アメリカンビレッジ+北谷町&ll=26.3159,127.7540" target="_blank">北谷町美國村<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
             <span class="stroller s-ok">🍼 平坦鋪面</span>
             <div class="spot-desc" style="margin-top:2px">美式風情購物娛樂中心，日落海灘賞夕陽絕佳。</div>
+            <div style="margin-top:6px;background:#fff0f0;border-left:3px solid #e53935;border-radius:0 6px 6px 0;padding:6px 10px;font-size:12px;color:#8a2020;line-height:1.6">🔴 <strong>寶可夢人孔蓋</strong>：美國村有<strong>卡蒂狗</strong>（2025/8 新設），確切位置<span style="font-size:10px;background:#fff3cd;color:#8a6d00;border-radius:4px;padding:0 4px;margin-left:3px">出發前確認</span>，可用 Pokémon GO 補給站或官網地圖找</div>
             <div class="shop-memo"><span class="shop-tag shop-food">🍬 零食伴手禮</span><span class="shop-tag shop-kids">👕 小孩衣物</span><span class="shop-tag shop-souvenir">🎁 伴手禮</span></div>
               <div style="background:linear-gradient(90deg,#fff8f0,#fff);border-left:3px solid #e07b00;border-radius:0 6px 6px 0;padding:6px 10px;font-size:11px;color:#9a5000;margin-top:5px;line-height:1.5">🛒 <strong>購物亮點</strong>：美式潮牌童裝、紀念T-shirt、沖繩風格雜貨；Don Quijote（唐吉軻德）就在附近，藥妝零食超齊全。</div>
           </div>
@@ -895,7 +924,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
             <div class="tl-left"><div class="tl-dot">🍽️</div><div class="tl-line"></div></div>
             <div class="tl-right">
               <a class="spot-link" href="https://maps.google.com/?q=iias沖縄豊崎&ll=26.1577,127.6520" target="_blank">午餐｜iias 沖繩豐崎<svg class="map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></a>
-              <span class="stroller s-ok">🍼 推車友善</span><div class="spot-desc" style="margin-top:2px">吃完可以短暫休息，順路看 Uniqlo、GU、西松屋、H&M。<br>🛍️ <strong>不做大採購</strong>，主要採購留給 Day 2 的 AEON MALL。</div>
+              <span class="stroller s-ok">🍼 推車友善</span><div class="spot-desc" style="margin-top:2px">吃完可以短暫休息，順路看 Uniqlo、GU、西松屋、H&M。<br>🔴 <strong>寶可夢人孔蓋</strong>：附近 <a href="https://maps.google.com/?q=道の駅豊崎&ll=26.1600,127.6540" target="_blank" style="color:var(--ocean)">道の駅豊崎</a>（てぃぐま館前人行道）有<strong>心鱗寶＋牙牙</strong>，步行約 10 分（估算）<br>🛍️ <strong>不做大採購</strong>，主要採購留給 Day 2 的 AEON MALL。</div>
             </div>
           </div>
           <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">公車／計程車返回那霸・國際通 · 預留約 1 小時</span></div>
@@ -929,7 +958,8 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
         🍼 帶<strong>輕便傘車</strong>：波上宮、牧志、國際通、DMM、iias 之間移動都用得到<br>
         📚 書店採「<strong>一間特色古書店＋淳久堂</strong>」，大人逛得盡興，小孩也有休息空間<br>
         🌳 奥武山公園<strong>只放 A 案、且書店提早結束才去</strong>；B 案不安排<br>
-        🛍️ 選 B 方案時，iias 只吃午餐、短暫休息，主要採購留給 Day 2 的 AEON MALL
+        🛍️ 選 B 方案時，iias 只吃午餐、短暫休息，主要採購留給 Day 2 的 AEON MALL<br>
+        🔴 寶可夢人孔蓋：國際通 <a href="https://maps.google.com/?q=てんぶす那覇&ll=26.2162,127.6900" target="_blank" style="color:var(--ocean)">てんぶす那覇廣場</a>（牧志3-2）有<strong>風速狗</strong>，兩案逛國際通時順路拍
       </div>
 
       <a class="hotel-badge" href="https://maps.google.com/?q=Hotel+Collective+Naha&ll=26.2152,127.6855" target="_blank">
@@ -984,6 +1014,7 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
           </div>
         </div>
         <div class="transit"><span class="transit-icon">🚌</span><span class="transit-text">遊覽車 → 那霸機場</span></div>
+        <div style="margin-top:6px;background:#fff0f0;border-left:3px solid #e53935;border-radius:0 6px 6px 0;padding:6px 10px;font-size:12px;color:#8a2020;line-height:1.6">🔴 <strong>寶可夢人孔蓋</strong>：那霸機場內有「やちむん卡蒂狗」，報到後有空再找（位置<span style="font-size:10px;background:#fff3cd;color:#8a6d00;border-radius:4px;padding:0 4px;margin-left:3px">出發前確認</span>）</div>
 
         <div class="tl-item">
           <div class="tl-left"><div class="tl-dot">✈️</div><div class="tl-line"></div></div>
@@ -1113,6 +1144,117 @@ html,body{height:100%;font-family:'Noto Sans TC',sans-serif;background:var(--gra
 
 </div><!-- /page-japanese -->
 
+
+<!-- ══════════════════════════════════════
+     POKEFUTA PAGE
+══════════════════════════════════════ -->
+<div class="page" id="page-pokefuta">
+  <div class="omiyage-stats">
+    <div class="om-stat"><div class="num">6</div><div class="lbl">順路可拍</div></div>
+    <div class="om-stat"><div class="num" id="pf-done">0</div><div class="lbl">已拍 ✓</div></div>
+    <div class="om-stat"><div class="num" id="pf-left">6</div><div class="lbl">待拍</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header ch-red">🗓️ 日期・地點・安排</div>
+    <div class="card-body" style="padding:8px 10px">
+      <table class="pf-table"><thead><tr><th>日期</th><th>地點</th><th>寶可夢</th><th>安排</th></tr></thead><tbody><tr><td><strong>Day 1／5</strong></td><td>那霸機場</td><td>卡蒂狗（燒物圖樣）</td><td>Day 1 入境後或 Day 5 報到後有空再找</td></tr><tr><td><strong>Day 2／3</strong></td><td>宜野灣トロピカルビーチ</td><td>太陽珊瑚＋愛心魚</td><td>Day 2 早餐後或晚上回飯店後散步；Day 3 出發前也可</td></tr><tr><td><strong>Day 3</strong></td><td>海洋博公園</td><td>吼鯨王</td><td>看完美之海水族館，往集合點路上順路拍</td></tr><tr><td><strong>Day 3</strong></td><td>北谷美國村</td><td>卡蒂狗</td><td>美國村自由時間時找</td></tr><tr><td><strong>Day 4</strong></td><td>國際通 てんぶす那覇廣場</td><td>風速狗</td><td>A 案牧志市場午餐後；B 案晚上逛國際通時</td></tr><tr><td><strong>Day 4 B</strong></td><td>道の駅豊崎</td><td>心鱗寶＋牙牙</td><td>iias 午餐後步行過去</td></tr></tbody></table>
+      <div style="font-size:11px;color:var(--text3);margin-top:6px;line-height:1.6">💡 人孔蓋多半也是 Pokémon GO 補給站，可順便領「明信片」。點下方卡片可打勾記錄已拍。</div>
+    </div>
+  </div>
+
+  <div class="om-section-title">📸 順路人孔蓋（點 🔍 看圖片）</div>
+
+  <div class="pf-card" onclick="pfToggle(this)">
+    <div class="om-inner">
+      <div class="om-emoji-col">✈️</div>
+      <div class="om-content">
+        <div class="om-top"><div class="om-name">卡蒂狗（燒物圖樣）｜那霸機場</div><div class="om-check">✓</div></div>
+        <div class="om-jp">やちむんガーディ・那覇空港 &nbsp;<span class="om-price">Day 1／5</span></div>
+        <div class="om-desc">🗓️ Day 1 入境後或 Day 5 報到後有空再找<br>📍 那霸機場內（位置與是否在國際線範圍<span style="font-size:10px;background:#fff3cd;color:#8a6d00;border-radius:4px;padding:0 4px;margin-left:3px">出發前確認</span>）</div>
+        <div class="om-footer">
+          <a class="om-glink" href="https://maps.google.com/?q=%E9%82%A3%E8%A6%87%E7%A9%BA%E6%B8%AF&ll=26.2060,127.6510" target="_blank" onclick="event.stopPropagation()">📍 地圖</a>
+          <a class="om-glink" href="https://www.google.com/search?q=%E3%82%84%E3%81%A1%E3%82%80%E3%82%93%E3%82%AC%E3%83%BC%E3%83%87%E3%82%A3+%E9%82%A3%E8%A6%87%E7%A9%BA%E6%B8%AF+%E3%83%9D%E3%82%B1%E3%81%B5%E3%81%9F&tbm=isch" target="_blank" onclick="event.stopPropagation()">🔍 圖片</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pf-card" onclick="pfToggle(this)">
+    <div class="om-inner">
+      <div class="om-emoji-col">🏖️</div>
+      <div class="om-content">
+        <div class="om-top"><div class="om-name">太陽珊瑚＋愛心魚｜宜野灣トロピカルビーチ</div><div class="om-check">✓</div></div>
+        <div class="om-jp">サニーゴ・ラブカス・宜野湾トロピカルビーチ &nbsp;<span class="om-price">Day 2／3</span></div>
+        <div class="om-desc">🗓️ Day 2 早餐後或晚上回飯店後散步；Day 3 出發前也可<br>📍 王子飯店旁，步行約 5–10 分<span style="font-size:10px;background:#e3f0ff;color:#1a5fa0;border-radius:4px;padding:0 4px;margin-left:3px">估算</span></div>
+        <div class="om-footer">
+          <a class="om-glink" href="https://maps.google.com/?q=%E5%AE%9C%E9%87%8E%E6%B9%BE%E3%83%88%E3%83%AD%E3%83%94%E3%82%AB%E3%83%AB%E3%83%93%E3%83%BC%E3%83%81&ll=26.2790,127.7323" target="_blank" onclick="event.stopPropagation()">📍 地圖</a>
+          <a class="om-glink" href="https://www.google.com/search?q=%E3%83%9D%E3%82%B1%E3%81%B5%E3%81%9F+%E5%AE%9C%E9%87%8E%E6%B9%BE+%E3%83%88%E3%83%AD%E3%83%94%E3%82%AB%E3%83%AB%E3%83%93%E3%83%BC%E3%83%81+%E3%82%B5%E3%83%8B%E3%83%BC%E3%82%B4+%E3%83%A9%E3%83%96%E3%82%AB%E3%82%B9&tbm=isch" target="_blank" onclick="event.stopPropagation()">🔍 圖片</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pf-card" onclick="pfToggle(this)">
+    <div class="om-inner">
+      <div class="om-emoji-col">🐋</div>
+      <div class="om-content">
+        <div class="om-top"><div class="om-name">吼鯨王｜海洋博公園</div><div class="om-check">✓</div></div>
+        <div class="om-jp">ホエルオー・海洋博公園 &nbsp;<span class="om-price">Day 3</span></div>
+        <div class="om-desc">🗓️ 看完美之海水族館，往集合點路上順路拍<br>📍 總合案內所前、過馬路的人行道</div>
+        <div class="om-footer">
+          <a class="om-glink" href="https://maps.google.com/?q=%E6%B5%B7%E6%B4%8B%E5%8D%9A%E5%85%AC%E5%9C%92+%E7%B7%8F%E5%90%88%E6%A1%88%E5%86%85%E6%89%80&ll=26.6930,127.8800" target="_blank" onclick="event.stopPropagation()">📍 地圖</a>
+          <a class="om-glink" href="https://www.google.com/search?q=%E3%83%9D%E3%82%B1%E3%81%B5%E3%81%9F+%E6%B5%B7%E6%B4%8B%E5%8D%9A%E5%85%AC%E5%9C%92+%E3%83%9B%E3%82%A8%E3%83%AB%E3%82%AA%E3%83%BC&tbm=isch" target="_blank" onclick="event.stopPropagation()">🔍 圖片</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pf-card" onclick="pfToggle(this)">
+    <div class="om-inner">
+      <div class="om-emoji-col">🌴</div>
+      <div class="om-content">
+        <div class="om-top"><div class="om-name">卡蒂狗｜北谷美國村</div><div class="om-check">✓</div></div>
+        <div class="om-jp">ガーディ・美浜アメリカンビレッジ &nbsp;<span class="om-price">Day 3</span></div>
+        <div class="om-desc">🗓️ 美國村自由時間時找<br>📍 美國村內（確切位置<span style="font-size:10px;background:#fff3cd;color:#8a6d00;border-radius:4px;padding:0 4px;margin-left:3px">出發前確認</span>）</div>
+        <div class="om-footer">
+          <a class="om-glink" href="https://maps.google.com/?q=%E7%BE%8E%E6%B5%9C%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E3%83%B3%E3%83%93%E3%83%AC%E3%83%83%E3%82%B8&ll=26.3159,127.7540" target="_blank" onclick="event.stopPropagation()">📍 地圖</a>
+          <a class="om-glink" href="https://www.google.com/search?q=%E3%83%9D%E3%82%B1%E3%81%B5%E3%81%9F+%E5%8C%97%E8%B0%B7+%E3%82%AC%E3%83%BC%E3%83%87%E3%82%A3+%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E3%83%B3%E3%83%93%E3%83%AC%E3%83%83%E3%82%B8&tbm=isch" target="_blank" onclick="event.stopPropagation()">🔍 圖片</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pf-card" onclick="pfToggle(this)">
+    <div class="om-inner">
+      <div class="om-emoji-col">🛍️</div>
+      <div class="om-content">
+        <div class="om-top"><div class="om-name">風速狗｜國際通 てんぶす那覇廣場</div><div class="om-check">✓</div></div>
+        <div class="om-jp">ウインディ・てんぶす那覇 &nbsp;<span class="om-price">Day 4</span></div>
+        <div class="om-desc">🗓️ A 案牧志市場午餐後；B 案晚上逛國際通時<br>📍 牧志3-2，嘉新酒店步行可到</div>
+        <div class="om-footer">
+          <a class="om-glink" href="https://maps.google.com/?q=%E3%81%A6%E3%82%93%E3%81%B6%E3%81%99%E9%82%A3%E8%A6%87&ll=26.2162,127.6900" target="_blank" onclick="event.stopPropagation()">📍 地圖</a>
+          <a class="om-glink" href="https://www.google.com/search?q=%E3%83%9D%E3%82%B1%E3%81%B5%E3%81%9F+%E9%82%A3%E8%A6%87+%E3%81%A6%E3%82%93%E3%81%B6%E3%81%99+%E3%82%A6%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3&tbm=isch" target="_blank" onclick="event.stopPropagation()">🔍 圖片</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pf-card" onclick="pfToggle(this)">
+    <div class="om-inner">
+      <div class="om-emoji-col">🦕</div>
+      <div class="om-content">
+        <div class="om-top"><div class="om-name">心鱗寶＋牙牙｜道の駅豊崎</div><div class="om-check">✓</div></div>
+        <div class="om-jp">ジャラコ・キバゴ・道の駅豊崎 &nbsp;<span class="om-price">Day 4 B</span></div>
+        <div class="om-desc">🗓️ iias 午餐後步行過去<br>📍 てぃぐま館店舖前人行道，iias 步行約 10 分<span style="font-size:10px;background:#e3f0ff;color:#1a5fa0;border-radius:4px;padding:0 4px;margin-left:3px">估算</span></div>
+        <div class="om-footer">
+          <a class="om-glink" href="https://maps.google.com/?q=%E9%81%93%E3%81%AE%E9%A7%85%E8%B1%8A%E5%B4%8E&ll=26.1600,127.6540" target="_blank" onclick="event.stopPropagation()">📍 地圖</a>
+          <a class="om-glink" href="https://www.google.com/search?q=%E3%83%9D%E3%82%B1%E3%81%B5%E3%81%9F+%E9%81%93%E3%81%AE%E9%A7%85%E8%B1%8A%E5%B4%8E+%E3%82%B8%E3%83%A3%E3%83%A9%E3%82%B3+%E3%82%AD%E3%83%90%E3%82%B4&tbm=isch" target="_blank" onclick="event.stopPropagation()">🔍 圖片</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="om-section-title">⚪ 不順路（跟團無法繞）</div>
+  <div class="card"><div class="card-body" style="padding-top:6px"><div class="kids-tip"><span>⚪</span><span><strong>道の駅いとまん</strong>：沙丘娃＋卡咪龜　<a href="https://www.google.com/search?q=%E3%83%9D%E3%82%B1%E3%81%B5%E3%81%9F+%E9%81%93%E3%81%AE%E9%A7%85%E3%81%84%E3%81%A8%E3%81%BE%E3%82%93+%E3%82%B9%E3%83%8A%E3%83%90%E3%82%A1%E3%83%BB%E3%82%AB%E3%83%A1%E3%83%BC%E3%83%AB&tbm=isch" target="_blank" style="color:var(--ocean);font-size:11px">🔍 圖片</a></span></div><div class="kids-tip"><span>⚪</span><span><strong>沖縄こどもの国</strong>：啪咚猴＋蘭螳花　<a href="https://www.google.com/search?q=%E3%83%9D%E3%82%B1%E3%81%B5%E3%81%9F+%E6%B2%96%E7%B8%84%E3%81%93%E3%81%A9%E3%82%82%E3%81%AE%E5%9B%BD+%E3%83%90%E3%83%81%E3%83%B3%E3%82%AD%E3%83%BC%E3%83%BB%E3%83%A9%E3%83%A9%E3%83%B3%E3%83%86%E3%82%B9&tbm=isch" target="_blank" style="color:var(--ocean);font-size:11px">🔍 圖片</a></span></div><div class="kids-tip"><span>⚪</span><span><strong>浦添 組踊公園</strong>：毛毛角羊＋太陽岩　<a href="https://www.google.com/search?q=%E3%83%9D%E3%82%B1%E3%81%B5%E3%81%9F+%E6%B5%A6%E6%B7%BB+%E7%B5%84%E8%B8%8A%E5%85%AC%E5%9C%92+%E3%83%9D%E3%83%9D%E3%83%83%E3%82%B3%E3%83%BB%E3%82%BD%E3%83%AB%E3%83%AD%E3%83%83%E3%82%AF&tbm=isch" target="_blank" style="color:var(--ocean);font-size:11px">🔍 圖片</a></span></div><div class="kids-tip"><span>⚪</span><span><strong>うるま 石川多目的ドーム</strong>：肯泰羅　<a href="https://www.google.com/search?q=%E3%83%9D%E3%82%B1%E3%81%B5%E3%81%9F+%E3%81%86%E3%82%8B%E3%81%BE+%E7%9F%B3%E5%B7%9D%E5%A4%9A%E7%9B%AE%E7%9A%84%E3%83%89%E3%83%BC%E3%83%A0+%E3%82%B1%E3%83%B3%E3%82%BF%E3%83%AD%E3%82%B9&tbm=isch" target="_blank" style="color:var(--ocean);font-size:11px">🔍 圖片</a></span></div><div class="kids-tip"><span>⚪</span><span><strong>名護 ガジュマル緑地公園</strong>：電飛鼠＋小篤兒　<a href="https://www.google.com/search?q=%E3%83%9D%E3%82%B1%E3%81%B5%E3%81%9F+%E5%90%8D%E8%AD%B7+%E3%82%AC%E3%82%B8%E3%83%A5%E3%83%9E%E3%83%AB%E7%B7%91%E5%9C%B0%E5%85%AC%E5%9C%92+%E3%82%A8%E3%83%A2%E3%83%B3%E3%82%AC%E3%83%BB%E3%83%84%E3%83%84%E3%82%B1%E3%83%A9&tbm=isch" target="_blank" style="color:var(--ocean);font-size:11px">🔍 圖片</a></span></div><div class="kids-tip"><span>⚪</span><span><strong>南城市物産館</strong>：貓鼬斬＋飯匙蛇　<a href="https://www.google.com/search?q=%E3%83%9D%E3%82%B1%E3%81%B5%E3%81%9F+%E5%8D%97%E5%9F%8E%E5%B8%82%E7%89%A9%E7%94%A3%E9%A4%A8+%E3%82%B6%E3%83%B3%E3%82%B0%E3%83%BC%E3%82%B9%E3%83%BB%E3%83%8F%E3%83%96%E3%83%8D%E3%83%BC%E3%82%AF&tbm=isch" target="_blank" style="color:var(--ocean);font-size:11px">🔍 圖片</a></span></div>
+    <div style="font-size:11px;color:var(--text3);margin-top:6px;line-height:1.6">另有北部國頭、東村、大宜味與北大東村 4 處於 2026/10 公布新設；離島（石垣、宮古、渡嘉敷、座間味、久米島）也有。</div>
+  </div></div>
+</div><!-- /page-pokefuta -->
 
 <!-- ══════════════════════════════════════
      AEON MALL FLOOR GUIDE
@@ -2385,6 +2527,11 @@ async function loadWeather(){
   }
 }
 // ── OMIYAGE ──
+function pfToggle(card){
+  card.classList.toggle('pf-done');
+  const d=document.querySelectorAll('.pf-card.pf-done').length, a=document.querySelectorAll('.pf-card').length;
+  document.getElementById('pf-done').textContent=d; document.getElementById('pf-left').textContent=a-d;
+}
 function omToggle(card){
   card.classList.toggle('om-done');
   omUpdateStats();
